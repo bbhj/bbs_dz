@@ -1,0 +1,91 @@
+<!--{subtemplate baby/head}-->
+<link href="/css/style1.css" rel="stylesheet" type="text/css" />
+    <!--personalcenter-->
+    <!--{subtemplate babyCenter/left}-->
+	
+      <div id="yonghuzhongxin">
+        <div class="omcenter" id="ti1">
+          <div class="om_center">
+            
+			<div class="personalcenter_r_bot" id="ti1">
+		<!--{if empty($do)}-->
+		<div id="personalcenter_r_top">
+			  <ul>
+                 <li><a href="#" title="待审核工作组成员">待审成员</a></li>
+             </ul>
+		</div>										
+		<!--{eval $form->showList('审核志愿者',array('工作组','姓名','年龄','qq','qq群号','论坛用户名','手机','电话','申请时间'),$babyList,$babyCount,'babyCenter.php?mod=checkgroup','babyCenter.php?mod=checkgroup',0,1,1);}-->	
+       <!--{else}-->
+	     
+    
+      	<table cellspacing="0" border="0" id="FormView1" style="border-collapse:collapse;">
+
+		<tr>
+		<td colspan="2">
+      
+			<div class="text">
+            	<ul>
+ <li><img src="data/attachment/baby/$result['photo']"></li>
+ <li><span>工作组名称：</span>$result['type']</li>
+<li><span>编号：</span>$result['id']</li>
+<li><span>姓名：</span>$result['name']</li>
+<li><span>性别：</span>$result['sex']</li>
+<li><span>年龄：</span>$result['age']</li>
+<li><span>qq：</span>$result['qq']</li>
+<li><span>qq群名称：</span>$result['qq_name']</li>
+<li><span>qq群号：</span>$result['qq_group']</li>
+<li><span>qq昵称：</span>$result['qq_nick_name']</li>
+<li><span>论坛账户：</span>$result['bbs_name']</li>
+<li><span>公司名：</span>$result['work_name']</li>
+<li><span>身份证号：</span>$result['idcard']</li>
+<li><span>职业：</span>$result['work']</li>
+<li><span>所在地：</span>$result['provice']</li>
+<li><span>地址：</span>$result['address']</li>
+<li><span>邮编：</span>$result['zipnum']</li>
+<li><span>手机号：</span>$result['moblie']</li>
+<li><span>电话：</span>$result['tel']</li>
+<li><span>email：</span>$result['email']</li>
+<li><span>是否方便打电话：</span>$result['is_tel']</li>
+<li><span>特长：</span>$result['tec']</li>
+<li><span>每天允许上网时间：</span>$result['nettime']</li>
+<li><span>何时加入宝贝回家及通过何种途径了解到宝贝回家：</span>$result['how_get_baobei']</li>
+<li><span>工作简历以及是否从事其他公益：</span>$result['work_intro']</li>
+<li><span>申请理由：</span>$result['ask_reson']</li>
+<li><span>简要谈谈成为地区群管理员后的工作思路及工作打算：</span>$result['plan']</li>
+<li><span>对宝贝回家的建议及希望：</span>$result['hope']</li>
+<li><span>申请时间：</span>$result['regtime']</li>
+             	</ul>          
+       		 </div>
+
+		 </td>
+		</tr>
+		</table>
+
+ 
+       <!--{/if}-->
+		
+		
+         </div> 
+        </div> </div> 
+      </div>
+    </div>
+    <script>
+	
+	function ti(t){
+	for(f=1;f<=2;f++){
+	document.getElementById("ti"+f).style.display="none"
+	document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+	document.getElementById("a"+f).style.color="#529F05"
+	document.getElementById("a"+f).style.fontWeight=""
+	}
+	document.getElementById("ti"+t).style.display=""
+	document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+	document.getElementById("a"+t).style.color="#fff"
+	document.getElementById("a"+t).style.fontWeight="bold"
+
+	}	
+	
+	</script>
+    
+	
+	<!--{subtemplate baby/foot}-->

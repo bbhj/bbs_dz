@@ -1,0 +1,13 @@
+<li><span>编号：</span>$result['id']</li>
+<li><span>儿童姓名（或小名）：</span><input type="text" class="text_a" name="name" value="$result['name']" /></li>
+<li><span>性别：</span>男 <input type="radio" name="sex" value="1" <!--{if $result['sex']==1}-->checked="checked"<!--{/if}--> />
+ 女 <input type="radio" name="sex" value="2" <!--{if $result['sex']==2}-->checked="checked"<!--{/if}--> /></li>
+<li><span>年龄范围：</span><input type="text" class="text_a" name="birth_day" value="$result['birth_day']"></li>
+
+<li><span>儿童身高：</span><input type="text" class="text_a" name="lost_height" value="$result['lost_height']"></li>
+<li><span>发现时间：</span><input type="text" class="text_a" name="lost_day" value="$result['lost_day']"></li>
+
+<li><span>发现详细地点： </span><input type="text" class="text_a" name="birth_address" value="$result['birth_address']"></li>
+<li><span>发现地点： </span><input type="text" class="text_a" name="lost_address" value="$result['lost_address']"></li> 
+<li style="margin-bottom:42px;"><span>失踪人特征描述： </span><textarea rows="3" cols="30" name="lost_person_feature">$result['lost_person_feature']</textarea></li> 
+<li style="margin-bottom:42px;"><span>发现经过： </span><textarea rows="2" cols="30" name="other_intro">$result['other_intro']</textarea></li>

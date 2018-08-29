@@ -1,0 +1,70 @@
+<!--{subtemplate baby/head}-->
+<link href="/css/style1.css" rel="stylesheet" type="text/css" />
+    <!--personalcenter-->
+    <!--{subtemplate babyCenter/left}-->
+	
+      <div id="yonghuzhongxin">
+        <div class="omcenter" id="ti1">
+          <div class="om_center">
+            
+			<div class="personalcenter_r_bot" id="ti1">
+				<div id="personalcenter_r_top">
+			  <ul>
+                 <li><a href="#">我的数据</a></li>
+             </ul>
+		</div>
+		<table width="758" border="0" cellpadding="0" cellspacing="0">
+  <tr align="center">
+    <td width="60" height="40" style="line-height:40px; font-weight:bold; color:#458C08">ID</td>
+    <td width="60" style="line-height:40px; font-weight:bold; color:#458C08">图</td>
+    <td width="150" style="line-height:40px; font-weight:bold; color:#458C08">姓名</td>
+    <td>简介</td>
+    <td width="90">状态</td>
+    <td width="90">查看</td>
+  </tr>
+  	
+  <!--{loop $mydataList $k $v}-->
+  <tr align="center" <!--{if $k%2==0}-->bgcolor="#f4f4f4"<!--{/if}-->>
+    <td>$v['id']</td>
+    <td><img src="$v['photo']" width="50"></td>
+    <td>$v['name']</td>
+    <td>$v['lost_person_feature']</td>
+    <td>$v['state']</td>
+    <td> <a href="baby.php?mod=view&id=$v['id']">查看</a></td>
+  </tr>
+  <!--{/loop}-->
+ 	</table>
+
+    <!--{if empty($mydataList)}-->
+	<div style="margin:10px auto;color:#666;">暂时没有数据</div>
+	<!--{/if}-->
+		</div>	
+				
+          </div>
+          <div class="pe-page">
+            $multipage
+          </div>
+        </div>
+        <div class="zhiyuanzhe_r_bot" id="ti2" style="display:none">111111111111</div>
+      </div>
+    </div>
+    <script>
+	
+	function ti(t){
+	for(f=1;f<=2;f++){
+	document.getElementById("ti"+f).style.display="none"
+	document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+	document.getElementById("a"+f).style.color="#529F05"
+	document.getElementById("a"+f).style.fontWeight=""
+	}
+	document.getElementById("ti"+t).style.display=""
+	document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+	document.getElementById("a"+t).style.color="#fff"
+	document.getElementById("a"+t).style.fontWeight="bold"
+
+	}	
+	
+	</script>
+    
+	
+	<!--{subtemplate baby/foot}-->

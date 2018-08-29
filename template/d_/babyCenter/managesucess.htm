@@ -1,0 +1,125 @@
+<!--{subtemplate baby/head}-->
+
+<!--personalcenter-->
+<!--{subtemplate babyCenter/left}-->
+
+<div id="yonghuzhongxin">
+  <div class="omcenter" id="ti1">
+    <div class="om_center">
+      <div class="personalcenter_r_bot" id="ti1"> 
+      	<div id="personalcenter_r_top"  style=" width:440px; height:30px; float:left;">
+    <ul>
+     <li><a href="babyCenter.php?mod=managesucess">成功案例</a></li>
+     <li><a href="babyCenter.php?mod=managesucess&do=add">添加</a></li>
+    </ul>
+</div>
+
+		  <div style="margin-top:10px;BORDER-BOTTOM: #54b301 2px solid; width:310px; height:30px; float:left;background:url(../image/stcn21_search1.jpg) no-repeat;background-position: 0px -10px;" >
+          	<div style="width:120px; height:26px; float:left;"></div>
+             <form action="/babyCenter.php?mod=managesucess" method="post">
+          	<div style="width:140px; height:26px; float:left; padding-top:3px;"><input name="keywords" type="text" class="sctn21_1_1_2_4"/></div>
+          	<div style="width:40px; height:26px; float:left; padding-top:3px;"><input name="" type="submit" value="" class="sctn21_1_1_2_3"/></div></form>
+          </div>
+</div>
+<!--{if empty($do)}-->
+<div class="sctn20_1_2_2_2">
+<div class="personalcenter_r_bot" id="ti1">
+<table width="760" border="0" cellpadding="0" cellspacing="0" align="right">
+	<tr>
+        <td>编号</td>
+        <td style="line-height:40px; font-weight:bold; color:#458C08">原因</td>
+        <td style="line-height:40px; font-weight:bold; color:#458C08">姓名</td>
+        <td style="line-height:40px; font-weight:bold; color:#458C08">年龄</td>
+        <td style="line-height:40px; font-weight:bold; color:#458C08" style="width:100px; padding:0">离家时间</td>
+        <td style="line-height:40px; font-weight:bold; color:#458C08" style="width:100px">回家时间</td>
+        <td style="line-height:40px; font-weight:bold; color:#458C08">链接</td>
+        <td width=80 align=center>操作</td>
+     </tr>
+      <!--{loop $babyList $v}-->
+      <tr>
+        <td class="option">$v['num']</td>
+        <td style="word-break:break-all;">$v['reason']</td>
+        <td style="word-break:break-all;">$v['name']</td>
+        <td style="word-break:break-all;">$v['age']</td>
+        <td style="word-break:break-all;">$v['lost_time']</td>
+        <td style="word-break:break-all;">$v['return_time']</td>
+        <td style="word-break:break-all;">$v['link']</td>
+        <td><a href="/babyCenter.php?mod=managesucess&do=edit&id=$v['id']">编辑</a>&nbsp;&nbsp;<a href="/babyCenter.php?mod=managesucess&do=del&id=$v['id']" onclick="if (confirm(\'确定要删除吗？\')) return true; else return false;">删除</a>
+        </td>
+      </tr>
+	  <!--{/loop}-->
+</table>
+<div class="sctn20_a" style="float:right"><input type="button" name="excel" value="导出Excel" style="width:85px; height:29px; border-width:0px; font-size:16px; float:right; font-weight:bold; color:#fff; background: url(image/stcn21_button.gif) no-repeat" onclick="window.location.href='/babyCenter.php?mod=excel3$urlAdd'"/></div> 
+</div>
+
+</div>
+<div style="clear:both"></div>
+<br/><br />
+<div class="pe-page2">
+
+	  $multi
+
+</div>
+<!--{else}-->
+<div class="sctn20_1_2_2_2">
+<div class="personalcenter_r_bot" id="ti1">
+<div style="height:2.0em; display:block; width:100%;">&nbsp;</div>
+    	<form action="" method="POST" target="show" enctype="multipart/form-data">
+      	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" id="FormView1" style="border-collapse:collapse;">
+
+		<tr>
+			<td align="right">姓名：</td><td><input type="text" name="name" value="$result['name']"></td>
+		</tr>
+		
+		<tr>
+			<td align="right">原因：</td><td><input type="text" name="reason" value="$result['reason']"></td>
+		</tr>
+		
+		<tr>
+			<td align="right">年龄：</td><td><input type="text" name="age" value="$result['age']"></td>
+		</tr>
+		
+		<tr>
+			<td align="right">原籍：</td><td><input type="text" name="address_1" value="$result['address_1']"></td>
+		</tr>
+		
+		<tr>
+			<td align="right">拐入地：</td><td><input type="text" name="address_2" value="$result['address_2']"></td>
+		</tr>
+		
+		<tr>
+			<td align="right">离家时间：</td><td><input type="text" name="lost_time" value="$result['lost_time']"></td>
+		</tr>
+		
+		<tr>
+			<td align="right">回家时间：</td><td><input type="text" name="return_time" value="$result['return_time']"></td>
+		</tr>
+		
+		<tr>
+			<td align="right">案例总结链接：</td><td><input type="text" name="link" value="$result['link']"></td>
+		</tr>
+		<tr><input type="hidden" value="$result['id']" name="id"><td></td><td><input type="submit" value="提交" class="sctn21_1_3_1" style="margin:0;"></td></tr>
+		</table>
+		</form>
+</div>
+</div>
+<!--{/if}-->
+</div>
+</div>
+  <div style="clear: both;"></div>
+</div>
+<script>
+function ti(t){
+for(f=1;f<=2;f++){
+document.getElementById("ti"+f).style.display="none"
+document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+document.getElementById("a"+f).style.color="#529F05"
+document.getElementById("a"+f).style.fontWeight=""
+}
+document.getElementById("ti"+t).style.display=""
+document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+document.getElementById("a"+t).style.color="#fff"
+document.getElementById("a"+t).style.fontWeight="bold"
+}	
+</script>
+<!--{subtemplate baby/foot}-->

@@ -1,0 +1,131 @@
+<!--{subtemplate baby/head}-->
+<link href="/css/style1.css" rel="stylesheet" type="text/css" />
+    <!--personalcenter-->
+    <!--{subtemplate babyCenter/left}-->
+	
+      <div id="yonghuzhongxin">
+        <div class="omcenter" id="ti1">
+          <div class="om_center">
+            
+			<div class="personalcenter_r_bot" id="ti1">
+		
+		
+        <!--{if empty($do)}-->
+		<div id="personalcenter_r_top">
+			  <ul>
+                 <li><a href="babyCenter.php?mod=managebaby">管理寻亲数据</a></li>
+                 <li><a href="babyCenter.php?mod=managebaby&type=1">家寻宝贝</a></li>
+                 <li><a href="babyCenter.php?mod=managebaby&type=2">宝贝寻家</a></li>
+                 <li><a href="babyCenter.php?mod=managebaby&type=3">流浪乞讨</a></li>
+                 <li><a href="babyCenter.php?mod=managebaby&type=5">海外寻人</a></li>
+                 <li><a href="babyCenter.php?mod=managebaby&type=4">其他寻人</a></li>
+             </ul>
+		</div>
+       
+		<!--{eval $form->showList('审核志愿者',array('姓名','性别','联系人姓名',联系电话,'提交时间','状态','查看'),$mydataList,$babyCount,'babyCenter.php?mod=managebaby','babyCenter.php?mod=managebaby&type='.$type,1,0,0);}-->	
+        
+		 <!--{elseif $do=='edit'}-->
+	     
+    <div id="personalcenter_r_top">
+			  <ul>
+                 <li><a href="#">编辑寻亲</a></li>
+             </ul>
+		</div>
+      	<table cellspacing="0" border="0" id="FormView1" style="border-collapse:collapse;">
+
+		<tr>
+		<td colspan="2">
+       
+           
+			<div class="text">
+			
+			
+         	
+         	<form action="babyCenter.php?mod=managebaby&do=edit" method="POST" target="show" enctype="multipart/form-data">
+            	<!--{if $result['photo']}--><img src="data/attachment/baby/$result['photo']" width="200"><!--{else}--><img src="static/image/people_b.jpg" width="200"><!--{/if}-->
+            	<ul>
+                <li><span>照片：</span><input type="file" value='$result['photo']' name="pic"></li>
+            	<!--{if $type==1}-->
+        		 	<!--{subtemplate babyCenter/baby_edit_1}-->
+        		 <!--{elseif $type==2}-->
+        		 	<!--{subtemplate babyCenter/baby_edit_2}-->
+        		 <!--{elseif $type==3}-->
+        		 	<!--{subtemplate babyCenter/baby_edit_3}-->
+        		 <!--{elseif $type==4}-->
+        		 	<!--{subtemplate babyCenter/baby_edit_4}-->	
+        		 <!--{elseif $type==5}-->
+        		 	<!--{subtemplate babyCenter/baby_edit_5}-->	
+        		 <!--{/if}-->
+            		
+            	
+					<li><span>联系人姓名：</span><input type="text" class="text_a" name="contact_name" value="$result['contact_name']" /></li>
+                    
+					<li><span>联系人与失踪人关系：</span><input type="text" class="text_a" name="contact_name" value="$result['contact_name']" /></li>
+					<li><span>填写人与失踪人关系：</span><input type="text" class="text_a" name="write_relation" value="$result['write_relation']" /></li>
+					<li><span>手机：</span><input type="text" class="text_a" name="moblie" value="$result['moblie']" /></li>
+					<li><span>电话：</span><input type="text" class="text_a" name="tel" value="$result['tel']" /></li>
+					<li><span>邮箱：</span><input type="text" class="text_a" name="email" value="$result['email']" /></li>
+					<li><span>qq：</span><input type="text" class="text_a" name="qq" value="$result['qq']" /></li>
+					<li><span>地址：</span><input type="text" class="text_a" name="address" value="$result['address']" /></li>
+					<li><span>其他联系方式：</span><input type="text" class="text_a" name="other_contact" value="$result['other_contact']" /></li>
+					<li><span>状态：</span>
+						<select name="state">
+							<!--{loop $arrState $k $v}-->
+							<option value="$k"<!--{if $k==$result['state']}--> selected<!--{/if}-->>$v</option>
+							<!--{/loop}-->
+						</select>
+					</li>
+	
+            	<li><span>论坛帖子ID：</span><input type="text" value='$result['bbs_id']' name="bbs_id"></li>
+            	<li><input type="hidden" value='$result['id']' name="id"></li>
+            	
+                <li><span>类别：</span>
+                		<select name="type">
+							<option value="1"<!--{if $result['type']==1}--> selected<!--{/if}-->>家寻宝贝</option>
+                            <option value="2"<!--{if $result['type']==2}--> selected<!--{/if}-->>宝贝寻家</option>
+                            <option value="3"<!--{if $result['type']==3}--> selected<!--{/if}-->>流浪乞讨</option>
+                            <option value="4"<!--{if $result['type']==4}--> selected<!--{/if}-->>其他寻人</option>
+                            <option value="5"<!--{if $result['type']==5}--> selected<!--{/if}-->>海外寻人</option>
+						</select>
+                  </li>
+            	
+             	<li><input type="submit" value="修改" name="submit" style="width:60px; font-weight:bold; font-size:14px; color:#333;"></li>
+				</ul>
+             	
+             	</form>          
+       		 </div>
+
+		 </td>
+		</tr>
+		</table>
+ 
+       <!--{/if}-->
+		
+		</div>	
+				
+          </div>
+         
+        </div>
+        
+      </div>
+    </div>
+    <script>
+	
+	function ti(t){
+	for(f=1;f<=2;f++){
+	document.getElementById("ti"+f).style.display="none"
+	document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+	document.getElementById("a"+f).style.color="#529F05"
+	document.getElementById("a"+f).style.fontWeight=""
+	}
+	document.getElementById("ti"+t).style.display=""
+	document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+	document.getElementById("a"+t).style.color="#fff"
+	document.getElementById("a"+t).style.fontWeight="bold"
+
+	}	
+	
+	</script>
+    
+	
+	<!--{subtemplate baby/foot}-->

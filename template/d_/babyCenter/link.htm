@@ -1,0 +1,53 @@
+<!--{subtemplate baby/head}-->
+<!--personalcenter-->
+<!--{subtemplate babyCenter/left}-->
+<div class="sctn20_1_2">
+<div class="sctn20_1_2_2">
+<div class="sctn20_1_2_2_2">
+<div class="sctn20_1_2_2_2_1">
+    <ul>
+        <li><a href="babyCenter.php?mod=link">管理链接</a></li>
+        <li><a href="babyCenter.php?mod=link&do=add">添加链接</a></li>
+    </ul>
+</div>
+</div>
+<!--{if empty($do)}-->
+<div class="sctn20_1_2_2_2">
+<div class="personalcenter_r_bot" id="ti1">
+<!--{eval $form->showList('管理链接',array('标题','图片','链接地址'),$babyList,$babyCount,'babyCenter.php?mod=link','babyCenter.php?mod=link',1,0,0);}-->	
+</div>
+</div>
+<!--{elseif $do=='add' OR $do=='edit'}-->
+<div class="sctn20_1_2_2_2">
+<div class="personalcenter_r_bot" id="ti1">
+<form action="" method="POST" target="show" enctype="multipart/form-data">
+<table style="margin:0px auto">
+<tr><td><span>标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题：</span></td><td><input name="title" value="$result['title']"></td></tr>
+<tr><td><span>图&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;片：</span></td><td><input type="file" name="pic"></td></tr>
+<tr><td><span>原&nbsp;&nbsp;图&nbsp;&nbsp;片：</span></td><td><img src="$result['img']"></td></tr>
+<tr><td><span>链接地址：</span></td><td><input type="text" name="url" value="$result['url']"></td></tr>
+<tr><td colspan="2"><input type="hidden" value="$result['id']" name="id"><input class="sctn21_1_3_1" type="submit" value="提交" name="submit"></td></tr>
+</table>
+</form>
+</div>
+</div>
+<!--{/if}-->
+</div>
+</div>
+ <div style="clear: both;"></div>
+</div>
+<script>
+function ti(t){
+for(f=1;f<=2;f++){
+document.getElementById("ti"+f).style.display="none"
+document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+document.getElementById("a"+f).style.color="#529F05"
+document.getElementById("a"+f).style.fontWeight=""
+}
+document.getElementById("ti"+t).style.display=""
+document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+document.getElementById("a"+t).style.color="#fff"
+document.getElementById("a"+t).style.fontWeight="bold"
+}	
+</script>
+<!--{subtemplate baby/foot}-->

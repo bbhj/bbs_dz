@@ -1,0 +1,750 @@
+/* ----------------------------------
+
+Main CSS file for Discuz! X
+(C) Comsenz Inc.
+http://www.comsenz.com
+Created & Modified by Lushnis, Pony, Dfox & DragonLee.
+
+----------------------------------
+
+结构目录：
+	1. 重定义浏览器默认样式
+	2. 全局常用 CSS 样式
+	3. 表单及表单元素
+	4. 页面布局以及通用的区块样式
+	5. 列表样式vwmy
+	6. 其他特定功能块
+		1. 个人中心面板
+		2. 简易编辑器
+		3. 弹出菜单、弹出层及弹出窗口
+		4. 联系人列表、短消息窗口
+		5. 登录和注册
+		6. 其他
+	7. 拖拽及页面 DIY
+
+	*  其他页面专用样式参见 module.css
+
+----------------------------------
+
+常用变量说明：
+
+	通用边框颜色：		{COMMONBORDER}		#CDCDCD
+	通用背景填充色：		{COMMONBG}			#F2F2F2
+	特殊边框颜色：		{SPECIALBORDER}		#D1D9DF
+	特殊背景填充色：		{SPECIALBG}			#E9F2F9
+
+----------------------------------
+
+CSS 样式模块的格式示例：
+
+	Name:			模块名称
+	Level:			级别（Global, Channel, Function）
+	Dependent:		依赖关系，该模块必须依赖于何种模块
+	Sample:			用法示例，或指出改模块所作用的直接页面
+	Explain:		附加说明
+	Author:			创建者 日期(两位数年月日时)
+	Last Modify:	最终修改者 日期(两位数年月日时)
+
+----------------------------------
+
+CSS 写作注意事项：
+	1. 属性写在一行内，属性之间、属性名和值之间以及属性与“{}”之间须有空格，例如：.class { width: 400px; height: 300px; }
+	2. 属性的书写顺序：
+		2.1. 按照元素模型由外及内，由整体到细节书写，大致分为五组：
+			位置：position,left,right,float
+			盒模型属性：display,margin,padding,width,height
+			边框与背景：border,background
+			段落与文本：line-height,text-indent,font,color,text-decoration,...
+			其他属性：overflow,cursor,visibility,...
+		2.2. 针对特殊浏览器的属性，应写在标准属性之前，例如：-webkit-box-shadow:; -moz-box-shadow:; box-shaow:;
+	3. 谨慎添加新的选择符规则，尤其不可滥用 id，尽可能继承和复用已有样式
+	4. 选择符、属性、值均用小写（格式的颜色值除外），缩写的选择符名称须说明缩写前的全称，例如 .cl -> Clearfix
+	5. 避免使用各种 CSS Hack，如需对 IE 进行特殊定义，请参阅下节“关于 CSS Hack 的说明”
+	6. 勿使用冗余低效的 CSS 写法，例如：
+		ul li a span { ... }
+	7. 慎用 !important
+	8. 建议使用在 class/id 名称中的词语
+		6.1. 表示状态：a->active
+		6.2. 表示结构：h->header,c->content,f->footer
+		6.3. 表示区域：mn->main,sd->side,nv-navigation,mu->menu
+		6.4. 表示样式：l-list,tab,p_pop
+	9. 开发过程中的未定事项，须用 [!] 标出，以便于后续讨论整理
+
+----------------------------------
+
+关于 CSS Hack 的说明：
+
+	所有 IE浏览器适用：	.ie_all .foo { ... }
+	IE6 专用：			.ie6 .foo { ... }
+	IE7 专用：			.ie7 .foo { ... }
+	IE8 专用：			.ie8 .foo { ... }
+
+---------------------------------- */
+
+/*
+	Name:			mod_reset
+	Level:			Global
+	Explain:		重定义浏览器默认样式
+	Last Modify:	Pony
+*/
+	* { word-wrap: break-word; }
+	body { {BGCODE}; }
+	body, input, button, select, textarea { font: {FONTSIZE} {FONT}; color: {TABLETEXT}; }
+		textarea { resize: none; }
+	body, ul, ol, li, dl, dd, p, h1, h2, h3, h4, h5, h6, form, fieldset, .pr, .pc { margin: 0; padding: 0; }
+	table { empty-cells: show; border-collapse: collapse; }
+		caption, th { text-align: left; font-weight: 400; }
+	ul li, .xl li { list-style: none; }
+	h1, h2, h3, h4, h5, h6 { font-size: 1em; }
+	em, cite { font-style: normal; }
+	a { color: {LINK}; text-decoration: none; }
+		a:hover { text-decoration: underline; }
+		a img { border: none; }
+	label { cursor: pointer; }
+/*
+	Name:			mod_float
+	Level:			Global
+	Sample:			class="z/y"
+	Explain:		.z/.y 浮动 left/right
+	Last Modify:	lushnis
+*/
+	.z { float: left; } .y { float: right; }
+
+/*
+	Name:			mod_clearfix
+	Level:			Global
+	Sample:			class="cl"
+	Explain:		Clearfix,避免因子元素浮动而导致的父元素高度缺失能问题
+	Last Modify:	lushnis
+*/
+	.cl:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; } .cl { zoom: 1; }
+
+/*
+	Name:			mod_hr
+	Level:			Global
+	Sample:			<hr />
+	Explain:		重定义 <hr /> 元素的样式，去除默认边距
+	Last Modify:	lushnis
+*/
+	hr { display: block; clear: both; *margin-top: -8px !important; *margin-bottom: -8px !important; }
+		.mn hr, .sd hr { margin: 0 10px; }
+		.area hr { margin-left: 0 !important; margin-right: 0 !important; }
+/*
+	Name:			mod_hr_solid
+	Level:			Global
+	Dependent:		mod_hr
+	Sample:			<hr class="l" />
+	Explain:		定义 1px 高度实线样式的 <hr /> 元素，具有两个个扩展样式，.l2 和 .l3，分别实现 2px 和 3px 的实线分割线
+	Last Modify:	lushnis
+*/
+	hr.l { height: 1px; border: none; background: {COMMONBORDER}; color: {COMMONBORDER}; }
+		hr.l2 { height: 2px; }
+		hr.l3 { height: 3px; }
+/*
+	Name:			mod_hr_dashed
+	Level:			Global
+	Dependent:		mod_hr
+	Sample:			<hr class="da" />
+	Explain:		定义 1px 高度虚线样式的 <hr /> 元素
+	Last Modify:	lushnis
+*/
+	hr.da { height: 0; border: none; border-top: 1px dashed {COMMONBORDER}; background: transparent; color: transparent; }
+	
+	/* [!]使用注意 */
+	hr.bk { margin-bottom: 10px !important; *margin-bottom: 2px !important; height: 0; border: none; border-top: 1px solid {WRAPBG}; background: transparent; color: transparent; }
+		.n .sd hr.bk { border-top-color: #F9F9F9; }
+	/* 清除Margin */
+	hr.m0 { margin-left: 0; margin-right: 0; }
+
+/*
+	Name:			mod_page_header
+	Level:			Global
+	Sample:			<h1 class="ph">Text</h1>
+	Explain:		页面中标题级别的文字 [!]此处须整合为一个单独 class
+	Last Modify:	lushnis
+*/
+	/* .wx --> weight text 粗体字，通常用于大标题 */
+	.wx, .ph { font-family: "Microsoft YaHei", "Hiragino Sans GB", STHeiti, Tahoma, SimHei, sans-serif; font-weight: 100; }
+	/* Page header */ .ph { font-size: 20px; }
+	/* Main title */ .mt { padding: 10px 0; font-size: 16px; }
+
+/* 行内分割竖线 */ .pipe { margin: 0 5px; color: #CCC; }
+
+/* 文本属性：字号、颜色、粗细 */
+/*
+	Name:			mod_text_size
+	Level:			Global
+	Sample:			class="xs*"
+	Explain:		文字字号，分为四个级别
+	Last Modify:	lushnis
+*/
+	.xs0 { font-family: {SMFONT}; font-size: {SMFONTSIZE}; -webkit-text-size-adjust: none; }
+	.xs1 { font-size: 12px !important; }
+	.xs2 { font-size: 14px !important; }
+	.xs3 { font-size: 16px !important; }
+/*
+	Name:			mod_text_gray_level
+	Level:			Global
+	Dependent:		-
+	Sample:			class="xs[*]"
+	Explain:		文字字号，分为四个级别
+	Last Modify:	lushnis
+*/
+	.xg1, .xg1 a { color: {LIGHTTEXT} !important; }
+	.xg1 .xi2 { color: {HIGHLIGHTLINK} !important; }
+	.xg2 { color: {MIDTEXT}; }
+/*
+	Name:			mod_text_importance_level
+	Level:			Global
+	Sample:			class="xs[*]"
+	Explain:		文字提亮级别，分为两级，默认模板中，1为橙色，2为蓝色
+	Last Modify:	lushnis
+*/
+	.xi1, .onerror { color: {NOTICETEXT}; }
+	.xi2, .xi2 a, .xi3 a { color: {HIGHLIGHTLINK} ; }
+/*
+	Name:			mod_text_weight_level
+	Level:			Global
+	Sample:			class="xs[*]"
+	Explain:		文字字号，分为四个级别
+	Last Modify:	lushnis
+*/
+	.xw0 { font-weight: 400; }
+	.xw1 { font-weight: 700; }
+/*
+	Name:			mod_border
+	Level:			Global
+	Dependent:		-
+	Sample:			class="bbda/bbs"
+	Explain:		边框样式，该模块仅作用于元素的下边框，分为虚线和实线两种，宽度均为 1px
+	Last Modify:	lushnis
+*/
+	.bbda { border-bottom: 1px dashed {COMMONBORDER}; }
+	.bbs { border-bottom: 1px solid {COMMONBORDER} !important; }
+/*
+	Name:			mod_border_reset
+	Level:			Global
+	Sample:			class="bw0/bw0_all"
+	Explain:		去除边框
+	Last Modify:	lushnis
+*/
+	.bw0 { border: none !important; }
+	.bw0_all, .bw0_all th, .bw0_all td { border: none !important; }
+/*
+	Name:			mod_background_reset
+	Level:			Global
+	Sample:			class="bg0_c/bg0_i/bg0_all"
+	Explain:		去除背景，bg0_c、bg0_i 和 bg0_all 分别为去除背景颜色、去除背景图片和去除所有背景元素
+	Last Modify:	Pony
+*/
+	.bg0_c { background-color: transparent !important; }
+	.bg0_i { background-image: none !important; }
+	.bg0_all { background: none !important; }
+
+/*
+	Name:			mod_notice_line
+	Level:			Global
+	Sample:			<div class="ntc_l">
+	Explain:		黄色背景的提示条，一般用在单行醒目提示，不可用于多行块级区域
+	Last Modify:	lushnis
+*/
+	.ntc_l { padding: 5px 10px; background: #FEFEE9; }
+		.ntc_l .d { width: 20px; height: 20px; background: url({IMGDIR}/op.png) no-repeat 0 0; line-height: 9999px; overflow: hidden; }
+			.ntc_l .d:hover { background-position: 0 -20px; }
+
+/* 圆角 [!]此处考虑弃用 */
+	.brs, .avt img { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+	.brm, .oshr { -moz-border-radius: 10px; -webkit-border-radius: 10px;  border-radius: 10px; }
+	.brw { -moz-border-radius: 20px; -webkit-border-radius: 20px; border-radius: 20px;  }
+/*
+	Name:			mod_margin
+	Level:			Global
+	Sample:			class="mtn/mtm/mtw/..."
+	Explain:		外边距样式，作用于元素的上下外边距，上下各具有 n, m, w 三个级别
+	Last Modify:	lushnis
+*/
+	.mtn { margin-top: 5px !important; }
+	.mbn { margin-bottom: 5px !important; }
+	.mtm { margin-top: 10px !important; }
+	.mbm { margin-bottom: 10px !important; }
+	.mtw { margin-top: 20px !important; }
+	.mbw { margin-bottom: 20px !important; }
+/*
+	Name:			mod_padding
+	Level:			Global
+	Sample:			class="ptn/ptm/ptw/..."
+	Explain:		内边距样式，作用于元素的上下内边距，上下各具有 n, m, w 三个级别
+	Last Modify:	lushnis
+*/
+	.ptn { padding-top: 5px !important; }
+	.pbn { padding-bottom: 5px !important; }
+	.ptm { padding-top: 10px !important; }
+	.pbm { padding-bottom: 10px !important; }
+	.ptw { padding-top: 20px !important; }
+	.pbw { padding-bottom: 20px !important; }
+/*
+	Name:			mod_avatar
+	Level:			Global
+	Sample:			<div class="avt"><img src="avatar source" alt="username" /></div>
+	Explain:		标准尺寸头像样式，默认为 48px*48px，带边框
+	Last Modify:	lushnis
+*/
+	.avt img { padding: 2px; width: 48px; height: 48px; background: {WRAPBG}; border: 1px solid; border-color: {COMMONBG} {COMMONBORDER} {COMMONBORDER} {COMMONBG}; }
+/*
+	Name:			mod_avatar_middle, mod_avatar_small
+	Level:			Global
+	Sample:			<div class="avtm/avts"><img src="avatar source" alt="username" /></div>
+	Explain:		中等尺寸和小尺寸头像样式，中等尺寸为宽度 120px，高度按比例；小尺寸为 24px*24px
+	Last Modify:	lushnis
+*/
+	.avtm img { width: 120px; height: auto; }
+	.avts img { width: 24px; height: 24px; vertical-align: middle; }
+/*
+	Name:			mod_emp
+	Level:			Global
+	Sample:			<p class="emp">暂无数据</p>
+	Explain:		页面中无数据输出时，用此样式显示相关提示，如无特殊必要，建议使用 <p> 而不是 <div>
+	Last Modify:	lushnis
+*/
+	.emp { padding: 20px 10px; }
+		.emp a { color: {HIGHLIGHTLINK}; text-decoration: underline !important; }
+/*
+	Name:			mod_align
+	Level:			Global
+	Sample:			class="vm/hm"
+	Explain:		纵向及横向对齐方式
+	Last Modify:	lushnis
+*/
+	.vm { vertical-align: middle; }
+		.vm * { vertical-align: middle; }
+	.hm { text-align: center; }
+/*
+	Name:			mod_alt
+	Level:			Global
+	Sample:			class="{echo swapclass('alt');}"
+	Explain:		隔行换色时深色背景
+	Last Modify:	lushnis
+*/
+	.alt, .alt th, .alt td { background-color: {COMMONBG}; }
+/*
+	Name:			mod_notice
+	Level:			Global
+	Sample:			class="notice"
+	Explain:		类似统计中需注意的文字样式 [!]此处须考虑名称简写为 ntc
+	Last Modify:	lushnis
+*/
+	.notice { clear: both; margin: 5px 0; padding: 3px 5px 3px 20px; background: url({IMGDIR}/notice.gif) no-repeat 2px 6px; }
+/*
+	Name:			mod_ajax_wait_info
+	Level:			Global
+	Sample:			id="ajaxwaitid"
+	Explain:		相应页面中 AJAX 请求时的状态显示
+	Last Modify:	lushnis
+*/
+	#ajaxwaitid { display: none; position: absolute; right: 0; top: 0; z-index: 1; padding: 0 5px; background: #D00; color: {LIGHTLINK}; }
+/*
+	Name:			mod_showmenu
+	Level:			Global
+	Sample:			class="showmenu"
+	Explain:		下拉菜单
+	Last Modify:	lushnis
+*/
+	.showmenu { padding-right: 16px; background: url({IMGDIR}/arrwd.gif) no-repeat 100% 50%; cursor: pointer; white-space: nowrap; }
+		#um .showmenu { margin-right: -5px; }
+
+/*
+	Name:			mod_cursor
+	Level:			Global
+	Sample:			class="cur1"
+	Explain:		鼠标样式，可以根据需要按序添加
+	Last Modify:	Pony
+*/
+	.cur1 { cursor: pointer; }
+
+/* 如果验证码有错乱，可添加此样式.sec（全局，修改时要小心，会涉及分享、快速回复和 feed日志相册中的评论等地方） by Pony */
+.ie6 .sec .p_pop { white-space: expression(this.offsetWidth >= 220 ? 'normal' : 'nowrap'); width: expression(this.offsetWidth >= 220 ? 200 : 'auto'); }
+
+
+/* ------------------------------------------------------------------------ 表单及表单元素 */
+		/*
+		.pn				button
+			.pnc		button with light color
+			.pnp		post button
+		.px				input[text]
+		.pt				textarea
+		.pf				input[file]
+		.pc				input[checkbox]
+		.pr				input[radio]
+		.ps				select
+		.oshr			share button
+		.ofav			fav button with oshr
+		*/
+
+/* 必填项 */ .rq { color: red; }
+
+/*
+	Name:			mod_input[text]_textarea_select
+	Level:			Global
+	Sample:			class="px/pt/ps"
+	Explain:		单行输入框（px）、多行文本框（pt）和选择框(ps/select)
+	Last Modify:	Pony
+*/
+	.px, .pt, .ps, select { border: 1px solid; border-color: {INPUTBORDERDARKCOLOR} {INPUTBORDER} {INPUTBORDER} {INPUTBORDERDARKCOLOR}; background: {INPUTBG} url({IMGDIR}/px.png) repeat-x 0 0; color: {TEXT}; }
+		.px, .pt { padding: 2px 4px; line-height: 17px; }
+		.px { height: 17px; }
+			.pxs { width: 30px !important; }
+			.fdiy .tfm .px, .fdiy .tfm .pt { width: auto; }
+			.p_fre { width: auto !important; }
+			.er { border-color: #F66 #FFBDB9 #FFBDB9 #F66; background-color: #FDF4F4; background-image: url({IMGDIR}/px_e.png); }
+		.pt { overflow-y: auto; }
+			div.pt { height: 100px; line-height: 100px; }
+		.ps, select { padding: 2px 2px 2px 1px; }
+			.ie8 .ps, .ie8 select { padding: 2px; }
+		/* 自动调整高度的 textarea by Pony */
+		.pts { vertical-align: top; overflow: hidden; }
+		.cmt .pts { width: 60%; }
+
+/*
+	Name:			mod_button
+	Level:			Global
+	Sample:			<button class="pn">Submit</button>
+	Explain:		按钮样式
+	Last Modify:	Pony
+*/
+	button::-moz-focus-inner { border: 0; padding: 0; }
+	.pn { vertical-align: middle; overflow: hidden; margin-right: 3px; padding: 0; height: 23px; border: 1px solid #999; background: #E5E5E5 url({IMGDIR}/pn.png) repeat-x 0 0; cursor: pointer; -moz-box-shadow: 0 1px 0 #E5E5E5; -webkit-box-shadow: 0 1px 0 #E5E5E5; box-shadow: 0 1px 0 #E5E5E5; }
+		.pn:active { background-position: 0 -23px; }
+		.ie6 .pn { overflow-x: visible; width: 0; }
+
+		.pn em, .pn span, .pn strong { padding: 0 10px; line-height: 21px; }
+			.pn em, .pn strong  { font-weight: 700; }
+		.ie7 .pn em, .ie7 .pn span, .ie7 .pn strong { padding: 0 5px; line-height: 18px; }
+
+	a.pn { height: 21px; line-height: 21px; color: {TABLETEXT} !important; }
+		a.pn:hover { text-decoration: none; }
+		.ie6 a.pn { width: auto; }
+		.ie6 a.pn em, .ie6 a.pn span, .ie6 a.pn strong { display: block; }
+		.ie7 a.pn em, .ie7 a.pn span, .ie7 a.pn strong { line-height: 21px; }
+
+	.pnc, a.pnc { border-color: #235994; background-color: #06C; background-position: 0 -48px; color: #FFF !important; }
+		.pnc:active { background-position: 0 -71px; }
+	
+	.pnpost .pn { height: 26px; }
+
+/*
+	Name:			mod_input[radio]_input[checkbox]_label
+	Level:			Global
+	Sample:			class="pr/pc/lb"
+	Explain:		单选按钮(pr)、多选框(pc)和<label>(lb)
+	Last Modify:	Pony
+*/
+	.pr, .pc { vertical-align: middle; margin: 0 5px 1px 0; padding: 0; }
+		.ie6 .pr, .ie6 .pc, .ie7 .pr, .ie7 .pc { margin-right: 2px; }
+	.lb { margin-right: 20px; }
+
+
+/*
+	Name:			mod_narrow_input
+	Level:			Global
+	Sample:			<div class="pns"></div>
+	Explain:		小尺寸的输入框和按钮样式。该样式在模板中保留，目前样式为空。
+	Last Modify:	Pony
+*/
+	.pns .px {}
+	.pns .pn {}
+
+/*
+	Name:			mod_float_typeid
+	Level:			Global
+	Sample:			<div class="ftid">
+						<select>
+							<option>Option</option>
+						</select>
+					</div>
+	Explain:		模拟下拉菜单样式
+	Last Modify:	Pony
+*/
+.ftid { float: left; margin-right: 6px; }
+	.ftid select { float: left; height: 23px; }
+	.ftid a { display: block; overflow: hidden; padding: 0 17px 0 4px; height: 21px; line-height: 21px; text-decoration: none !important; font-size: 12px; font-weight: 400; color: {TABLETEXT} !important; border: 1px solid; border-color: {INPUTBORDERDARKCOLOR} {INPUTBORDER} {INPUTBORDER} {INPUTBORDERDARKCOLOR}; background: {WRAPBG} url({IMGDIR}/newarow.gif) no-repeat 100% 0; }
+		.ftid a:hover, .ftid a:focus { background-position: 100% -23px; }
+	/* ctrl 'select' width */
+	.ftid select { width: 94px; }
+	.sslt a { width: 54px; }
+	.sslt select { width: 60px; }
+
+.sltm { padding: 5px 11px 5px 10px; border: 1px solid {DROPMENUBORDER}; background-color: {WRAPBG}; text-align: left; }
+	.sltm li { padding: 2px 0; color: {MIDTEXT}; cursor: pointer; }
+		.sltm li:hover { color: {HIGHLIGHTLINK}; }
+		.sltm li.current { color: {NOTICETEXT}; }
+
+/* 分享按钮 */ .oshr { float: right; margin-left: 5px; padding: 0 5px 0 22px; border: 1px solid; border-color: #CCC #A9A9A9 #A9A9A9 #CCC; background: {WRAPBG} url({IMGDIR}/oshr.png) no-repeat 5px 50%;  }
+/* 收藏按钮 with oshr */ .ofav { background-image: url({IMGDIR}/fav.gif); }
+
+
+/*
+	Name:			mod_form
+	Level:			Global
+	Sample:			<form>
+						<table cellspacing="0" cellpadding="0" class="tfm">
+							<tr>
+								<th>Label</th>
+								<td><input type="text" name="" id="" class="" /></td>
+							</tr>
+						</table>
+					</form>
+	Explain:		表单样式
+	Last Modify:	Pony
+*/
+	.tfm { width: 100%; }
+		.tfm caption, .tfm th, .tfm td { vertical-align: top; padding: 7px 0; }
+			.tfm caption h2 { font-size: 16px; }
+			.vt th, .vt td { vertical-align: top; }
+		.tfm th { padding-top: 9px; padding-right: 5px; width: 130px; }
+			.tfm th .rq { float: right; font-size: 14px; }
+			.tfm .pt, .tfm .px { margin-right: 3px; width: 330px; }
+		.tfm .c, .tfm .tedt, .m_c .tfm .tedt { width: 338px; }
+		.tfm .d { clear: both; margin: 5px 0; color: {LIGHTTEXT}; }
+			.tfm .d em { margin-left: 5px; color: red; }
+			.tfm .d strong { margin-left: 5px; }
+			.tfm .d a { color: {HIGHLIGHTLINK}; }
+		.tfm .p { text-align: right; }
+		.tfm .pcl label { display: block; padding: 0 2px 5px; }
+			.tfm .pcl .pc { margin-right: 5px; padding: 0; }
+		.tfm .l th, .tfm .l td { padding-top: 0; padding-bottom: 0; }
+	.bn .tfm caption, .bn .tfm th, .bn .tfm td { padding-top: 5px; padding-bottom: 5px; }
+
+/*
+	Name:			mod_postboxtitle
+	Level:			Function
+	Explain:		发帖页面、弹窗等的标题栏
+	Last Modify:	Pony
+*/
+.pbt { margin-bottom: 10px; }
+	.ie6 .pbt .ftid a, .ie7 .pbt .ftid a { margin-top: 1px; }
+	#custominfo.mtn { margin-bottom: -5px; }
+
+/* 提示信息 alert_win － altw*/
+.altw { width: 350px; }
+	.altw .fltc { margin-bottom: 0; padding: 8px; }
+		.alert_right, .alert_error, .alert_info { padding: 6px 0 6px 58px; min-height: 40px; height: auto !important; height: 40px; line-height: 160%; background:url({IMGDIR}/right.gif) no-repeat 8px 8px; font-size: 14px; }
+		.alert_error { background-image: url({IMGDIR}/error.gif); }
+			.alert_error a { font-weight: 700; color: {HIGHLIGHTLINK}; }
+		.alert_info { background-image: url({IMGDIR}/info.gif); }
+		.alert_btnleft { margin-top: 8px; }
+		.alert_btn { margin-top: 20px; text-align: center; }
+		.alert_act { margin-top: 20px; padding-left: 58px; }
+
+/* 发帖导航 by lushnis */
+.pbnv { float: left; white-space: nowrap; overflow: hidden; width: 400px; padding: 7px 0; }
+.pbl { overflow: hidden; margin: 9px 0; width: 621px; border-width: 1px 0 1px 1px; border-style: solid; border-color: #CCC; background: {WRAPBG}; }
+	.pbl li { float: left; overflow-x: hidden; overflow-y: auto; padding: 5px; width: 196px; height: 300px; border-right: 1px solid #CCC; }
+	.pbl p { height: 25px; line-height: 25px; }
+		.pbl a { display: block; white-space: nowrap; overflow: hidden; padding: 0 4px; text-decoration: none; color: {HIGHLIGHTLINK}; border: solid {WRAPBG}; border-width: 1px 0; }
+			.pbl a:hover { text-decoration: none; background-color: #F3F3F3; }
+		.pbl .highlightlink { color: #08C; }
+	.pbls a, .pbls a:hover { background-color: #EEE; color: {MIDTEXT}; font-weight: 700; }
+		.pbsb { background: url({IMGDIR}/arrow.gif) right -33px no-repeat; }
+
+/* ------------------------------------------------------------------------ 页面布局 */
+		/*
+		#hd				Header
+			#nv			Navigation
+			#mu			Customer menu
+		.wp				Wrap
+		#ct				Container
+			.mn			Main area
+			.sd			Side area
+		#ft				Footer
+		----------------
+		.bm				Block in main area
+		.bn				Block in nerrow area
+		.bw				Block in full width
+
+		#pp				Personal Panel
+		.pm				Personal Message (Window)
+		.pmfl			PM friend list (Window)
+		*/
+
+/* 通用容器，定义页面宽度 */ .wp { margin: 0 auto; width: 960px; } #wp .wp { width: auto; }
+
+/* 页头 */
+	#toptb { line-height: 24px; }
+		#toptb a { float: left; padding: 0 4px; height: 24px; }
+		#toptb a.showmenu { padding-right: 15px; }
+		#toptb a.hover { background-color: #FFF; }
+		#toptb .pipe { float: left; display: none; }
+	#hd { border-bottom: {HEADERBORDER} solid {SPECIALBORDER}; {HEADERBGCODE} }
+		#hd .wp { padding: 10px 0 0; }
+			#diy-tg { width: 55px; background: url({STATICURL}image/diy/panel-toggle.png) no-repeat 100% 1px; text-indent: -9999px; overflow: hidden; }
+
+			.hdc { min-height: 70px; }
+				.ie6 .hdc { height: 70px; }
+			#hd h2 { padding: 0 20px 8px 0; float: left; }
+				#space #hd h2 { margin-top: 0; }
+			#hd .fastlg { padding-top: 10px; }
+
+			#scbar { height: 44px; border: solid {SPECIALBG}; border-width: 0 1px 1px; background: url({IMGDIR}/search.png) repeat-x 0 0; line-height: 44px; overflow: hidden; }
+				.scbar_icon_td { width: 50px; background: url({IMGDIR}/search.png) no-repeat 0 -74px; }
+				.scbar_txt_td, .scbar_type_td { background: url({IMGDIR}/search.png) repeat-x 0 -222px; }
+					#scbar_txt { width: 400px; border: 1px solid #FFF; outline: none; font-size: 14px; }
+				.scbar_btn_td { width: 67px; background: url({IMGDIR}/search.png) no-repeat 0 -296px; text-align: center; }
+					#scbar_btn { margin: 0; padding: 0; border: none; background: transparent none; }
+				.scbar_type_td { background: url({IMGDIR}/search.png) no-repeat 0 -370px; }
+					#scbar_type { display: block; padding-left: 5px; text-align: left; text-decoration: none; }
+						#scbar_type_menu { margin-top: -8px; }
+				#scbar_hot { padding-left: 8px; height: 45px; overflow: hidden; }
+					#scbar_hot strong, #scbar_hot a { float: left; margin-right: 8px; white-space: nowrap; }
+			
+			#sc { display: none; }
+				#sc_txt { margin-right: 0; width: 109px; border-right: none; outline: none; }
+				#sc_type_w { border-left: none; }
+				#sc_type { height: 17px !important; line-height: 17px; }
+					.ie8 #sc_type { line-height: 18px; }
+				#sc_btn { margin-right: 0; }
+				#sc_type_menu { margin: 2px 0 0 -5px; width: 100px; line-height: 1.5; }
+					#sc_type_menu a { float: none; }
+				#pt #sc { margin: 3px 0 0 0; }				
+
+			#nv { overflow: hidden; padding-left: 3px; height: 33px; {MENUBGCODE}; }
+				#nv li { float: left; padding-right: 1px; height: 33px; line-height: 33px; background: url({IMGDIR}/nv_a.png) no-repeat 100% 0; font-weight: 700; font-size: 14px; }
+					.ie_all #nv li { line-height: 36px; }
+					.ie6 #nv li { line-height: 33px; }
+					#nv li a { float: left; padding: 0 20px; height: 33px; }
+						#nv li a { color: {MENUTEXT}; }
+						#nv li span { display: none; }
+					#nv li.a { margin-left: -1px; {MENUHOVERBGCODE}; }
+						#nv li.a a { color: {MENUHOVERTEXT}; }
+						#nv li a:hover { background: url({IMGDIR}/nv_a.png) no-repeat 50% -66px; }
+						#nv li.hover a:hover, #nv li.hover a { background: url({IMGDIR}/nv_a.png) no-repeat 50% -99px; }
+			#mu { position: relative; z-index: 1; }
+				.ie6 #mu, .ie7 #mu { line-height: 0; font-size: 0; }
+				#mu ul { background: url({IMGDIR}/mu_bg.png) no-repeat 0 100%; line-height: 22px; z-index: 2; font-size: 12px; }
+					#mu li { float: left; height: 32px }
+						#mu a { float: left; display: inline; margin: 5px 6px; padding: 0 10px; white-space: nowrap; }
+							#mu a:hover { margin: 4px 5px; border: 1px solid {SPECIALBORDER}; background: {SPECIALBG}; color: {HIGHLIGHTLINK}; text-decoration: none; }
+				.floatmu { position: absolute; left: 0; top: 0; }
+			#um { padding-top: 10px; padding-right: 60px; _padding-right: 54px; line-height: 2.3; zoom: 1; }
+				#um, #um a { color: {HEADERTEXT}; }
+				#um p { text-align: right; }
+				#um .avt { display: inline; margin-right: -60px; }
+				.vwmy { padding-left: 16px; background: url({IMGDIR}/user_online.gif) no-repeat 0 2px; }
+					.vwmy.qq { background: url({IMGDIR}/connect_qq.gif) no-repeat scroll 0 0; padding-left: 20px; }
+				/* .topnav .new, .sch .new 分别为为个人中心和搜索页面头部新消息样式 */
+				#um .new, .topnav .new, .sch .new, #toptb .new { padding-left: 20px; background-repeat: no-repeat; background-position: 0 50%; color: {HIGHLIGHTLINK}; font-weight: 700; }
+					#myprompt.new { background-image: url({IMGDIR}/notice.gif); background-position: 3px 50%; }
+					#pm_ntc.new { background-image: url({IMGDIR}/new_pm.gif); }
+					#task_ntc { background-image: url({STATICURL}image/feed/task.gif); }
+				#um .pipe { margin: 0 5px 0 0; }
+
+				#extcreditmenu { margin-right: 2px !important; padding-top: 3px; padding-bottom: 3px; padding-left: 10px; }
+					#extcreditmenu.a { position: relative; z-index: 302; margin-right: 1px !important; border: 1px solid; border-color: {DROPMENUBORDER}; border-bottom: none; background-color: {WRAPBG}; }
+					#extcreditmenu_menu { margin-top: -1px; width: auto; }
+						#extcreditmenu_menu li { float: none; display: block; padding-left: 10px !important; padding-right: 3em !important; }
+
+				#qmenu { float: right; display: inline; margin: 3px 4px 0; padding: 0 12px 0 0; width: 83px; height: 26px; background: url({IMGDIR}/qmenu.png) no-repeat 0 0; line-height: 26px; text-align: center; color: {HIGHLIGHTLINK}; font-weight: 700; text-shadow: 0 1px 0 #FFF; overflow: hidden; }
+					#qmenu:hover { text-decoration: none; }
+					#qmenu.a { position: relative; z-index: 302; background-position: 0 -30px; }
+					.ie8 #qmenu { line-height: 30px; }
+				#qmenu_menu { margin-top: -1px; padding: 20px 5px 10px; width: 180px; border-color: #9A9A9A; }
+					.ie_all #qmenu_menu { margin-left: 1px; }
+						.ie9 #qmenu_menu { margin-left: 0; }
+					#qmenu_menu ul li { float: left; }
+					#qmenu_menu ul a { margin-bottom: 10px; padding: 47px 0 0; width: 60px; border: none; border-radius: 4px; background: url({IMGDIR}/noicon.gif) no-repeat 50% 5px; text-align: center; }
+						#qmenu_menu ul a:hover { background-color: {SPECIALBG}; color: {HIGHLIGHTLINK}; text-shadow: none; }
+
+/* 页面主区域 */
+	#ct { min-height: 300px; }
+		.ie6 #ct { height: 300px; }
+		.mn { overflow: hidden; }
+		.ct2 .mn { float: left; width: 730px; margin-bottom: 1em; }
+		.ct2 .sd { float: right; width: 220px; overflow: hidden; _overflow-y: visible; }
+
+		.appl { float: left; overflow: hidden; margin-bottom: 10px; padding: 6px 10px; width: 117px; }
+
+		.ct2_a, .ct3_a { border: 1px solid {WRAPBORDERCOLOR}; {SIDEBGCODE} }
+			.ct2_a_r { border: none; background-image: none; }
+			 .ct2_a h1.mt { display: none; }
+			 .ct2_a .tb { margin-top: 3px; }
+		.ct2_a .mn { float: right; width: 810px; }
+			.ct2_a .mn { display: inline; margin-right: 10px; padding-top: 10px; width: 800px; }
+				#nv_userapp .ct2_a .mn, .ct2_a_r .mn { margin-right: 0; width: 810px; }
+
+		.ct3_a .mn { float: left; margin-left: 20px; width: 565px; }
+		.ct3_a .sd { float: right; width: 220px; }
+			#nv_home .ct3_a .sd .bm { margin-right: 10px; border: none; }
+				#nv_home .ct3_a .sd .bm_c { padding: 10px 0; }
+
+		.mw { width: 100%; float: none; }
+		.mnw { clear: both; border-top: 1px solid #CCC; }
+		.mnh { width: 643px; background: {COMMONBG}; margin-bottom: 0; }
+
+/* 页尾 */
+	#ft { padding: 10px 0 50px; border-top: 1px solid {COMMONBORDER}; line-height: 1.8; color: {FOOTERTEXT}; }
+		#flk { text-align: right; }
+			#flk img { vertical-align: middle; }
+			#scrolltop { visibility: hidden; position: fixed; bottom: 100px; display: block; margin: -30px 0 0; width: 26px; height: 50px; background: url({IMGDIR}/scrolltop.png) no-repeat 50% 0; line-height: 999px; overflow: hidden; cursor: pointer; }
+		.ie6 #scrolltop { position: absolute; bottom: auto; }
+		#nv_home #ft, .pg_announcement #ft, .pg_modcp #ft, .pg_portalcp #ft, .pg_ranklist #ft, #nv_userapp #ft { border-top: none; }
+
+/* 通用的区域块 */
+	/*
+	.bm 是最常用的区块元素，默认带有 1px 的边框和 10px 的下边距。一般情况下，.bm 内应包括两个子容器：.bm_h 和 .bm_c，前者代表区块头部，带有灰色背景和下边框；后者是容器主体，默认带有 10px 的内边距。
+	.bm 另有三种子样式
+		.bmw	Weight		头部为彩色背景
+		.bml	Lite		头部无背景填充
+		.bmn	Notice		整体带有彩色背景，常用于提示信息
+	*/
+	.bm, .bn { margin-bottom: 10px; }
+		.bm { border: 1px solid {COMMONBORDER}; background: {WRAPBG}; }
+			.bm_c { padding: 10px; }
+		.drag {}
+		.bm_h .o { float: right; width: 30px; }
+			.bm_h .o img { float: right; margin-top: 11px; cursor: pointer; }
+		.bm_h .i { padding-left: 10px; }
+		.bm_h .pn { margin-top: 4px; }
+		.bm_h { padding: 0 10px; height: 31px; border-top: 1px solid #FFF; border-bottom: 1px solid {CONTENTSEPARATE}; background: {COMMONBG}; line-height: 31px; white-space: nowrap; overflow: hidden; }
+		.bmw { border: 1px solid {COMMONBORDER}; }
+			.bmw .bm_h { border-top-color: {WRAPBG}; border-right: 1px solid {WRAPBG}; border-bottom-color: {CONTENTSEPARATE}; border-left: 1px solid {WRAPBG}; background: {SPECIALBG}; }
+				.bmw .bm_h a { color: {HIGHLIGHTLINK}; }
+		.bml .bm_h { padding-top: 5px; border: none; background: transparent; }
+		.bml .bm_c { padding-top: 0; }
+		.bmn { padding: 7px 10px; border-color: {SPECIALBORDER}; background: {SPECIALBG}; }
+
+		.fl { border: 1px solid {COMMONBORDER}; border-top: none; background: {WRAPBG}; }
+			.fl .bm { margin-bottom: 0; border: none; }
+				.fl .bm_h { border-width: 1px 0; border-color: {SPECIALBORDER}; {TITLEBGCODE}; }
+		.fl .bm_c, #online .bm_c, .lk .bm_c { padding-top: 0; padding-bottom: 0; }
+	.bm2 .bm2_b { float: left; width: 49%; border: 1px solid {COMMONBORDER}; }
+		.bm2 .bm2_b_y { float: right; }
+	.bw0 { background: transparent; }
+
+	/* 宽布局下的通用块 */.bw { padding: 0 15px; }
+
+/*
+	Name:			mod_path
+	Level:			Global
+	Sample:			<div id="pt"><div class="z">Path here</div></div>
+	Explain:		面包屑导航
+	Last Modify:	lushnis
+*/
+	#pt { margin: 2px 0; height: 29px; border:none; background: transparent; line-height: 29px; }
+		#pt .z { padding-right: 10px; }
+		#pt .z a, #pt .z em, #pt .z span { float: left; height: 29px; }
+		#pt .z em { width: 20px; background: url({IMGDIR}/pt_item.png) no-repeat 3px 10px; line-height: 200px; overflow: hidden; }
+		.nvhm { width: 16px; background: url({IMGDIR}/search.png) no-repeat -8px -119px; line-height: 200px; overflow: hidden; }
+			/* XP 或 Windows 7，IE 最高版本为 8 或BG}; }
+				.bmw .bm_h a { color: {HIGHLIGHTLINK}; }
+		.bml .bm_h { padding-top: 5px; border: none; background: transparent; }
+		.bml .bm_c { padding-top: 0; }
+		.bmn { padding: 7px 10px; border-color: {SPECIALBORDER}; background: {SPECIALBG}; }
+
+		.fl { border: 1px solid {COMMONBORDER}; border-top: none; background: {WRAPBG}; }
+			.fl .bm { margin-bottom: 0; border: none; }
+				.fl .bm_h { border-width: 1px 0; border-color: {SPECIALBORDER}; {TITLEBGCODE}; }
+		.fl .bm_c, #online .bm_c, .lk .bm_c { padding-top: 0; padding-bottom: 0; }
+	.bm2 .bm2_b { float: left; width: 49%; border: 1px solid {COMMONBORDER}; }
+		.bm2 .bm2_b_y { float: right; }
+	.bw0 { background: transparent; }
+
+	/* 瀹藉竷灞

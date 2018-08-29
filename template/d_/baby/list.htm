@@ -1,0 +1,66 @@
+<!--{subtemplate baby/head}-->
+<script type="text/javascript">
+$(function(){
+if ($(".cimg").length)
+{
+$(".cimg").LoadImage(true,120,150,"/image/loading.gif");
+}
+}); 
+</script>
+<div style="width:970px;margin:0 auto;background-color:#FFF;BORDER: #e0e0e0 1px solid;">
+<div style="width:950px;height:20px;margin:0 auto;"></div>
+<div style="width:950px;margin:0 auto;">
+    <div id="pic_top">
+    <ul>
+    	<li><a href="#"  id="a1">$arr[$tid]</a></li>
+    </ul>
+    
+    <span style="text-align:right;">
+    <form action="baby.php?mod=list&tid=$tid"" method="post">
+    	性别：<select name="sex">
+        		<option value="">请选择</option>
+        	  	<option value="0" <!--{if $sex=='0'}-->selected<!--{/if}--> >其他</option>
+                <option value="1" <!--{if $sex=='1'}-->selected<!--{/if}-->>男</option>
+                <option value="2" <!--{if $sex=='2'}-->selected<!--{/if}-->>女</option>
+        	  </select>
+        照片：<select name="check_photo">
+        			<option value="">请选择</option>
+        			<option value="1" <!--{if $check_photo=='1'}-->selected<!--{/if}--> >有照片</option>
+                    <option value="2" <!--{if $check_photo=='2'}-->selected<!--{/if}-->>无照片</option>
+        	  </select>
+           <input type="submit" value="搜索" />   
+    </form>
+    <!--
+    <input type="radio" name="1" />男　<input type="radio" name="1" />女　<input type="radio" name="1" />不限　　常见搜索：　<a href="#">走失</a>　<a href="#">胎记</a>  <a href="#">男孩</a>　<a href="#">四川口音</a>　<a href="#">7岁的女孩</a>　<a href="#">胎记</a>  <a href="#">男孩</a>  <a href="#">四川口音</a>  <a href="#">7岁的女孩</a> 			-->
+    </span>
+    </div>
+</div>
+<div style="width:950px;height:20px;margin:0 auto;"></div>
+<div style="width:950px;margin:0 auto;">
+    <div class="pic_bot" id="ti1">
+        <!--{loop $list $k $v1}-->
+        <!--{if $k%5==0}-->
+         <div class="pic_bota">
+        <!--{/if}-->
+        <!--{if $k%5==4}-->
+         <input id="$v1['id']-hid" value="$v1['name'],$v1['birth_day'],$v1['lost_day'],$v1['id'],$v1['lost_address'],$v1['follow_uid'],$v1['insert_time']" type="hidden">
+        <dl style="margin-right:0;" class="PhotoRim">
+          <dt><a href="baby.php?mod=view&id=$v1['id']"><img class="cimg" width="120px" height="150px" src="$v1['photo']" onmousemove="popImg(event)" onmouseout="closePopImg(event)" id="$v1['id']" style="border:1px solid #d9d9d9; padding:2px 2px 2px 2px;" /></a></dt>
+          <dd><a href="baby.php?mod=view&id=$v1['id']"  target=_blank style=" font-size:12px; font-weight:bold;">$v1['name']</a>  <a href="baby.php?mod=view&id=$v1['id']">$v1['sex']</a>  <A href="baby.php?mod=view&id=$v1['id']" target=_blank style=" color:#999;  font-size:12px;">$v1['birth_address']</a></dd></dl>
+        </div>
+        <!--{else}-->
+        <input id="$v1['id']-hid" value="$v1['name'],$v1['birth_day'],$v1['lost_day'],$v1['id'],$v1['lost_address'],$v1['follow_uid'],$v1['insert_time']" type="hidden">
+        <dl class="PhotoRim">
+          <dt><a href="baby.php?mod=view&id=$v1['id']"><img class="cimg" width="120px" height="150px" src="$v1['photo']" onmousemove="popImg(event)" onmouseout="closePopImg(event)" id="$v1['id']" style="border:1px solid #d9d9d9; padding:2px 2px 2px 2px; " /></a></dt>
+          <dd><a href="baby.php?mod=view&id=$v1['id']"  target=_blank style=" font-size:12px; font-weight:bold;">$v1['name']</a>  <a href="baby.php?mod=view&id=$v1['id']">$v1['sex']</a>  <A href="baby.php?mod=view&id=$v1['id']" target=_blank style=" color:#999;  font-size:12px;">$v1['birth_address']</a></dd></dl>
+        <!--{/if}-->
+        <!--{/loop}-->
+        
+    </div>
+</div>
+<div style="width:950px;margin:0 auto;">
+	<div class="pe-page2">$multi</div>
+</div>
+<div style="width:950px;height:20px;margin:0 auto;"></div>
+</div>
+<!--{subtemplate baby/foot}-->

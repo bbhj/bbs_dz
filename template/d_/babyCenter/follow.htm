@@ -1,0 +1,76 @@
+<!--{subtemplate baby/head}-->
+<!--personalcenter-->
+<!--{subtemplate babyCenter/left}-->
+
+<div class="sctn20_1_2">
+<div class="sctn20_1_2_2">
+<div class="sctn20_1_2_2_2" id="zhiyuanzhesousuo">
+
+	
+    <!--{if empty($followList)}-->
+	<div style="margin:10px auto;color:#666;">暂时没有数据</div>
+	<!--{/if}-->
+
+    <!--{loop $followList $k $v}-->
+    <!--{if $k%2==0}-->
+    <table>
+    <tr>
+    <!--{/if}-->
+    <td>
+    <!--{if !empty($v)}-->
+   	 <div id="message">
+                <div style="float:left; width:170px;">
+                    <div style="float:left; width:170px;">
+                    <img src="$v['photo']" width="170" height="210" />
+                    </div>
+                </div>
+                <div style="float:right; width:170px;">
+                    <div style="float:right; width:155px;margin-top:10px;margin-right:10px;_margin-right:5px;"> 
+                    <span><strong style="color:#676767">姓名：</strong></span>
+                    <span style="color:#666668;">$v['name']</span><br /><br />
+                    <span><strong style="color:#676767">简介：</strong></span>
+                    <span style="color:#666668;">$v['intro']</span>
+                    <span style="color:#128b0a;">[</span><a href="baby.php?mod=view&id=$v['id']"><span style="color:#128b0a;">查看详情</span></a><span style="color:#128b0a;">]</span><br /><br />
+                    <span><strong style="color:#676767">状态：</strong></span>
+                    <span style="color:red">$v['state']</span><br /><br />
+                    <a href="baby.php?mod=view&id=$v['id']&do=unfollow"> <span style="background:url(image/stcn20_cancel.jpg) no-repeat;padding:7px 10px;margin-left:40px;line-height:24px;color:#fff">取消关注</span> </a> 
+
+                    </div>
+                </div>
+            </div>
+    <!--{/if}-->
+    </td>
+    <!--{if $k%2==0}-->
+    <td width="10"></td>
+    <!--{else}-->
+    </tr></table>
+    <table><tr><td height="10"></td></tr></table><!--{/if}-->
+    <!--{/loop}-->
+</div>
+<div class="sctn20_1_2_2_2">
+	<div class="pe-page2">$multipage</div>
+</div>
+</div>
+</div>
+<!--<div class="zhiyuanzhe_r_bot" id="ti2" style="display:none">111111111111</div>-->
+<div style="clear: both;"></div>
+</div>
+
+
+</div>
+<script>
+function ti(t){
+for(f=1;f<=2;f++){
+document.getElementById("ti"+f).style.display="none"
+document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+document.getElementById("a"+f).style.color="#529F05"
+document.getElementById("a"+f).style.fontWeight=""
+}
+document.getElementById("ti"+t).style.display=""
+document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+document.getElementById("a"+t).style.color="#fff"
+document.getElementById("a"+t).style.fontWeight="bold"
+
+}	
+</script>
+<!--{subtemplate baby/foot}-->

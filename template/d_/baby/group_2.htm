@@ -1,0 +1,344 @@
+<!--{subtemplate baby/head}-->
+
+
+
+<!--content-->
+
+  
+<div class="sctn21_1">
+  <div class="sctn21_1_1">
+    <div class="sctn21_1_1_1"><img src="image/icon.gif" width="51" height="43" align="top" /> 工作组申请</div>
+  </div>
+  <div class="sctn21_1_2">
+    <ul>
+      <li class="sctn21_1_2_1">1.填写信息登记</li>
+      <li>2.上传照片</li>
+      <li>3.完成登记</li>
+    </ul>
+  </div>
+    
+
+
+
+  
+
+
+       
+     <div class="main_step_text" style="position:relative;">
+     
+	 <form enctype="multipart/form-data" action="baby.php?mod=group&type=$type&step=2" method="POST" id="form1" name="form1" target="show">
+      <div class="main_text_left_1">
+
+	   <script type="text/javascript" src="/js/calendar/WdatePicker.js"></script>
+
+	   
+
+<table width="100%" cellspacing="5">
+
+			<tr>
+
+	 		<td width="25%" align="right"><span class="s1"><strong>　*&nbsp;</strong></span>申请工作组名：</td>
+
+            <td width="75%"><select name="types">
+
+            	<!--{loop $types $v}-->
+
+            	<option value="$v['id']">$v['name']</option>
+
+            	<!--{/loop}-->
+
+            	</select>
+
+            </td>
+
+         </tr>
+
+         
+
+		<tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>申请人姓名：</td>
+
+            <td><input type="text" class="text_a" name="name" id="name"/>　</td>
+
+         </tr>
+
+         
+
+         <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>性别：</td>
+
+            <td>男<input name="sex" type="radio" value="1" checked="checked"> 女<input type="radio" name="sex" value="2">　</td>
+
+         </tr>
+
+         
+
+         <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>年龄：</td>
+
+            <td><select name="age">$ageHtml</select></td>
+
+         </tr>
+
+         
+
+         <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>申请人QQ号：</td>
+
+            <td><input type="text" class="text_a" name="qq" id="name"/>　</td>
+
+         </tr>
+
+         
+
+         <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>所在群名称：</td>
+
+            <td><input type="text" class="text_a" name="qq_name" id="name"/>　</td>
+
+         </tr>
+
+         
+
+         <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>所在QQ群号码：</td>
+
+            <td><input type="text" class="text_a" name="qq_group" id="name"/>　</td>
+
+         </tr>
+
+         
+
+         <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>志愿者群内昵称：</td>
+
+            <td><input type="text" class="text_a" name="qq_nick_name" id="name"/>　</td>
+
+         </tr>
+
+         
+
+         <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>论坛用户名：</td>
+
+            <td><input type="text" class="text_a" name="bbs_name" id="name"/>　</td>
+
+         </tr>
+
+         
+
+         <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>工作单位：</td>
+
+            <td><input type="text" class="text_a" name="work_name" id="name"/>　</td>
+
+         </tr>
+
+         
+
+         <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>身份证号：</td>
+
+            <td><input type="text" class="text_a" name="idcard" id="name"/>　</td>
+
+         </tr>
+
+         
+
+         <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>职业：</td>
+
+            <td><input type="text" class="text_a" name="work" id="name"/>　</td>
+
+         </tr>
+
+         
+
+         <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>所在地：</td>
+
+            <td><select name="province"></select><select name="city"></select><select name="area"></select>　</td>
+
+        <script src="js/PCASClass.js" type="text/javascript"></script>
+
+            <script language="javascript" defer>
+
+		new PCAS("province","city","area");
+
+		</script>
+
+         </tr>
+
+         
+
+         <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>地址：</td>
+
+            <td><input type="text" class="text_a" name="address" id="name"/>　</td>
+
+         </tr>
+
+         
+
+         <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>邮编：</td>
+
+            <td><input type="text" class="text_a" name="zipnum" id="name"/>　</td>
+
+         </tr>
+
+         
+
+          <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>手机：</td>
+
+            <td><input type="text" class="text_a" name="moblie" id="name"/>　</td>
+
+         </tr>
+
+         
+
+          <tr>
+
+	 		<td align="right"><span class="s1"><strong>　 &nbsp;</strong></span>电话：</td>
+
+            <td><input type="text" class="text_a" name="tel" id="name"/>　</td>
+
+         </tr>
+
+         
+
+          <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>E-mail：</td>
+
+            <td><input type="text" class="text_a" name="email" id="name"/>　</td>
+
+         </tr>
+
+         
+
+          <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>是否方便打电话：</td>
+
+            <td>是<input type="radio" name="is_tel" value="1"> 否<input type="radio" name="is_tel" value="2">　</td>
+
+         </tr>
+
+         
+
+          <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>特长：</td>
+
+            <td><input type="text" class="text_a" name="tec" id="name"/>　例：图文制作、文字编辑等</td>
+
+         </tr>
+
+         
+
+          <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>每天允许上网时间：</td>
+
+            <td><input type="text" class="text_a" name="nettime" id="name"/>　</td>
+
+         </tr>
+
+         
+
+          <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>何时加入宝贝回家及通过何种途径了解到宝贝回家：</td>
+
+            <td><input type="text" class="text_a" name="how_get_baobei" id="name"/>　</td>
+
+         </tr>
+
+         
+
+          <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>工作简历以及是否从事其他公益：</td>
+
+            <td><input type="text" class="text_a" name="work_intro" id="name"/>　</td>
+
+         </tr>
+
+         
+
+          <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>申请理由</td>
+
+            <td><input type="text" class="text_a" name="ask_reson" id="name"/></td>
+
+         </tr>
+
+         
+
+          <tr>
+
+	 		<td align="right"><span class="s1"><strong>　  &nbsp;</strong></span>简要谈谈成为地区群管理员后的工作思路及工作打算：</td>
+
+            <td><input type="text" class="text_a" name="plan" id="name"/>申请地方志愿者群管，必填</td>
+
+         </tr>
+
+         
+
+          <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>对宝贝回家的建议及希望：</td>
+
+            <td><input type="text" class="text_a" name="hope" id="name"/>　</td>
+
+         </tr>
+
+         
+
+         <tr>
+
+	 		<td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>邀请码：</td>
+
+            <td><input type="text" class="text_a" name="codes" id="name"/>　请向管理员申请邀请码</td>
+
+         </tr>
+
+       
+
+
+		</table>
+       </div>
+ <div class="sctn21_1_3_2" style="width:700px; margin:0 auto; float:none"><input style="float:none; margin:15px auto" type="submit" value="下一步" class="sctn21_1_3_1" /></div>
+</form>
+</div>
+</div>
+
+</div>
+
+       
+
+<div class="sctn21_2"> &nbsp;</div>
+
+
+
+    <!--conttentend-->
+
+<!--{subtemplate baby/foot}-->

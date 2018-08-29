@@ -1,0 +1,77 @@
+
+<tr><td><!--{if $result['birth_day']!=""}--><b class="lbt">出生日期：</b>$result['birth_day']<!--{/if}--></td><td>
+<!--{if $result['lost_height']!=""}--><b class="rbt">失踪时身高：</b>$result['lost_height']<!--{/if}-->
+</td></tr>
+
+<!--{if $result['lost_day']!=""}--><tr><td><b class="lbt">失踪日期：</b>$result['lost_day']</td><td></td></tr><!--{/if}-->
+<!--{if $result['is_take_blood']!=""}--><tr><td><b class="lbt">是否采血：</b>$result['is_take_blood']</td><td></td></tr><!--{/if}-->
+<!--{if $result['take_blood_fad']!=""}--><tr><td><b class="lbt">父亲姓名：</b>$result['take_blood_fad']</td><td></td></tr><!--{/if}-->
+<!--{if $result['take_blood_mad']!=""}--><tr><td><b class="lbt">母亲姓名：</b>$result['take_blood_mad']</td><td></td></tr><!--{/if}-->
+<!--{if $result['blood_address']!=""}--><tr><td><b class="lbt">采血地点：</b>$result['blood_address']</td><td></td></tr><!--{/if}-->
+<!--{if $result['blood_time']!=""}--><tr><td><b class="lbt">采血时间：</b>$result['blood_time']</td><td></td></tr><!--{/if}-->
+<!--{if $result['blood_is_add']!=""}--><tr><td><b class="lbt">DNA是否入全国打拐数据库：</b>$result['blood_is_add']</td><td></td></tr><!--{/if}-->
+
+<!--{if $result['is_report']!=""}--><tr><td><b class="lbt">是否报案：</b>$result['is_report']</td><td>
+<!--{if $result['report_name']!=""}--><b class="lbt">报案机关名称：</b>$result['report_name']<!--{/if}-->
+</td></tr><!--{/if}-->
+
+
+<!--{if $result['report_is_add']!=""}--><tr><td><b class="lbt">是否立案：</b>$result['report_is_add']</td><td></td></tr><!--{/if}-->
+<!--{if $result['birth_address']!=""}--><tr><td><b class="lbt">失踪人户籍所在地： </b>$result['birth_address']</td><td></td></tr><!--{/if}-->
+<!--{if $result['lost_address']!=""}--><tr><td colspan="2"><b class="lbt">失踪地： </b>$result['lost_address']</td></tr><!--{/if}--> 
+<!--{if $result['lost_person_feature']!=""}--><tr><td colspan="2"><b class="lbt">失踪人特征描述： </b>$result['lost_person_feature']</td></tr><!--{/if}--> 
+<!--{if $result['lost_intro']!=""}--><tr><td colspan="2"><b class="lbt">失踪经过： </b>$result['lost_intro']</td></tr><!--{/if}--> 
+<!--{if $result['family']!=""}--><tr><td colspan="2"><b class="lbt">家庭背景以及线索资料： </b>$result['family']</td></tr><!--{/if}--> 
+<!--{if $result['other_intro']!=""}--><tr><td colspan="2"><b class="lbt">其他资料： </b>$result['other_intro']</td></tr><!--{/if}-->
+
+<!--{if $result['contact_name']!=""}--><tr><td><b class="lbt">联系人姓名：</b>$result['contact_name']</td><td>
+<!--{if $result['contact_relation']!=""}--><b class="lbt">联系人与失踪人关系：</b>$result['contact_relation']<!--{/if}-->
+</td></tr><!--{/if}-->
+
+<!--{if $result['write_relation']!=""}--><tr><td><b class="lbt">填写人与失踪人关系：</b>$result['write_relation']</td><td></td></tr><!--{/if}-->
+<!--{if $result['moblie']!=""}-->
+<tr><td>
+<b class="lbt">手机：</b>$result['moblie']
+</td><td></td></tr>
+<!--{/if}-->
+<!--{if $result['tel']!=""}-->
+<tr><td>
+<b class="lbt">电话：</b>$result['tel']
+<!--{/if}-->
+</td><td></td></tr>
+<!--{if $result['email']!=""}--><tr><td><b class="lbt">邮箱：</b>$result['email']</td><td></td></tr><!--{/if}-->
+<!--{if $result['qq']!=""}--><tr><td><b class="lbt">qq：</b>$result['qq']</td><td></td></tr><!--{/if}-->
+
+<!--{if $result['address']!=""}--><tr><td colspan="2"><b class="lbt">地址：</b>$result['address']</td></tr><!--{/if}-->
+<!--{if $result['other_contact']!=""}--><tr><td colspan="2"><b class="lbt">其他联系方式：</b>$result['other_contact']</td><td></td></tr><!--{/if}-->
+
+<!--
+失踪人姓名：name
+性别：男　sex
+出生日期：birth_day
+失踪时身高：lost_height
+失踪日期：lost_day>
+是否采血：是is_take blood
+采血地点：blood_address
+采血时间：blood_time
+DNA是否入全国打拐数据库：是 blood_is_add
+是否报案：是 is_report
+报案机关名称：report_name
+是否立案：是 report_is_add
+失踪人户籍所在地： birth_address 
+失踪地： lost_address 
+失踪人特征描述： lost_person_feature 
+失踪经过： lost_intro 
+家庭背景以及线索资料： family 
+其他资料： other_intro
+
+联系人姓名：contact_name
+联系人与失踪人关系：contact_relation
+填写人与失踪人关系：write_relation
+手机：moblie
+电话：tel
+邮箱：email
+qq：qq
+地址：address
+其他联系方式：other_contact
+-->		

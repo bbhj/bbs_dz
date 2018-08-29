@@ -1,0 +1,96 @@
+<!--{subtemplate baby/head}-->
+
+
+
+<!--content-->
+
+  <script src="js/jquery.Jcrop.js"></script>
+
+    <link rel="stylesheet" href="css/jquery.Jcrop.css" type="text/css" />
+
+
+<div class="sctn21_1">
+  <div class="sctn21_1_1">
+    <div class="sctn21_1_1_1"><img src="image/icon.gif" width="51" height="43" align="top" /> 寻亲登记 - {$current_step_name}
+  </div>
+  </div>
+  <div class="sctn21_1_2">
+    <ul>
+      <li>1.选择登记类型</li>
+      <li>2.填写信息登记</li>
+      <li class="sctn21_1_2_1">3.上传照片</li>
+      <li>4.完成登记</li>
+    </ul>
+  </div>
+       
+
+       <div class="main_step_text" style="position:relative;">
+
+      
+
+         <div class="main_text_left_1">
+
+			
+
+		
+
+
+
+	 <form action="baby.php?mod=find&type=$type&step=3" method="POST" target="show" enctype="multipart/form-data">
+
+	 <p>&nbsp;</p
+
+		><span class="s1"><strong><font color="red">　*</font>&nbsp;</strong></span>上传失踪人照片：<input id='mypic' type="file" class="text_a" name="photo"/>&nbsp;&nbsp;&nbsp;&nbsp; 不支持gif、png格式<br />
+
+		<p align="center"></p>
+
+	 <p>&nbsp;</p>
+
+		<div id="bot" style="width:700px; margin:10 auto; float:none;">
+
+		<input type="submit" value="下一步" name="submit" class="sctn21_1_3_1" /><a href="baby.php?mod=find&type=$type&step=4" name="submit" class="sctn21_1_3_1" style="text-align:center" />跳过</a>
+
+		<input type="hidden" value="$id" name="id"/>
+
+		</div>
+
+		
+
+		</form>
+
+		 </div>
+
+         
+
+       </div>
+
+       
+
+       <div class="main_button" style="position:relative;"><!--<input name="" type="button" value="下一步" style="background:url(image/button.jpg); width:92px; height:27px; color:#FFF; font-size:15px; font-family:黑体; font-weight:bold; border:0px; margin:auto;cursor:pointer;" />--></div>
+
+    </div>
+  <div class="main_cube2">&nbsp;</div>
+
+    <div style="margin:0 auto; height:50px;"></div>
+
+</div>
+
+    
+
+    <div class="sctn21_2"> &nbsp;</div>
+
+    
+
+    
+
+    
+
+
+
+	
+
+  
+
+    <!--conttentend-->
+
+<!--{subtemplate baby/foot}-->

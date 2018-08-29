@@ -1,0 +1,113 @@
+<!--{subtemplate baby/head}-->
+
+
+<div class="main" style="margin-top:0">
+<div style="width:970px; height:100px; margin:0 auto"><img src="../image/tvbanner.jpg" /></div>
+  <div id="tv">
+    <div id="tv_top"> 
+      <!--
+	    <div id="tv_topl">
+        <param name="wmode" value="transparent">
+		<embed src="$tv['tvurl']?<!--{if $id}-->isAutoPlay=true<!--{/if}-->" quality="high" width="730" height="480" align="middle" allowScriptAccess="always" allowFullScreen="true" wmode="transparent"  type="application/x-shockwave-flash">
+      </embed>
+    </div>
+    <div id="tv_topr">
+      <ul>
+        <!--{loop $textList $v}--> 
+        <img src='$v['img']'><a href="#">$v['title']</a><br />
+        <a href="tv.php?id=$v['id']">点击播放</a>&nbsp;&nbsp;&nbsp;&nbsp;时长：$v['timelong']<br />
+        <hr />
+        <!--{/loop}-->
+      </ul>
+    </div>
+    -->
+    <div id="tv_topl">
+      <embed src="$tv['tvurl']?<!--{if $id}-->isAutoPlay=true<!--{/if}-->" quality="high" width="640" height="480" align="middle" allowScriptAccess="always" allowFullScreen="true" mode="transparent" type="application/x-shockwave-flash"></embed>
+    </div>
+    <div id="tv_topr_box"> 
+      
+      <!--{loop $textList $v}-->
+      
+      <div id="tv_topr_list">
+        <div id="tv_topr_list_pic"><img src="$v['img']" width="98" height="75"/></div>
+        <div id="tv_ropr_list_right">
+          <div id="tv_ropr_bt">$v['title']</div>
+          <div id="tv_ropr_play">
+            <ul>
+              <li>
+                <div style="_margin-top:4px;">&nbsp;<a href="tv.php?id=$v['id']"><img src="image/paly_now.jpg" alt="" width="81" height="16" /></a></div>
+              </li>
+              <li>&nbsp;&nbsp;时间：$v['timelong']</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!--{/loop}--> 
+      
+    </div>
+    
+    <!--{if !empty($picList)}-->
+    <div id="tv_bot" style="background:none">
+      <div id="tv_botl" style="background:#fff; margin-top:10px;"><a class=prev id=J_prev href="javascript:void(0);"><img src="image/left.jpg" /></a></div>
+      <div id="tv_botc" style="background:#fff; margin-top:10px; _width:900px; _overflow:hidden;">
+        <div class="slide-content" id="J_slide">
+          <div class="wrapa">
+            <ul class="ks-switchable-content">
+              <!--{loop $picList $k $v}--> 
+              <li <!--{if $k==0}-->style="margin-left:5px;"<!--{/if}-->>
+              <dl>
+                <dt><img src="$v['img']" width="162" height="122" /></dt>
+                <dd><a href="tv.php?id=$v['id']">$v['title']</a></dd>
+              </dl>
+              </li>
+              <!--{/loop}-->
+            </ul>
+          </div>
+<SCRIPT type=text/javascript>
+var D=YAHOO.util.Dom, E=YAHOO.util.Event;
+KISSY().use("*", function(S) {
+var el = D.get('J_slide'),
+activeIndex = parseInt(el.getAttribute('data-active-index')) || 0;
+var carousel = new S.Carousel(el, {
+hasTriggers: false,
+navCls: 'ks-switchable-nav',
+contentCls: 'ks-switchable-content',
+activeTriggerCls: 'current',
+effect: "scrollx",
+steps:6,
+viewSize: [1066],
+activeIndex: activeIndex
+});
+E.on('J_prev', 'click', carousel.prev, carousel, true);
+E.on('J_next', 'click', carousel.next, carousel, true);
+});
+KISSY().use("*", function(S) {
+var el = D.get('J_shoppingGuide');
+if(!el){
+return;
+}
+var	activeIndex = parseInt(el.getAttribute('data-active-index')) || 0;
+var carousel = new S.Carousel(el, {
+navCls: 'ks-switchable-nav',
+contentCls: 'ks-switchable-content',
+activeTriggerCls: 'current',
+effect: "scrollx",
+steps: 6,
+viewSize: [1066],
+activeIndex: activeIndex
+});
+E.on('J_shoppingGuidePrev', 'click', carousel.prev, carousel, true);
+E.on('J_shoppingGuideNext', 'click', carousel.next, carousel, true);
+});
+</SCRIPT> 
+        </div>
+      </div>
+      <div id="tv_botr" style="background:#fff; margin-top:10px;"><a id=J_next href="javascript:void(0);"><img src="image/right.jpg" /></a></div>
+    </div>
+    <!--{/if}--> 
+    
+  </div>
+</div>
+
+<!--{subtemplate baby/foot}-->

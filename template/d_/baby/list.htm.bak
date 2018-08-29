@@ -1,0 +1,112 @@
+<!--{subtemplate baby/head}-->
+ 
+<!-- body开始 --> 
+
+<div id="table_1">
+
+<!-- 宝贝信息开始 --> 
+<div id="table_1_normaldivl">
+<ul>
+ <li><div id="table_1_photo"><img src="$result['photo']" width="277" height="370" /></div>
+ <li><div id="font_red">本网站不保证寻亲酬金的有效性，知情人如需要有偿提供线索，请亲自与寻亲人联系确认，本网站及志愿者提供的寻亲服务均是免费。</div>
+</ul>
+</div>
+
+<div id="table_1_normaldivr">
+<ul>
+ <li id="table_1_li720"><img src="image/d_djxx.jpg" width="200" height="50" />
+ <li id="table_1_li130a">类&nbsp;&nbsp;&nbsp;别：
+ <li id="table_1_li230a">$result['type']
+ <li id="table_1_li130a">出生日期：
+ <li id="table_1_li230c">$result['birth_day']
+ <li id="table_1_li130b">宝贝回家编号：
+ <li id="table_1_li230b">$result['id']
+ <li id="table_1_li130b">失踪时身高：
+ <li id="table_1_li230d">$result['lost_height']
+ <li id="table_1_li130b">姓&nbsp;&nbsp;&nbsp;名：
+ <li id="table_1_li230b">$result['name']
+ <li id="table_1_li130b">失踪时间：
+ <li id="table_1_li230d">$result['lost_day']
+ <li id="table_1_li130b">姓&nbsp;&nbsp;&nbsp;别：
+ <li id="table_1_li230b">$result['sex']
+ <li id="table_1_li130b">失踪人所在地：
+ <li id="table_1_li230d">$result['birth_address']
+ <li id="table_1_li130b">失踪地点：
+ <li id="table_1_li230b">$result['lost_address']
+ <li id="table_1_li130b">其他资料：
+ <li id="table_1_li230d">$result['other_intro']
+ 
+ <li id="table_1_li130_120">失踪人特征描述：
+ <li id="table_1_li590_120"><div id="table_1_li_top">$result['lost_person_feature']</div>
+ <li id="table_1_li130c">注册时间：
+ <li id="table_1_li590">$result['insert_time']
+  <li id="table_1_li130c">操作：
+ <li id="table_1_li590">
+ 
+ <a href="baby.php?mod=view&id=$id&do=<!--{if $uidTmp}-->unfollow<!--{else}-->follow<!--{/if}-->"><font color="Red"><!--{if $uidTmp}-->取消关注<!--{else}-->关注<!--{/if}--></font></a>
+</ul>
+</div>
+<!-- 宝贝信息结束 -->
+
+<!-- 分享信息开始 -->
+<div id="table_1_fx">
+    <div id="table_1_fx_ul">
+    
+    <!-- Baidu Button BEGIN -->
+    <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
+        <a class="bds_qzone"></a>
+        <a class="bds_tsina"></a>
+        <a class="bds_tqq"></a>
+        <a class="bds_renren"></a>
+        <span class="bds_more">更多</span>
+		<a class="shareCount"></a>
+    </div>
+<script type="text/javascript" id="bdshare_js" data="type=tools" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+	document.getElementById("bdshell_js").src = "http://share.baidu.com/static/js/shell_v2.js?t=" + new Date().getHours();
+</script>
+<!-- Baidu Button END -->
+    </div>
+</div>
+<!-- 分享信息结束 -->
+<!--{if $bbsList1}-->
+<!-- 论坛信息开始 -->
+<div id="table_1_lt1">
+
+</div>
+
+<div id="table_1_lt4">
+    <div id="table_1_lt2">
+    <ul>
+    <li id="table_1_lt_li1">最新评论：
+    <!--{loop $bbsList1 $k $v}-->
+    <li id="table_1_lt_li2">$v['author']：{$v['message']}
+    <li id="table_1_lt_li3">          $v['dateline']
+    <!--{/loop}-->
+    </ul>
+    </div>
+    <div id="table_1_lt3">
+    
+    </div>
+    <div id="table_1_lt2">
+    <ul>
+    <li id="table_1_lt_li1">最新评论： 
+    <!--{loop $bbsList2 $k $v}-->
+    <li id="table_1_lt_li2">$v['author']：{$v['message']}
+    <li id="table_1_lt_li3">         $v['dateline']
+    <!--{/loop}-->
+    </ul>
+    </div>
+</div>
+<!-- 论坛信息结束 -->
+<!--{/if}-->
+</div>
+
+<!-- body结束 -->
+
+    
+	
+
+	
+	<!--{subtemplate baby/foot}-->

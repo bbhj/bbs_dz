@@ -1,0 +1,651 @@
+/*
+
+Extend CSS file for Discuz! X
+(C) Comsenz Inc.
+http://www.comsenz.com
+Created & Modified by Monkey, Lushnis, Pony, Dfox & DragonLee.
+
+1. 一些通用模块的样式
+	1. 公告
+	2. 在线会员列表
+	3. 类似群组中邀请好友中的好友列表
+	4. 动态列表
+	5. 进度条
+	6. 广场以外的引用、代码样式
+	7. 版主管理(包括2.3、2.4)
+	8. 登录注册
+	9. 标签
+2. 发帖相关样式
+	1. 编辑器中的功能样式
+	2. 主题图标
+	3. 提交表单
+	4. 发特殊主题帖
+3. 列表样式
+	1. 广场版块、群组分类列表
+	2. 房屋列表
+	3. 主题列表
+4. 帖子内容区域样式
+	1. 结构
+	2. 作者、时间、楼层等一些属性
+	3. 帖子正文
+		1. 回帖推荐、点评等
+		2. 用户详细信息
+		3. 帖子附件及一些特殊样式(如锁定、引用、代码等)
+	4. 特殊帖样式
+	5. 广场和空间共用的商品、辩论等样式
+	6. 显示原始图片弹出层样式
+5. 群组相关样式
+6. 文章、日志等页面样式
+7. 空间相关样式
+8. 门户相关样式
+9. 漫游相关样式
+10.搜索相关样式
+11.排行榜相关样式
+12.统计相关样式
+
+* 全局 CSS 样式参见 common.css
+* 以下为模块 CSS 写法举例
+* 分类之间空三行，模块之间空两行，区块之间空一行 */
+
+/** group::index **/
+	/* 群组 index 模块使用的CSS */
+/** end **/
+
+/** group::index,forum::index **/
+	/* 群组 index 和 论坛 index 模块使用的CSS */
+/** end **/
+
+/** forum **/
+	/* 论坛 所有模块使用的CSS */
+/** end **/
+
+
+
+/* ------------------------------------------------------------------------ 一些通用模块的样式 */
+
+/** forum::index **/
+#pt .y { width: 550px; height: 29px; overflow: hidden; }
+#chart { margin-bottom: 5px; }
+	.chart { padding-left: 22px; background: url({IMGDIR}/chart.png) no-repeat 0 50%; color: {LIGHTTEXT}; }
+		.chart em { color: {TABLETEXT}; }
+/*
+	Name:			mod_announcement
+	Level:			Function
+	Explain:		公告。放置在不同位置时注意调整 #anc, #an li 的高度
+	Last Modify:	Pony 11050309
+*/
+	#an { margin-bottom: 5px; }
+		#an dt { display: none; }
+		#an li { float: right; clear: both; width: 526px; text-align: right; }
+			#an li span { float: left; width: 450px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+			#an li em { float: left; width: 75px; color: {LIGHTTEXT}; }
+			#anc, #an li { height: 29px; overflow: hidden; }
+
+/* 在线会员列表 */
+	.oll li { float: left; overflow: hidden; white-space: nowrap; width: 19.9%; height: 24px; line-height: 24px; }
+		.oll img { vertical-align: middle; }
+
+/* 论坛首页热点 by Pony */
+	.heat { width: 370px; }
+	.heatl { padding-left: 15px; margin-left: 385px; background: url({IMGDIR}/vline.png) repeat-y 0 0; }
+/** end **/
+
+
+/** misc::invite,group,forum::viewthread **/
+	/* .usl -> 用于类似群组中邀请好友中的好友列表 by Pony */
+		.usl { overflow: scroll; overflow-x: hidden; padding: 5px; width: 580px; height: 280px; }
+		.usl2 { width: auto; border: dashed {WRAPBORDERCOLOR}; border-width: 0 1px 1px; }
+			.usl li { overflow: hidden; float: left; margin: 3px; width: 134px; height: 64px; }
+			.usl a { display: block; padding: 4px; border: 1px solid {WRAPBG}; }
+				.usl a:hover { text-decoration: none; border: 1px solid; border-color: #DDD #999 #999 #DDD; background: {COMMONBG}; }
+			.usl .avt { float: left; margin-right: 5px; width: 52px; height: 52px; border: 1px solid {COMMONBORDER}; background-color: {WRAPBG}; background-position: 2px 2px; background-repeat: no-repeat; zoom: 1; }
+			.usl .d { float: left; width: 65px; height: 54px; overflow: hidden; word-wrap: break-word; }
+			.usl li.a a, .usl li.a a:hover { border-color: #F90; background-color: #FFF1E1; }
+			.usl li.a .avt span { display: block; margin-left: 2px; width: 50px; height: 50px; background: url({IMGDIR}/mark.png) no-repeat left bottom; }
+		.usd { padding: 5px 10px 0; border: solid {WRAPBORDERCOLOR}; border-width: 1px 0; background-color: {COMMONBG}; }
+		.usd2 { border-width: 1px; border-style: dashed; }
+			.usd li { float: left; margin-right: 1%; width: 48%; }
+/** end **/
+
+
+/** home::space,home::spacecp,group::group,userapp::userapp,misc::ranklist,portal::view,forum::viewthread,group::viewthread,home::medal,misc::tag **/
+	/* .el -> feed_list 动态列表 by Pony */
+	.e { overflow: hidden; }
+		.e .i, .el .i { padding: 6px 10px; border-bottom: 1px dashed {COMMONBORDER}; background: #F7F7F7; }
+	.el {}
+		.et { margin: 20px 0 10px; }
+		.el li { padding: 10px 20px; min-height: 20px; border-bottom: 1px dashed {COMMONBORDER}; }
+			.ie6 .el, .ie6 .el li { zoom: 1; }
+		.el .t { position: absolute; margin: 1px 0 0 -20px; }
+		.el .o { overflow: hidden; float: right; margin: 4px -20px -4px 0; width: 16px; height: 16px; text-indent: 20px; background: url({IMGDIR}/op.png) no-repeat -2px -62px; }
+			/* 外宽改变时 .ie6 .el .o, .ie6 .xlda .el .o 的 margin 值需要更改 */
+			.ie6 .el .o { position: absolute; margin: 2px 0 0 525px; }
+			.el .del { background-position: -2px -22px; }
+		.el .d { padding-top: 10px; color: {MIDTEXT}; }
+		.ec .tn { margin: 10px 10px 0 0; cursor: pointer; }
+		.ec a .tn { float: left; padding: 2px; max-width: 90px; max-height: 90px; border: 1px solid {COMMONBORDER}; }
+			.ie6 .ec a .tn { width: expression(this.width > 90 && this.width >= this.height ? 90 : true); height: expression(this.height > 90 && this.width <= this.height ? 90 : true); }
+		.el .ec .hot { float: right; margin: 10px 0 0 10px; width: 55px; height: 50px; background: url({IMGDIR}/hotspot.gif) no-repeat; }
+			.el .ec .hot a { display: block; line-height: 20px; text-align: center; color: #FFF; }
+				.el .ec .hot a:hover { text-decoration: none; }
+				.el .ec .hot em { display: block; line-height: 30px; font-size: 16px; color: {HIGHLIGHTLINK}; cursor: pointer; }
+		.el a { color: {HIGHLIGHTLINK}; }
+		/* 有头像的动态列表 */
+		.xlda .el { overflow: hidden; float: left; margin-top: -4px; width: 100%; }
+			.xlda .el li { margin-bottom: -4px; padding-top: 14px; }
+				.ie6 .xlda .el .o { margin: 2px 0 0 460px; }
+		#share_preview .h { display: none; }
+/** end **/
+
+
+/** forum::viewthread,group::viewthread,home::task,misc::stat,home::space **/
+	/* 进度条 */
+		.pbg { height: 16px; background: url({IMGDIR}/pllb.png) 0 0 repeat-x; -webkit-border-radius: 0 6px 6px 0; -moz-border-radius: 0 6px 6px 0; border-radius: 0 6px 6px 0; }
+		.pbr { height: 16px; width: 470px; background-image: url({IMGDIR}/pllb.png); background-color: #5AAF4A; background-position: 0 -16px; background-repeat: repeat-x; -webkit-border-radius: 0 6px 6px 0; -moz-border-radius: 0 6px 6px 0; border-radius: 0 6px 6px 0; }
+
+	/* 勋章链接hover时不显示下划线 by Pony 20110519 */
+	.md_ctrl a:hover { text-decoration: none; }
+/** end **/
+
+
+/**  forum::forumdisplay,forum::viewthread,group::viewthread,home::space,home::spacecp,home::invite,portal::view,portal::comment,forum::post,group::post **/
+	/* 广场以外的引用、代码样式 by Pony */
+		.quote { overflow: hidden; margin: 10px 0; padding-left: 16px; background: url({IMGDIR}/qa.gif) no-repeat 0 0; color: {MIDTEXT}; }
+			.quote blockquote { display: inline; margin: 0; padding-right: 16px; background: url({IMGDIR}/qz.gif) no-repeat 100% 100%; }
+			.m_c .quote { width: 585px; }
+		.blockcode { overflow: hidden; margin: 10px 0; padding: 5px 10px; background: #F7F7F7; color: {MIDTEXT}; }
+			.blockcode code { font-family: Monaco, Consolas, "Lucida Console", "Courier New", serif; font-size: 12px; line-height: 1.8em; }
+			* html .blockcode code { font-family: "Courier New", serif; }
+/** end **/
+
+
+/** forum::modcp,misc::stat **/
+	/* 版块管理 */
+		.mdcp {}
+			.stl { float: left; width: 15%; }
+			.str { float: left; overflow: auto; overflow-y: hidden; width: 84%; *padding-bottom: 17px; }
+/** end **/
+
+/** misc::tag **/
+/* 标签列表 by Pony */
+	.taglist { min-height: 270px; }
+		.ie6 .taglist { height: 270px; }
+		.taglist a { margin-right: 20px; line-height: 30px; white-space: nowrap; }
+/** end **/
+
+
+
+/* ------------------------------------------------------------------------ 发帖相关样式 */
+/** forum::post,forum::forumdisplay,forum::viewthread,group::post,group::forumdisplay,group::viewthread **/
+.ct2_a .mn { float: left; }
+.appl { float: right; margin-top: 8px; border: none; background-color: transparent; }
+.upf { width: 500px; }
+*+html .upf { width: 520px; }
+	.p_tbl { height: auto; line-height: 160%; border-bottom: none; }
+		.p_tbl table { *table-layout: fixed; }
+			.p_tbl table td { height: 28px; line-height: 28px; border-bottom: 1px solid {COMMONBG}; }
+				.atnu { width: 16px; }
+				/*.attachctrl { width: 40px; }*/
+				.atna {}
+					.atna p img, .attswf p img { vertical-align: middle; height: 16px; }
+					.atna .lighttxt, .attswf .lighttxt { color: {MIDTEXT} !important; }
+				.attpr { width: 40px; text-align: center; }
+					.attv .px, .attp .px { width: 25px; }
+					.attv { width: 100px; }
+				.atturl img { height: 20px !important; }
+				.attc { width: 20px }
+				*+html .attc { width: 40px; }
+				.atds { width: 80px; text-align: center; }
+					.atds .px { width: 60px; }
+				.attp { text-align: center; width: 40px; }
+		.upfl { height: auto !important; height: 165px; max-height: 300px; overflow: auto; overflow-x: hidden; }
+			.upfl a, #imgattachlist a { color: {HIGHLIGHTLINK}; }
+			.upfl table td { border-bottom: 1px solid {SPECIALBORDER}; height: 30px; line-height: 24px; }
+
+	.upnf { white-space: normal; }
+	.upbk { zoom: 1; }
+		.fldt { margin-bottom: 8px; }
+	/*未使用上传文件列表*/
+	.ufl { width: 300px; }
+	.ufl p{ padding: 4px 0; border-top: 1px solid {SPECIALBORDER}; }
+
+	.p_pop .flb { position: absolute; right: 10px; top: 18px; *top: 13px; }
+
+.imgl { margin-bottom: 5px; width: 100%; *width: 99.6%; }
+	.imgl td { padding: 8px 0; text-align: center; }
+	.imgl img { border: 1px solid {LIGHTTEXT}; }
+	.imgf .px { width: 106px; padding: 2px; height: 14px; line-height: 14px; }
+	.imgdeleted { opacity: 0.3; filter: alpha(opacity=30); }
+
+.fnm { width: 130px !important; }
+.fszm { width: 55px !important; line-height: normal; }
+.fnm li, .fszm li, .simm li { cursor: pointer; }
+.qsv { padding-left: 16px; width: 16px; height: 16px; background: url({IMGDIR}/repquote.gif) no-repeat 50% 50%; cursor: pointer; }
+
+/* 发帖时选择标签 by Pony */
+	.marked { padding-right: 16px; background: url({IMGDIR}/mark.png) no-repeat 100% 50%; }
+	#taglistarea a { white-space: nowrap; zoom: 1; }
+		#taglistarea .marked { padding-right: 0; background: none; font-weight: 700; color: {NOTICETEXT} !important; }
+/** end **/
+
+/** forum::post,group::post **/
+#post_extra_tb { position: relative; z-index: 2; }
+	#post_extra_tb label { float: left; margin-right: 3px; height: 21px; border: 1px solid {COMMONBORDER}; line-height: 21px; white-space: nowrap; }
+		#post_extra_tb label.a { border-bottom-color: {SPECIALBG}; background: {SPECIALBG} none; box-shadow: none; }
+			#post_extra_tb label span { float: left; padding: 0 8px 0 20px; background: url({IMGDIR}/dot.gif) no-repeat 8px 8px; line-height: 21px; }
+				#post_extra_tb span.a { background-image: url({IMGDIR}/dot_c.gif); }
+
+#post_extra_c { position: relative; z-index: 1; }
+	#post_extra_c .exfm { margin: -1px 0 0; border: 1px solid {COMMONBORDER}; }
+
+#draftlist { border-style: solid; border-width: 1px 1px 0; border-color: {WRAPBG}; }
+	#draftlist.a { position: relative; z-index: 302; border-color: {DROPMENUBORDER}; {DROPMENUBGCODE} }
+	#draftlist_menu { margin-top: -1px; padding: 10px; border: 1px solid {DROPMENUBORDER}; {DROPMENUBGCODE}; }
+/** end **/
+
+/** forum::viewthread,forum::forumdisplay,forum::post,group **/
+/* 主题图标 by michael */
+#newspecial_menu { width: 90px; }
+	#newspecial_menu li, #sti .wx { display: block; background: url({IMGDIR}/folder_new.gif) no-repeat 8px 50%; zoom: 1; }
+		#newspecial_menu .poll, #sti .poll { background-image: url({IMGDIR}/pollsmall.gif); }
+		#newspecial_menu .trade, #sti .trade { background-image: url({IMGDIR}/tradesmall.gif); }
+		#newspecial_menu .reward, #sti .reward { background-image: url({IMGDIR}/rewardsmall.gif); }
+		#newspecial_menu .activity, #sti .activity { background-image: url({IMGDIR}/activitysmall.gif); }
+		#newspecial_menu .debate, #sti .debate { background-image: url({IMGDIR}/debatesmall.gif); }
+		#newspecial_menu a { display: block; padding: 3px 0 3px 30px; white-space: normal; }
+			#newspecial_menu a:hover { background: none; color: {HIGHLIGHTLINK}; text-shadow: none; text-decoration: underline; }
+#sti {}
+	#sti .wx { padding-left: 25px; background-position: 0 50%; }
+	#sti .tb { margin-top: 0; }
+/** end **/
+
+
+/** forum::modcp,forum::post,group::post,home::spacecp,portal::portalcp **/
+/* 提交表单 */
+	.exfm { margin: 10px 0; padding: 10px 14px; border: 1px dashed {SPECIALBORDER}; background: {SPECIALBG}; }
+		.exfm .pn { height: 22px; line-height: 22px; font-size: 12px; }
+		.ie6 .exfm .pn, .ie7 .exfm .pn { line-height: 16px; }
+		.exfm .rq { float: right; padding-right: 2px; }
+		.exfm table { width: 100%; }
+			.exfm table th, .exfm table td { padding: 4px 2px; }
+		.mdcp .um { margin-bottom: 0; padding: 10px 5px; }
+
+/* 发特殊主题帖 by dfox */
+	.sinf p, .sadd p { padding: 2px 0; height: 30px; line-height: 30px; }
+	.sinf .px, .sadd .px { width: 120px; }
+	.sinf { float: left; padding-right: 14px; width: 380px; border-right: 1px dashed {WRAPBORDERCOLOR}; }
+		.sinf h4 { padding: 6px 0; }
+		.sinf textarea { width: 368px; height: 80px; }
+		.onum { float: left; margin-right: 6px; width: 16px; }
+		.oinf { width: 270px !important; }
+			.sinf dl, .sadd dl { overflow: hidden; }
+			.sinf dl dt, .sadd dl dt { float: left; padding-top: 3px\9; width: 75px; clear: left; }
+			.sinf dl dd, .sadd dl dd { margin-bottom: 10px; overflow: hidden; }
+			.sinf dl dd { width: 300px; }
+			.sinf span.fb, .sadd span.fb { display: block; float: left; margin-right: 6px; height: 26px; line-height: 26px; white-space: nowrap; }
+				.sinf dl dd strong { padding: 0 8px; }
+	.sadd { float: left; margin-left: 10px; width: 300px; overflow: hidden; }
+		.sadd dl dd { width: 220px; }
+		.spl em { float: left; margin-right: 9px; height: 20px; line-height: 20px; }
+		.spl input[type=radio] { margin: 0 3px 0 0; }
+	.spimg { margin: 0 10px 0 0; width: 200px; border: 1px solid #AAA; }
+	.spmp { width: 30px; }
+	.spmf { width: 300px; }
+		.spmf, .spmf3 { overflow: hidden; _height: 1%; }
+		.spmf label, .spmf3 label{ display: block; padding-top: 5px; }
+			.spmf em{ float: left; width: 150px;  }
+			.spmf3 em{ float: left; margin-right: 12px; }
+				.spmf3 .px { margin: 0 !important; width: 72px; }
+/** end **/
+
+
+/** forum::forumdisplay,forum::viewthread,group::forumdisplay,group::viewthread **/
+/* 开启快速发帖和推荐表情时的样式 by Pony */
+	#f_pst .bm_c { padding: 20px; }
+		#f_pst .tedt { width: auto; }
+		.hasfsl { margin-right: 170px; zoom: 1; }
+
+	#f_pst .upfl { height: auto; max-height: 100%; }
+		#f_pst .upfl td { padding: 4px 0; border-bottom-color: {COMMONBORDER}; }
+		#f_pst .atds { width: 100px; }
+		#f_pst .px { padding: 2px; }
+/** end **/
+
+
+
+/* ------------------------------------------------------------------------ 广场版块、群组分类等列表样式 */
+/** forum::index,forum::forumdisplay,group::index,group::group,search::group **/
+/* 版块列表 */
+.fl {}
+	.fl_tb { width: 100%; }
+		.fl_tb td { padding: 10px 0; }
+		.fl_icn { padding-right: 10px !important; width: 31px; }
+		.fl_by { width: 220px; }
+			.fl_by div { margin-left: 10px; width: 210px; padding-left: 8px; word-break: keep-all; word-wrap: normal; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+				.fl_by div .xi2 { zoom: 1; }
+			.fl_by cite { display: block; }
+		.fl_i { width: 150px; text-align: right; }
+			.fl_i em { display: block; width: 5em; }
+			.fl .i_z { margin-right: 8px; padding-right: 8px; border-right: 1px solid {CONTENTSEPARATE}; }
+	.fl_icn_g { float: left; width: 31px; }
+	.fl_g { vertical-align: top; }
+		.fl_g dl { margin-left: 31px; padding-left: 10px; }
+			.fl_g dt { font-weight: 700; }
+	.fl_row td { border-top: 1px dashed {COMMONBORDER}; }
+
+/* 群组分类列表 */
+	.flt {}
+		.flt .flc { width: 294px; }
+		.gcop { margin-right: 15px; clear: left; }
+		.ghfl dt, .flt dt { font-size: 14px; font-weight: 700; }
+			.ghfl dt span, .flt dt span, .flt dd span { font-size: 12px; font-weight: 200; color: {LIGHTTEXT}; }
+			.ghfl dd, .flt dd { line-height: 1.8em; }
+/** end **/
+
+
+/** forum::forumdisplay **/
+/*
+	Name:			mod_board_navigation
+	Level:			Function
+	Explain:		看贴页左侧的版块导航。宽度在CSS里没有默认值，宽度在后台设置
+	Last Modify:	Pony
+*/
+.bdl { float: left; overflow: hidden; border: 1px solid #BDD7E3; background-color: #F5F9FB; }
+	.ie6 .bdl { position: relative; }
+	.bdl_h { height: 32px; line-height: 22px; }
+.bdl .tbn { margin: 10px; }
+	/* 分区 */
+	.bdl dl { margin: -1px -10px 0; }
+		.bdl dt { overflow: hidden; height: 27px; line-height: 27px; border: solid #CCE0EB; border-width: 1px 0; background: #F5F9FB url({IMGDIR}/titlebg_sd.png) repeat-x 100% 0; }
+			.bdl dt a { display: block; padding: 0 15px 0 10px; }
+				.bdl dt a:hover, .bdl_a a:hover { text-decoration: none; }
+	/* 版块，默认收起 */
+	.bdl dd { display: none; }
+		.bdl dd a { display: block; margin: 0 3px; padding: 0 7px; height: 26px; line-height: 26px; overflow: hidden; }
+	/* 展开的分区 */
+	.bdl dl.a { padding-bottom: 4px; background-color: #FFF; }
+		.bdl dl.a dt { margin-bottom: 3px; background-position: 100% -27px; }
+		.bdl dl.a dd, .bdl_fav dd { display: block; overflow: hidden; zoom: 1; }
+			/* 当前版块 */
+			.bdl dd.bdl_a a { background-color: #F5F9FB; font-weight: 700; color: {HIGHLIGHTLINK}; }
+
+/*
+	Level:			Channel
+	Explain:		板块新帖提醒
+	Last Modify:	Max.Cong
+*/
+	#forumnew{ position: absolute; right: 0; top: 0; z-index: -1; }
+	.tl #forumnewshow { background: #FFFAF3; font-size: 12px; text-align: center; }
+	.tl #forumnewshow th, .tl #forumnewshow td { padding: 0; border: 0; }
+	.tl #forumnewshow th:hover, .tl #forumnewshow td:hover{ background: #FFFFE9; }
+	.tl #forumnewshow a { display: block; border-top: 1px solid #F4E4B4; border-bottom: 1px solid #F4E4B4; text-indent: 25px; height: 29px; line-height: 29px; color: #EFAA00; }
+	.tl #forumnewshow a:hover { text-decoration: none; }
+	#checknewline tr td, #checknewline tr th { background: #FFFFEB; text-align: center; color: #666; }
+
+	.newthread tr th, .newthread tr td { background: #FFFAF3; }
+	.newthread .new em { margin-right: 4px; }
+	.newthread .new em, .newthread .new em a { color: #007CD5; font: {FONTSIZE} {FONT}; }
+	/*
+	.tl .newthread tr:hover th, .tl .newthread tr:hover td{ background-color: transparent; }
+	*/
+
+.forumrefresh { padding-right: 14px; background: url({IMGDIR}/refresh.png) no-repeat 100% 50%; }
+/** end **/
+
+
+
+/* ------------------------------------------------------------------------ 主题列表样式 */
+/** forum::forumdisplay,forum::viewthread,forum::modcp,group,home::space,home::task,search::forum,search::group,member::groupexpiry,misc::ranklist,misc::stat,misc::tag **/
+/* fct --> froumatction 板块功能按钮 */
+	.fct a { float: left; margin-left: 8px; }
+	.fa_fav_0, .fa_fav, .fa_rss, .fa_achv, .fa_bin, .fa_ivt { padding-left: 20px; background: no-repeat 0 50%; }
+		.fa_fav_0 { background-image: url({IMGDIR}/fav_grey.gif); }
+		.fa_fav { background-image: url({IMGDIR}/fav.gif); }
+		.fa_rss { background-image: url({IMGDIR}/feed.gif); }
+		.fa_achv { background-image: url({IMGDIR}/clock.gif); }
+		.fa_bin { background-image: url({IMGDIR}/recyclebin.gif); }
+		.fa_ivt { background-image: url({IMGDIR}/user_add.gif); }
+
+/* 主题列表相关 */
+	/*.tl .th th a { float: left; margin-right: 10px; padding-right: 17px; background: url({IMGDIR}/arw_d2.gif) no-repeat 100% 50%; }*/
+	#fh { width: 644px; }
+		.mw #fh { width: 100%; }
+	#fh .bm { padding-top: 5px; padding-bottom: 0; }
+	#nv_group #fh { margin-bottom: 1em; }
+		#fh #gh { padding-top: 10px; }
+		#fh .h { margin-top: 10px; }
+			#fh .h * { float: left; }
+			#fh h1 { margin-right: 10px; font-size: 16px; }
+			#fh .h .y { float: right; }
+			#fh .o a { float: left; margin-right: 10px; }
+	#fh.m { padding-top: 0; background-color: {COMMONBG}; }
+	.xst { font-family: {THREADTITLEFONT}; font-size: {THREADTITLEFONTSIZE}; }
+
+	/* threadtype 帖子类型 */
+	.ttp { margin-bottom: 5px; padding-top: 10px; border-width: 2px 0 0; background: transparent; }
+		.ttp li { float: left; padding-bottom: 5px; }
+		.ttp a, .ttp strong { float: left; margin-right: 5px; padding: 4px 8px 3px; height: 18px; border: 1px solid {COMMONBORDER}; background: {WRAPBG}; white-space: nowrap; }
+			.ttp a:hover { border-color: {HIGHLIGHTLINK}; color: {HIGHLIGHTLINK}; text-decoration: none; }
+		.ttp .a a { padding-right: 12px;  padding-left: 12px; border-color: {HIGHLIGHTLINK}; background: {SPECIALBG}; color: {HIGHLIGHTLINK}; }
+		.ttp .pipe { float: left; margin-right: 10px; padding: 0; width: 2px; height: 27px; background: {SPECIALBORDER}; text-indent: -9999px; }
+	/* 版块有大量主题分类时的展开收起样式 by Pony */
+	.cttp { overflow: hidden; padding-right: 35px; height: 32px; }
+		.cttp .unfold, .cttp .fold { float: right; display: inline; margin: 5px -35px 9px 0; padding: 0 0 0 10px; width: 25px; height: 18px; background-color: transparent; color: {HIGHLIGHTLINK}; font-weight: 400; }
+
+	/* tl --> Thread list modify by lushnis */
+	.tl .bm_c { padding-top: 0; }
+	.tl table { width: 100%; table-layout: fixed; border-collapse: separate; }
+		.tl th, .tl td { padding: 5px 0; border-bottom: 1px solid {CONTENTSEPARATE}; }
+			.emptb th, .emptb td { padding: 0; border-bottom: none; }
+			.tl tr:hover th, .tl tr:hover td { background-color: {COMMONBG}; }
+			.tl th { padding-right: 1.5em; zoom: 1; }
+				.tl th a:visited { color: {MIDTEXT}; }
+				.fromg { visibility: hidden; }
+				.ie6 .fromg, tr:hover .fromg { visibility: visible; }
+			.tl .icn { padding-left: 5px; width: 25px; text-align: left; }
+			.tl .new {}
+			.tl .comm {}
+			.tl .frm { width: 150px; }
+			.tl .o { width: 20px; }
+			.tl .num { width: 60px; line-height: 14px; }
+			.tl .by { width: 105px; line-height: 14px; }
+				.tl cite, .tl .num em { display: block; }
+				.tl th em { margin-right: 4px; zoom: 1; }
+					.tl th em, .tl th em a { color: #007CD5; }
+				.tl td em { font-size: 11px; font-family: Arial, PMingliu, sans-serif; -webkit-text-size-adjust: none; }
+					.tl td em, .tl td em a { color: {LIGHTTEXT}; }
+			/*.tl .th th, .tl .th td { padding: 8px 0; background: {SPECIALBG}; border-top: 1px solid {SPECIALBORDER}; }*/
+			.tl .ts th, .tl .ts td { padding: 3px 0; border-bottom-color: {COMMONBORDER}; background: {COMMONBG}; }
+	.tl .th { margin-top: 1px; padding: 0 10px; border-bottom: 1px solid {COMMONBORDER}; background: {COMMONBG}; }
+		.tl .th table { border: none; }
+		.tl .th td, .tl .th th { height: 20px; border: none; vertical-align: baseline; }
+	.tl .tf { padding: 3px 0; }
+		.tf .showmenu:hover { border-color: {SPECIALBORDER}; }
+
+	/* recy --> recyclebin 主题列表的回收站主题样式 by shuaishuai*/
+	.recy { text-decoration: line-through; }
+
+	/* 主题分页 */
+	.tps { white-space: nowrap; }
+		.tps a { padding: 2px 4px; color: {TABLETEXT}; }
+			.tps a:hover { background-color: {COMMONBG}; color: #007CD5; }
+
+/*
+	Name:			mod_thread_type_search
+	Level:			Function
+	Explain:		分类信息搜索
+	Last Modify:	Pony 11050314
+*/
+	.mfm .mtm { margin-right: 10px; }
+	.mfm span { height: 26px; white-space: nowrap; }
+/** end **/
+
+
+/** forum::forumdisplay,group::forumdisplay,group::my **/
+/*
+	Name:			mod_thread_type
+	Level:			Function
+	Explain:		论坛群组的帖子主题分类分类信息等的筛选样式
+	Author:			lushnis
+	Last Modify:	Pony
+*/
+	.ttp .a a:hover { background: {SPECIALBG} url({IMGDIR}/close-s.png) no-repeat 100% 11px; }
+	#ttp_all a:hover { background-image: none !important; }
+/** end **/
+
+
+
+/* ----------------------------------------------------------------------- 帖子内容区域样式 */
+/** forum::viewthread,group::viewthread **/
+.plh { line-height: 46px; }
+	.plh .plc { padding-bottom: 0; }
+	.ts { font: 700 16px "Microsoft Yahei", Hei, Tahoma, SimHei, sans-serif; }
+
+#nv_forum #ct { border-color: {SPECIALBORDER}; }
+
+.pattimg { float: left; margin: 0 10px 10px 0; width: 100px; height: 100px; overflow: hidden; }
+.pattimg_zoom { position: absolute; display: block; width: 100px; height: 100px; line-height: 300px; overflow: hidden; }
+	.ie_all .pattimg_zoom { background-color: #FFF; filter:alpha(opacity=0); }
+.attl_g, .attl_m { margin-left: 10px; padding-left: 16px; background: url({IMGDIR}/attl_icon.png) no-repeat 0 3px; }
+	.attl_m { background-position: -100px 3px; }
+
+/* 默认分类信息 by michael */
+.ie6 .cgtl { width: auto; }
+	.cgtl { overflow: hidden; }
+	.cgtl td, .cgtl th, .cgtl caption { padding: 5px; border-bottom: 1px solid {SPECIALBORDER}; }
+	.cgtl caption { background: {SPECIALBG}; border-top: 1px solid {SPECIALBORDER}; font-size: 14px; font-weight: 700; }
+	.cgtl th { width: 16%; }
+/** end **/
+
+
+/** forum::forumdisplay,group::forumdisplay **/
+/* 帖子列表“新窗”、“图片模式”等按钮样式 modified by Pony */
+	#atarget, .unchk, .chked { padding-left: 15px; line-height: 16px; background: url({IMGDIR}/atarget.png) no-repeat 0 3px; color: {HIGHLIGHTLINK}; cursor: pointer; }
+		.ie_all #atarget, .ie_all .unchk, .ie_all .chked { display: inline-block; height: 20px; line-height: 20px; }
+		#atarget.atarget_1, .chked { background-position: 0 -37px; }
+		.unchk:hover, .chked:hover { text-decoration: none; }
+
+#a_magic_doodle { padding-left: 20px; background: url({STATICURL}image/magic/doodle.small.gif) 0 50% no-repeat; }
+
+/*
+	Name:			mod_Media_List_thread
+	Level:			Global
+	depentend:		.ml
+	Explain:		图片模式的帖子列表
+	Author:			lushnis
+	Last Modify:	Pony 11042616
+*/
+	.mlt {}
+		.mlt li { display: inline; margin: 0 4px 10px; padding-top: 5px; border: 1px solid {SPECIALBG}; border-bottom-color: {SPECIALBORDER}; background: #FFF; text-align: left; }
+			.mlt .sum { padding: 0 5px; border-radius: 5px; background: {SPECIALBG}; }
+			.mlt .c .nopic { background:{WRAPBG} url({IMGDIR}/nophototiny.png) no-repeat 50% 50%; }
+			.mlt img.vm { display: inline; }
+
+			.mlt h3 { height: 30px; line-height: 30px; font-weight: 400; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+			.mlt li .cl { height: 18px; overflow: hidden; }
+				.mlt li .c { height: auto !important; }
+
+/*
+	Name:			mod_threadlist_last-child
+	Level:			Function
+	Explain:		帖子列表页支持 last-child 的浏览器不显示最后一条线
+	Last Modify:	Pony
+*/
+.tl tbody:last-child th, .tl tbody:last-child td { border-bottom: none; }
+/** end **/
+
+
+/** forum::viewthread,group::viewthread,forum::trade,forum::misc **/
+#a_magic_doodle { padding-left: 20px; background: url({STATICURL}image/magic/doodle.small.gif) 0 50% no-repeat; }
+
+.pl {}
+	.pl table { table-layout: fixed; width: 100%; }
+		.pl .dt { width: 100%; }
+	.plm { vertical-align: bottom !important; }
+	.plc, .pls { vertical-align: top; overflow: hidden; }
+		.plc { padding: 0 20px; }
+		.pls { width: 160px; background: {SPECIALBG}; overflow: hidden; border-right: 1px solid {CONTENTSEPARATE}; }
+		.pls .avatar { margin: 10px 15px; }
+			.pls .avatar img { padding: 5px 5px 8px; background: #FFF url({IMGDIR}/midavt_shadow.gif) 0 100% repeat-x; }
+
+		.pls p, .pls .pil, .pls .o { margin: 5px 10px 5px 20px; }
+			.pls p em, .pls dt em { color: {NOTICETEXT}; }
+			.pls dd, .pls dt { float: left; overflow: hidden; height: 1.6em; line-height: 1.6em; }
+				.pls dt { margin-right: 3px; width: 60px; }
+				.pls dd { width: 65px; }
+	.ad .pls { background: {CONTENTSEPARATE}; padding: 0; height: 4px; }
+	.ad .plc { background: {SPECIALBG}; padding: 0; overflow: hidden; }
+	.pl .pnv .pls { background: {SPECIALBG}; border: solid {SPECIALBORDER}; border-width: 0 1px 1px 0; line-height: 16px; }
+		.pl .pnv .tns p { font-size: 12px; }
+	.pl .pnv .plc { border-bottom: 1px solid {SPECIALBORDER}; }
+
+	.pnh { padding: 11px 20px; }
+	.tnv { text-align: center; vertical-align: middle; } /* Threads navigation by lushnis */
+
+	#threadstamp { position: relative; width: 100%; height: 0; overflow: visible; }
+		#threadstamp img { position: absolute; top: -20px; right: 140px; }
+
+	#pl_top .ad .pls, #pl_top .ad .plc { height: 1px;overflow: hidden; }
+		#pl_top .pls { text-indent: 15px; }
+
+/* 帖子作者、时间、楼层等一些属性所在区块 */
+	.pi { overflow: hidden; margin-bottom: 10px; padding: 10px 0; height: 16px; border-bottom: 1px dashed {COMMONBORDER}; }
+		.pi strong a { float: right; margin-top: -6px; padding: 4px 6px; border: 1px solid {WRAPBG}; font-weight: 400; }
+			.pi strong a:hover { border-color: {COMMONBORDER}; }
+		.pls .pi { padding-left: 15px; }
+		.pi em {}
+		.pti {}
+			.authicn { cursor: pointer; }
+
+/* 帖子正文区块 */
+	.pcb { clear: left; margin-right: 130px; }
+		.ie6 .pcbs table, .ie6 .t_fsz table { width: auto; }
+		.pcb h1, .pcb h2 { margin: 8px 0; font-size: 1.17em; }
+			.pcb h1 a { font-weight: 400; }
+			.pcb h2 em { float: right; font-size: 12px; font-weight: 400; }
+			#ph { padding: 17px 0 0; }
+				#ph h1 { font-size: 20px; }
+			#fj { margin-left: 5px; }
+				#fj label, #fj input { margin-right: 4px; padding: 0; height: 16px; line-height: 16px; }
+		.pcb .jammer { font-size: 10px; color: {WRAPBG}; }
+
+		.pcb strong { font-weight: 700; }
+		.pcb em { color: {MIDTEXT}; }
+		.pcb span.t_tag { cursor: pointer; border-bottom: 1px solid red; white-space: nowrap; }
+			.pcb span.t_tag:hover { border-bottom: 1px solid {NOTICETEXT}; }
+		.pct { padding-bottom: 1em; }
+		.t_fsz { min-height: 100px; }
+			* html .t_fsz { height: 100px; overflow: visible; }
+		.t_f, .t_f td { font-size: {MSGFONTSIZE}; }
+			.t_f a { color: {HIGHLIGHTLINK}; text-decoration: underline; }
+		.t_f ul { margin-left: 14px; }
+			.t_f li { margin-left: 2em; }
+			.t_f ul li { list-style-type: disc; }
+				ul.litype_1 li { list-style-type: decimal; }
+				ul.litype_2 li { list-style-type: lower-alpha; }
+				ul.litype_3 li { list-style-type: upper-alpha; }
+		.sign { overflow: hidden; padding: 20px 0 10px; line-height: 1.6em; background: url({IMGDIR}/sigline.gif) no-repeat 0 0; }
+			* html .sign { height: expression(signature(this)); }
+			.sign * { line-height: normal; }
+		.po { border-top: 1px dashed {COMMONBORDER}; }
+			.po .y { margin: 8px 0 0 5px; }
+			.po p { float: right; }
+				.po p a, .po p label { margin-right: 6px; }
+		.pob { line-height: 36px; }
+			.pob em { float: left;}
+				.pob em a { padding: 5px 10px 5px 25px; }
+			.cmmnt { background: url({IMGDIR}/cmmnt.gif) no-repeat 0 50%; }
+			.fastre { background: url({IMGDIR}/fastreply.gif) no-repeat 4px 50%; }
+			.req { background: url({IMGDIR}/repquote.gif) no-repeat 0 50%; }
+			.editp { background: url({IMGDIR}/edit.gif) no-repeat 4px 50%; }
+			.appendp { background: url({IMGDIR}/icon_append.png) no-repeat 4px 50%; }
+			.psave { background: url({IMGDIR}/pubsave.gif) no-repeat 4px 50%; }
+			.push { background: url({IMGDIR}/push.png) no-repeat 4px 50%; }
+		.modact { display: block; height: 32px; text-align: center; }
+			.modact, .modact a { line-height: 32px !important; }
+
+		#p_btn { line-height: 24px; }
+			#p_btn a { float: left; margin-right: 3px; padding-right: 4px; padding-left: 8px; background: url({IMGDIR}/share_btn.png) no-repeat 0 0; vertical-align: top; white-space: nowrap; }
+				#p_btn a:hover { text-decoration: none; }
+				#p_btn i { display: block; padding-right: 8px; background: url({IMGDIR}/share_btn.png) no-repeat 100% 100%; font-style: normal; cursor: pointer; }
+					#p_btn im

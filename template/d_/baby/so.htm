@@ -1,0 +1,131 @@
+<!--{subtemplate baby/head}-->
+
+
+
+<!--content-->
+<script type="text/javascript">
+function showdiv(id){
+	if($("#span_div_"+id).html()=="+"){
+//		$('.showtr').hide();
+		$("#v_" + id).show('fast');
+		$("#span_div_"+id).html("-");
+	}else{
+		$("#v_" + id).hide();
+		$("#span_div_"+id).html("+");
+	}
+}
+
+
+</script>
+<link href="/css/global.css" rel="stylesheet" type="text/css" />
+
+<div class="sctn21_1" style="height:auto;">
+  <div class="sctn21_1_5">
+    <div class="sctn21_1_1_1"><img src="image/icon.gif" width="51" height="43" align="top" /> [<!--{if $key}-->$key<!--{else}-->高级搜索<!--{/if}-->]的搜索结果</div>
+   </div>
+
+<div class="sctn21_1_7">&nbsp;</div>
+  <div class="sctn21_1_8">
+    <div class="main_step_text2" style="position:relative;">
+      <div id="login_2">
+            <ul>
+            <!--{if empty($list)}-->
+
+            <li><div>暂无搜索结果</div></li>
+            <li><div><a href="/baby.php?mod=so&type=2">返回</a></div></li>
+
+            <!--{else}-->
+            
+            <li>
+            <div>
+            <span style="width:10px; height:50px; float:left;color:#54B200;"></span>
+            <span style="width:50px; height:50px;  float:left;">
+            <a href="/baby.php?mod=so&type=$type&order_id=$order_id$urlAnd2">ID$id_points</a>
+            </span>
+            <span style="width:60px; height:50px;  float:left; font-size:14px;">
+            类别
+            </span>
+            <span style="width:60px; height:50px;  float:left;font-size:14px;">
+            姓名
+            </span>
+            <span style="width:40px; height:50px;  float:left;font-size:14px;">
+           性别
+            </span>
+            <span style="width:100px; height:50px;  float:left;">
+            <a href="/baby.php?mod=so&type=$type&order_birth=$order_birth$urlAnd2">出生日期$birth_points</a>
+            </span>
+            <span style="width:120px; height:50px;  float:left;">
+           <a href="/baby.php?mod=so&type=$type&order_lost=$order_lost$urlAnd2">失踪/发现日期$lost_points</a>
+            </span>
+            <span style="width:100px; height:50px;  float:left;font-size:14px;">
+           籍贯/发现地
+            </span>
+            <span style="width:120px; height:50px;  float:right;font-size:14px;">
+            失踪/发现地
+            </span>
+            </div>
+            </li>
+            <!--{loop $list $k $v}-->
+            <li>
+            <div>
+            <span style="width:10px; height:50px;float:left;color:#54B200;cursor:pointer;" id="span_div_$v['id']" onclick="javascript:showdiv($v['id']);">+</span>
+             <span style="width:50px; height:50px;float:left;">
+            <a style=" font-size:12px" href="baby.php?mod=view&id=$v['id']">$v['id']</a>
+            </span>
+             <span style="width:60px; height:50px;float:left;">
+            $v['type']
+            </span>
+            <span style="width:60px; height:50px;float:left;">
+            <a style=" font-size:12px" href="baby.php?mod=view&id=$v['id']">$v['name']</a>
+            </span>
+             <span style="width:30px; height:50px;float:left; ">
+            $v['sex']
+            </span>
+            <span style="width:100px; height:50px;float:left;">
+            $v['birth_day']
+            </span>
+            <span style="width:120px; height:50px;float:left;">
+            $v['lost_day']
+            </span>
+            <span style="width:100px; height:50px;float:left;">
+            $v['birth_address']
+            </span>
+            <span style="width:120px; height:50px;float:right;">
+            $v['lost_address']
+            </span>
+            </div>
+            </li>
+				<li id="v_$v['id']" class="showtr" style="display:none;height:auto;line-height:auto;"><div style="height:auto;line-height:auto;">
+
+<table width="100%" border="1">
+<tr>
+<td><span style="font-weight:bold;"><!--{if $v['type']==3}-->发现<!--{else}-->失踪<!--{/if}-->时间：</span>$v['lost_day']</td>
+<td><span style="font-weight:bold;">发布时间：</span>$v['insert_time']</td></tr>
+<tr>
+<td><span style="font-weight:bold;">身高：</span>$v['lost_height']</td>
+<td><span style="font-weight:bold;"><!--{if $v['type']==3}-->发现<!--{else}-->失踪<!--{/if}-->地：</span>$v['lost_address']</td>
+</tr>
+<tr><td colspan="2"><span style="font-weight:bold;">其他资料：</span>$v['other_intro']</td></tr>
+<tr><td colspan="2"><span style="font-weight:bold;">特征描述：</span>$v['lostpf']</td></tr>
+</table>
+				</div></li>
+
+            <!--{/loop}--> 
+
+            <!--{/if}-->
+            </ul>
+
+        </div>
+
+    </div>
+
+<div class="pe-page2">$multi</div>
+
+</div>
+</div>
+<div class="sctn21_1_9">&nbsp;</div>
+</div>
+<div class="sctn21_2"> &nbsp;</div>
+<!--conttentend-->
+
+<!--{subtemplate baby/foot}-->

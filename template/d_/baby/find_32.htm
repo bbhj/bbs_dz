@@ -1,0 +1,155 @@
+<!--{subtemplate baby/head}-->
+
+
+
+<!--content-->
+
+  <script src="js/jquery.Jcrop.js"></script>
+
+    <link rel="stylesheet" href="css/jquery.Jcrop.css" type="text/css" />
+
+	<div class="main_1">
+
+	 <div class="main_title"><img src="image/icon.gif" width="51" height="43" align="top" /> 寻亲登记 - {$current_step_name} </div>
+
+	  <div class="main_step">
+
+	    <ul>
+
+		  <li id="normal">1.选择登记类型</li>
+
+		  <li id="normal">2.填写登记信息</li>
+
+		  <li id="select">3.上传照片</li>
+
+		  <li id="normal">4.完成登记</li>
+
+		</ul>
+
+	  </div>
+
+	  
+
+	  <script language="Javascript">
+
+
+
+			$(function(){
+
+
+
+				$('#cropbox').Jcrop({
+
+					aspectRatio: 170/210,
+
+					onSelect: updateCoords
+					
+
+
+
+				});
+
+
+
+			});
+
+
+
+			function updateCoords(c)
+
+			{
+
+				$('#x').val(c.x);
+
+				$('#y').val(c.y);
+
+				$('#w').val(c.w);
+
+				$('#h').val(c.h);
+
+			};
+
+
+
+			function checkCoords()
+
+			{
+
+				if (parseInt($('#w').val())) return true;
+
+				alert('请选择裁剪区域，然后按提交.');
+
+				return false;
+
+			};
+
+			
+
+			function uppic(){
+
+				jQuery.post('baby.php?mod=upimg', '',test);
+
+
+
+			}
+
+			
+
+			function test(a){
+
+				alert(a);
+
+			}
+			
+
+
+
+		</script>
+
+		
+
+	    <div class="main_step_text_1">
+
+       		<div class="main_text_left_1">
+
+			
+
+		<img src="data/attachment/baby/$photo_3" id="cropbox" />
+
+
+
+		<!-- This is the form that our event handler fills -->
+
+		<form action="baby.php?mod=find&type=$type&step=32&id=$id" target="show" method="post" onsubmit="return checkCoords();">
+
+			<input type="hidden" id="x" name="x" />
+
+			<input type="hidden" id="y" name="y" />
+
+			<input type="hidden" id="w" name="w" />
+
+			<input type="hidden" id="h" name="h" />
+
+			<input type="submit" value="裁剪" class="sctn21_1_3_1"/><a href="baby.php?mod=find&type=$type&step=4" name="submit" class="sctn21_1_3_1" style="text-align:center" />跳过</a>
+
+		</form>
+
+
+
+	 
+
+		 </div>
+
+	  </div>
+
+	
+
+	</div>
+
+	
+
+  
+
+    <!--conttentend-->
+
+<!--{subtemplate baby/foot}-->

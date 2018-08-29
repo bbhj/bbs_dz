@@ -1,0 +1,51 @@
+<!--{subtemplate baby/head}-->
+<!--{eval $list = array();}-->
+<!--{eval $wheresql = category_get_wheresql($cat);}-->
+<!--{eval $list = category_get_list($cat, $wheresql, $page);}-->
+<link href="/css/style1.css" rel="stylesheet" type="text/css" />
+
+    <!--personalcenter-->
+    <div id="om">
+      <div id="zhiyuanzhe_l">
+        <div class="tv_sidebox">
+		<h2>相关分类</h2>
+		<ul>
+		<!--{eval $cNum = count($cat[others]);}-->
+		<!--{loop $cat[others] $k $value}-->
+					
+					<li><a href="{echo getportalcategoryurl($value[catid]);}" <!--{if $cNum==$k}-->style="border-bottom:0;"<!--{/if}-->>$value[catname]</a></li>
+		<!--{/loop}-->
+					
+			
+			
+		</ul>
+		</div>
+      </div>
+      	<div class="tv_listbox">
+	  		<h2>$cat[catname]</h2>
+			<div class="bm_c xld">
+			<!--{loop $list['list'] $value}-->
+				<dl class="bbda cl">
+					<dt class="xs2"><a style="" class="xi2" target="_blank" href="/portal.php?mod=view&aid=$value[aid]">$value[title]</a></dt>
+					<dd class="xs2 cl">$value[summary]</dd>
+					<dd>分类:<label><a class="xi2" href="/{echo getportalcategoryurl($value[catid]);}">$value[catname]</a></label>&nbsp;&nbsp;<span class="xg1">$value[dateline]</span> <!--{if $_G['group']['allowmanagearticle'] || ($_G['group']['allowpostarticle'] && $value['uid'] == $_G['uid'] && (empty($_G['group']['allowpostarticlemod']) || $_G['group']['allowpostarticlemod'] && $value['status'] == 1)) || $categoryperm[$value['catid']]['allowmanage']}-->
+						<span class="xg1">
+							<span class="pipe">|</span>
+							<label><a href="/portal.php?mod=portalcp&ac=article&op=edit&aid=$value[aid]">{lang edit}</a></label>
+							<span class="pipe">|</span>
+							<label><a href="/portal.php?mod=portalcp&ac=article&op=delete&aid=$value[aid]" id="article_delete_$value[aid]" onclick="showWindow(this.id, this.href, 'get', 0);">{lang delete}</a></label>
+						</span>
+						<!--{/if}-->
+					</dd>
+				</dl>
+				<!--{/loop}-->
+			
+			</div>
+			<!--{if $list['multi']}--><div class="pgs cl">{$list['multi']}</div><!--{/if}-->
+			</div>
+
+			
+		</div>
+    </div>
+    <!--personalcenterend-->
+   <!--{subtemplate baby/foot}-->

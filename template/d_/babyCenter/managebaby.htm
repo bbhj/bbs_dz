@@ -1,0 +1,266 @@
+<!--{subtemplate baby/head}-->
+<style type="text/css">
+ul > li > span{
+	display: block;
+	float: left;
+	width:200px;
+	font-weight:bolder;
+}
+
+.rightalign{
+float:right;
+height:30px;
+line-height:30px;
+vertical-align:middle;
+}
+a.rightalign{
+color:#529F05;
+}
+a.rightalign:hover{
+color:red;
+}
+</style>
+<script type="text/javascript">
+
+
+function showdiv(id){
+	if($("#span_div_"+id).html()=="+"){
+//		$('.showtr').hide();
+		$("#v" + id).show('fast');
+		$("#span_div_"+id).html("-");
+	}else{
+		$("#v" + id).hide();
+		$("#span_div_"+id).html("+");
+	}
+}
+
+</script>
+
+    <!--personalcenter-->
+    <!--{subtemplate babyCenter/left}-->
+	
+      <div id="yonghuzhongxin">
+        <div class="omcenter" id="ti1">
+          <div class="om_center">
+            
+			<div class="personalcenter_r_bot" id="ti1">
+
+		<div class="personalcenter_r_bot">
+        <!--{if empty($do)}-->
+		<div id="personalcenter_r_top"  style=" width:570px; height:30px; float:left;">
+			  <ul>
+
+				<li <!--{if $type==""}-->style="BACKGROUND: url(image/baby_sctn01_button2.jpg) no-repeat;"<!--{else}-->style="BACKGROUND: url(image/baby_sctn01_button1.jpg) no-repeat;"<!--{/if}-->><a <!--{if $type==""}-->style="COLOR: #fff; font-Weight: bold"<!--{else}-->style="COLOR: #529F05; font-Weight: bold"<!--{/if}--> href="babyCenter.php?mod=managebaby">管理寻亲数据</a></li>
+                
+                <li <!--{if $type=="1"}-->style="BACKGROUND: url(image/baby_sctn01_button2.jpg) no-repeat;"<!--{else}-->style="BACKGROUND: url(image/baby_sctn01_button1.jpg) no-repeat;"<!--{/if}-->><a <!--{if $type=="1"}-->style="COLOR: #fff; font-Weight: bold"<!--{else}-->style="COLOR: #529F05; font-Weight: bold"<!--{/if}--> href="babyCenter.php?mod=managebaby&type=1">家寻宝贝</a></li>
+                
+                <li <!--{if $type=="2"}-->style="BACKGROUND: url(image/baby_sctn01_button2.jpg) no-repeat;"<!--{else}-->style="BACKGROUND: url(image/baby_sctn01_button1.jpg) no-repeat;"<!--{/if}-->><a <!--{if $type=="2"}-->style="COLOR: #fff; font-Weight: bold"<!--{else}-->style="COLOR: #529F05; font-Weight: bold"<!--{/if}--> href="babyCenter.php?mod=managebaby&type=2">宝贝寻家</a></li>
+                
+                <li <!--{if $type=="3"}-->style="BACKGROUND: url(image/baby_sctn01_button2.jpg) no-repeat;"<!--{else}-->style="BACKGROUND: url(image/baby_sctn01_button1.jpg) no-repeat;"<!--{/if}-->><a <!--{if $type=="3"}-->style="COLOR: #fff; font-Weight: bold"<!--{else}-->style="COLOR: #529F05; font-Weight: bold"<!--{/if}--> href="babyCenter.php?mod=managebaby&type=3">流浪乞讨</a></li>
+                
+                <li <!--{if $type=="5"}-->style="BACKGROUND: url(image/baby_sctn01_button2.jpg) no-repeat;"<!--{else}-->style="BACKGROUND: url(image/baby_sctn01_button1.jpg) no-repeat;"<!--{/if}-->><a <!--{if $type=="5"}-->style="COLOR: #fff; font-Weight: bold"<!--{else}-->style="COLOR: #529F05; font-Weight: bold"<!--{/if}--> href="babyCenter.php?mod=managebaby&type=5">海外寻人</a></li>
+                
+                <li <!--{if $type=="4"}-->style="BACKGROUND: url(image/baby_sctn01_button2.jpg) no-repeat;"<!--{else}-->style="BACKGROUND: url(image/baby_sctn01_button1.jpg) no-repeat;"<!--{/if}-->><a <!--{if $type=="4"}-->style="COLOR: #fff; font-Weight: bold"<!--{else}-->style="COLOR: #529F05; font-Weight: bold"<!--{/if}--> href="babyCenter.php?mod=managebaby&type=4">其他寻人</a></li>
+              
+             </ul>
+             
+             
+             
+		</div><div style="margin-top:10px;margin-bottom:10px;BORDER-BOTTOM: #54b301 2px solid; width:180px; height:30px; float:left;background-position: 0px -10px;">
+                 <form action="$from_url" method="post">
+                <div style="width:120px; height:30px;_height:27px; float:left; padding-top:3px; padding-left:5px;"><input name="keywords" type="text" style="width:110px;" class="sctn21_1_1_2_4"/><input type="hidden" name="type" value="$type" /></div>
+                <div style="width:40px; height:23px; float:left; padding-top:3px;"><input name="" type="submit" value="" class="sctn21_1_1_2_3"/></div></form>
+          </div>
+        
+       
+		<!--eval $form->showList('审核志愿者',array('姓名','性别','联系人',联系电话,'提交时间','状态','类别','查看'),$mydataList,$babyCount,'babyCenter.php?mod=managebaby','babyCenter.php?mod=managebaby'.$urlAnd,1,0,0,array('13%','7%','12%','15%','12%','7%','10%','7%'),$urlAnd);}-->	
+       <form action="$action"  method="post">
+	   <table id="slist" width="760" border="0" cellpadding="0" cellspacing="0" align="right">
+		   <tr>
+			   <td width="35"></td>
+			   <td>ID</td>
+			   <td style="line-height:40px; font-weight:bold; color:#458C08" width="13%">姓名</td>
+			   <td style="line-height:40px; font-weight:bold; color:#458C08" width="7%">性别</td>
+			   <td style="line-height:40px; font-weight:bold; color:#458C08" width="12%">联系人</td>
+			   <td style="line-height:40px; font-weight:bold; color:#458C08" width="12%">提交时间</td>
+			   <td style="line-height:40px; font-weight:bold; color:#458C08" width="7%">状态</td>
+			   <td style="line-height:40px; font-weight:bold; color:#458C08" width="10%">类别</td>
+			   <td align=center>操作</td>
+		   </tr>
+		
+	  <!--{loop $mydataList $k $v}-->
+		   <tr
+		   <!--{if $k%2==0}-->
+		   bgcolor="#f4f4f4"
+		   <!--{/if}-->
+		   >
+				<td style="height:25px;line-height:25px;vertical-align:middle;"><a href="javascript:void(0);" onclick="javascript:showtr($v['id']);" title="点击展开"><span id="span_div_$v['id']" onclick="javascript:showdiv($v['id']);">+</span></a>$v['status']</td>
+			   <td>$v['id']</td>
+			   <td>$v['name']</td>
+			   <td>$v['sex']</td>
+			   <td>$v['contact_name']</td>
+			   <td>$v['insert_time']</td>
+			   <td>$v['state']</td>
+			   <td>$v['type']</td>
+			   <td align="center" width="100">$v['view'] 
+				<a href="babyCenter.php?mod=managebaby&do=edit&id=$v['id']">编辑</a> <a onclick="if (confirm('确定要删除吗？')) return true; else return false;" href="babyCenter.php?mod=managebaby&do=del&id=$v['id']" >删除</a>
+				</td>
+		   </tr>
+		   <tr class="showtr" style="display:none;font-size:12px;border-bottom:1px solid #ccc;border-top:1px solid #ccc;" id="v$v['id']"		   
+		   <!--{if $k%2==0}-->
+		   bgcolor="#f4f4f4"
+		   <!--{/if}-->
+		   >
+			   <td colspan="10">
+				   <div style="margin:5px;">
+				   <table width="100%" border="1">
+				   <tr>
+				   <td width='21%'>手机:$v['moblie']</td><td width='21%'>电话:$v['tel']</td><td width='27%'>邮箱:$v['email']</td><td width='31%'>QQ号:$v['qq']</td>
+				   </tr>
+				   <tr>
+				   <td>出生日期:$v['birth_day']</td><td>失踪日期:$v['lost_day']</td><td>失踪人户籍所在地:$v['birth_address']</td><td>失踪地:$v['lost_address']</td>
+				   <tr><td>联系人姓名:$v['contact_name']</td><td>联系人与失踪人关系:$v['contact_relation']</td><td>填写人与失踪人关系:$v['write_relation']</td><td>其他联系方式:$v['other_contact']</td>		
+
+				   </tr>		   
+				   <tr><td colspan="2">地址:$v['address']</td><td>状态：$v['state']</td><td>志愿者：$v['follow_uid']</td></tr>				  
+				   </table>
+				   </div>
+			   </td>
+		   </tr>
+	  <!--{/loop}-->
+		</table>
+
+    </div>  <br/><br/>
+	<div class="sctn20_a" style="float:right;" >
+            <div class="sctn20_a_1">
+			<input type="button" name="excel" value="导出Excel" style="width:85px; height:29px; border-width:0px; font-size:16px; font-weight:bold; color:#fff; background: url(image/stcn21_button.gif) no-repeat" onclick="window.location.href='/babyCenter.php?mod=excel$urlAnd'"/>
+             <input type="submit" name="unlock" value="解 锁" class="n5" style="float:right;"/>&nbsp;
+			<input type="submit" name="lock" value="锁 定" class="n5" style="float:right;"/>
+            <input type="submit" name="delete" onclick="if(confirm('您确定要删除吗？删除将无法找回')) return true; else return false;" value="删 除" class="n5" style="float:right;"/>&nbsp;
+			</div>
+            <div class="sctn20_a_2">
+           
+            <div class="sctn20_a_2_1">&nbsp;</div>
+            <div class="sctn20_a_2_2">
+                  <select name="types">
+                    <option value="1">-- 家寻宝贝 --</option>
+                    <option value="2">-- 宝贝寻家 --</option>
+                    <option value="3">-- 流浪乞讨 --</option>
+                    <option value="5">-- 海外寻人 --</option>
+                    <option value="4">-- 其他寻人 --</option>
+                  </select>   
+            </div>
+            <div class="sctn20_a_2_3">
+                  <input name="" type="submit" value="" style=" width:66px; height:23px; background:url(image/stcn20_inbutton.jpg) no-repeat; border-width:0px"/>   
+            </div>      
+            </div>
+			
+            </div>
+			
+			</form>
+			
+			</div> 
+		
+	<div class="pe-page2">
+	  $multi
+    </div>
+    
+		 <!--{elseif $do=='edit'}-->  
+    <div id="personalcenter_r_top">
+			  <ul>
+                 <li><a href="#">编辑寻亲</a></li>
+             </ul>
+			 <a class="rightalign" href="babyCenter.php?mod=managebaby">返回列表</a>
+		</div>
+      	<table cellspacing="0" border="0" id="FormView1" style="border-collapse:collapse;">
+		<tr>
+		<td colspan="2">
+       
+<div class="text">
+<form action="babyCenter.php?mod=managebaby&do=edit" method="POST" target="show" enctype="multipart/form-data">
+<!--{if $result['photo']}--><img src="$result['photo']" style="border: 1px solid rgb(217, 217, 217); padding: 2px;">&nbsp;&nbsp;&nbsp;&nbsp;<a href="babyCenter.php?mod=managebaby&do=editPhoto&id=$result['id']">重新剪切</a><!--{else}--><img src="$result['photo_3']" width="120px" height="150px" style="border: 1px solid rgb(217, 217, 217); padding: 2px;">&nbsp;&nbsp;&nbsp;&nbsp;没有剪切-><a href="babyCenter.php?mod=managebaby&do=editPhoto&id=$result['id']">现在剪切</a><!--{/if}-->
+<ul>
+<li><span>照片：</span><input type="file" value='$result['photo']' name="pic"></li>
+<li><span>照片是否隐藏：</span><input value="0" type="radio" name="photo_show" <!--{if $result['photo_show']==0}-->checked=checked<!--{/if}--> />显示<input type="radio" value="1" name="photo_show" <!--{if $result['photo_show']==1}-->checked=checked<!--{/if}--> />隐藏 </li>
+
+<!--{if $type==1}-->
+    <!--{subtemplate babyCenter/baby_edit_1}-->
+ <!--{elseif $type==2}-->
+    <!--{subtemplate babyCenter/baby_edit_2}-->
+ <!--{elseif $type==3}-->
+    <!--{subtemplate babyCenter/baby_edit_3}-->
+ <!--{elseif $type==4}-->
+    <!--{subtemplate babyCenter/baby_edit_4}-->	
+ <!--{elseif $type==5}-->
+    <!--{subtemplate babyCenter/baby_edit_5}-->	
+ <!--{/if}-->
+    <li><span>联系人姓名：</span><input type="text" class="text_a" name="contact_name" value="$result['contact_name']" /></li>
+    
+     <!--{if $type!=3}--><li><span>联系人与失踪人关系：</span><input type="text" class="text_a" name="contact_relation" value="$result['contact_relation']" /></li><!--{/if}-->
+   <!--{if $type!=3}--><li><span>填写人与失踪人关系：</span><input type="text" class="text_a" name="write_relation" value="$result['write_relation']" /></li><!--{/if}-->
+    <li><span>手机：</span><input type="text" class="text_a" name="moblie" value="$result['moblie']" /></li>
+    <li><span>电话：</span><input type="text" class="text_a" name="tel" value="$result['tel']" /></li>
+    <li><span>邮箱：</span><input type="text" class="text_a" name="email" value="$result['email']" /></li>
+    <li><span>qq：</span><input type="text" class="text_a" name="qq" value="$result['qq']" /></li>
+    <li><span>地址：</span><input type="text" class="text_a" name="address" value="$result['address']" /></li>
+    <li><span>其他联系方式：</span><input type="text" class="text_a" name="other_contact" value="$result['other_contact']" /></li>
+    <li><span>状态：</span>
+        <select name="state">
+            <!--{loop $arrState $k $v}-->
+            <!--{if $k==$result['state']}--> selected<!--{/if}-->>$v<option value="$k"<!--{if $k==$result['state']}--> selected<!--{/if}-->>$v</option>
+            <!--{/loop}-->
+        </select>
+    </li>
+    <li><span>论坛帖子ID：</span><input type="text" value='$result['bbs_id']' name="bbs_id"><input type="hidden" value='$result['id']' name="id">
+	</li>
+	<li style="height:100px;"><span style="font-size:12px;font-weight:normal;width:650px;color:#999;font-style:italic;">[请填写帖子ID号，如:<br/>“bbs.baobeihuijia.com/thread-<span style="color:red;">108635</span>-1-1.html”或“bbs.baobeihuijia.com/forum.php?mod=viewthread&tid=<span style="color:red;">108635</span>”<br/>红字部分既是该帖子的ID号码]</span></li>
+    
+    <li><span style=" float:left">类别：</span>
+            <select name="type">
+                <!--{if $result['type']==1}--> selected<!--{/if}-->>家寻宝贝<option value="1"<!--{if $result['type']==1}--> selected<!--{/if}-->>家寻宝贝</option>
+                <!--{if $result['type']==2}--> selected<!--{/if}-->>宝贝寻家<option value="2"<!--{if $result['type']==2}--> selected<!--{/if}-->>宝贝寻家</option>
+                <!--{if $result['type']==3}--> selected<!--{/if}-->>流浪乞讨<option value="3"<!--{if $result['type']==3}--> selected<!--{/if}-->>流浪乞讨</option>
+                <!--{if $result['type']==4}--> selected<!--{/if}-->>其他寻人<option value="4"<!--{if $result['type']==4}--> selected<!--{/if}-->>其他寻人</option>
+                <!--{if $result['type']==5}--> selected<!--{/if}-->>海外寻人<option value="5"<!--{if $result['type']==5}--> selected<!--{/if}-->>海外寻人</option>
+            </select>
+      </li>
+      <li><span>跟进志愿者姓名：</span><input type="text" name="follow_username" value="$result['follow_username']"></li>
+    <li style="height:50px"><input type="submit" value="修改" name="submit" class="sctn21_1_3_1"></li>
+</ul>
+</form>          
+</div>
+		 </td>
+		</tr>
+		</table>
+ 
+       <!--{/if}-->
+		
+		</div>	
+				
+          </div>
+         
+        </div>
+        
+      </div>
+	  <div style="clear: both;"></div>
+    </div>
+    <script>
+	
+	function ti(t){
+	for(f=1;f<=2;f++){
+	document.getElementById("ti"+f).style.display="none"
+	document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+	document.getElementById("a"+f).style.color="#529F05"
+	document.getElementById("a"+f).style.fontWeight=""
+	}
+	document.getElementById("ti"+t).style.display=""
+	document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+	document.getElementById("a"+t).style.color="#fff"
+	document.getElementById("a"+t).style.fontWeight="bold"
+
+	}	
+	
+	</script>
+    
+	
+	<!--{subtemplate baby/foot}-->

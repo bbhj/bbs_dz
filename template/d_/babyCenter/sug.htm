@@ -1,0 +1,127 @@
+<!--{subtemplate baby/head}-->
+<link href="/css/style1.css" rel="stylesheet" type="text/css" />
+    <!--personalcenter-->
+    <!--{subtemplate babyCenter/left}-->
+	
+      <div id="yonghuzhongxin">
+        <div class="omcenter" id="ti1">
+          <div class="om_center">
+            
+			<div class="personalcenter_r_bot" id="ti1">
+		<!--{if empty($do)}-->
+		<div id="personalcenter_r_top">
+			  <ul>
+                 <li><a href="/babyCenter.php?mod=viewsug">留言</a></li>
+             </ul>
+		</div>
+		<!--{eval $form->showList('审核志愿者',array('姓名','电话','qq','邮箱','提交时间'),$babyList,$babyCount,'babyCenter.php?mod=viewsug','babyCenter.php?mod=viewsug',1,0,1,array('13%','13%','15%','15%','15%'));}-->	
+       <!--{elseif $do=="edit"}-->
+       	 <div id="personalcenter_r_top">
+            <ul>
+              <li><a href="/babyCenter.php?mod=viewsug">留言</a></li>
+            </ul>
+          </div>
+          <table cellspacing="0" border="0" id="FormView1" style="border-collapse:collapse;">
+            <tr>
+              <td colspan="2"><div class="text">
+                  <form action="babyCenter.php?mod=viewsug&do=edit" method="POST" target="show">
+                    <table border="0" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td align="right">姓　名：</td>
+                        <td><input type="text" class="text_a" name="name" value="$result['name']" />
+                          </td>
+                      </tr>
+                      <tr>
+                        <td align="right">电  话：</td>
+                        <td><input type="text" class="text_a" name="tel" value="$result['tel']"/></td>
+                      </tr>
+                      <tr>
+                        <td align="right">Q　Q：</td>
+                        <td><input type="text" class="text_a" name="qq" value="$result['qq']" /></td>
+                      </tr>
+                      <tr>
+                        <td align="right">邮  箱：</td>
+                        <td><input type="text" class="text_a" name="email" value="$result['email']" /></td>
+              
+                      </tr>
+           			  <tr>
+                        <td align="right">信  息：</td>
+                        <td><textarea name="message" cols="20" rows="5">$result['message']</textarea></td>
+              
+                      </tr>
+                    </table>
+                    <input type="hidden" value='$result['id']' name="id">
+                    <input type="submit" value="修改" class="sctn21_1_3_1" name="submit">
+                  </form>
+                </div></td>
+            </tr>
+          </table>
+	   <!--{elseif $do=="view"}-->
+       		 <div id="personalcenter_r_top">
+            <ul>
+              <li><a href="/babyCenter.php?mod=viewsug">留言</a></li>
+            </ul>
+          </div>
+          <table cellspacing="0" border="0" id="FormView1" style="border-collapse:collapse;">
+            <tr>
+              <td colspan="2"><div class="text">
+
+                    <table border="0" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td align="right">姓　名：</td>
+                        <td>$result['name']
+                          </td>
+                      </tr>
+                      <tr>
+                        <td align="right">电  话：</td>
+                        <td>$result['tel']</td>
+                      </tr>
+                      <tr>
+                        <td align="right">Q　Q：</td>
+                        <td>$result['qq']</td>
+                      </tr>
+                      <tr>
+                        <td align="right">邮  箱：</td>
+                        <td>$result['email']</td>
+              
+                      </tr>
+           			  <tr>
+                        <td align="right">信  息：</td>
+                        <td>$result['message']</td>
+              
+                      </tr>
+                    </table>
+                </div></td>
+            </tr>
+          </table>
+    
+      	
+
+ 
+       <!--{/if}-->
+		
+		
+         </div> 
+        </div> </div> 
+      </div>
+    </div>
+    <script>
+	
+	function ti(t){
+	for(f=1;f<=2;f++){
+	document.getElementById("ti"+f).style.display="none"
+	document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+	document.getElementById("a"+f).style.color="#529F05"
+	document.getElementById("a"+f).style.fontWeight=""
+	}
+	document.getElementById("ti"+t).style.display=""
+	document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+	document.getElementById("a"+t).style.color="#fff"
+	document.getElementById("a"+t).style.fontWeight="bold"
+
+	}	
+	
+	</script>
+    
+	
+	<!--{subtemplate baby/foot}-->

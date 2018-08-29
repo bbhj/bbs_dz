@@ -1,0 +1,156 @@
+<!--{subtemplate baby/head}-->
+<style type="text/css">
+ul > li > span{
+	display: block;
+	float: left;
+	width:200px;
+	font-weight:bolder;
+}
+
+.rightalign{
+float:right;
+height:30px;
+line-height:30px;
+vertical-align:middle;
+}
+a.rightalign{
+color:#529F05;
+}
+a.rightalign:hover{
+color:red;
+}
+</style>
+<script type="text/javascript">
+function showdiv(id){
+	if($("#span_div_"+id).html()=="+"){
+//		$('.showtr').hide();
+		$("#v" + id).show('fast');
+		$("#span_div_"+id).html("-");
+	}else{
+		$("#v" + id).hide();
+		$("#span_div_"+id).html("+");
+	}
+}
+</script>
+    <!--personalcenter-->
+    <!--{subtemplate babyCenter/left}-->
+	
+      <div id="yonghuzhongxin">
+        <div class="omcenter" id="ti1">
+          <div class="om_center">
+            
+			<div class="personalcenter_r_bot" id="ti1">
+					<div id="personalcenter_r_top">
+			  <ul>
+                 <li <!--{if $ispass=="1" && $type==""}-->style="BACKGROUND: url(image/baby_sctn01_button2.jpg) no-repeat;"<!--{else}-->style="BACKGROUND: url(image/baby_sctn01_button1.jpg) no-repeat;"<!--{/if}-->><a <!--{if $ispass=="1" && $type==""}-->style="COLOR: #fff; font-Weight: bold"<!--{else}-->style="COLOR: #529F05; font-Weight: bold"<!--{/if}--> href="babyCenter.php?mod=checkbaby">审核寻亲数据</a></li>
+                 <li <!--{if $ispass=="2"}-->style="BACKGROUND: url(image/baby_sctn01_button2.jpg) no-repeat;"<!--{else}-->style="BACKGROUND: url(image/baby_sctn01_button1.jpg) no-repeat;"<!--{/if}-->><a <!--{if $ispass=="2"}-->style="COLOR: #fff; font-Weight: bold"<!--{else}-->style="COLOR: #529F05; font-Weight: bold"<!--{/if}--> href="babyCenter.php?mod=checkbaby&t=2">未通过的数据</a></li>
+                <li <!--{if $type=="1"}-->style="BACKGROUND: url(image/baby_sctn01_button2.jpg) no-repeat;"<!--{else}-->style="BACKGROUND: url(image/baby_sctn01_button1.jpg) no-repeat;"<!--{/if}-->><a <!--{if $type=="1"}-->style="COLOR: #fff; font-Weight: bold"<!--{else}-->style="COLOR: #529F05; font-Weight: bold"<!--{/if}--> href="babyCenter.php?mod=checkbaby&type=1">家寻宝贝</a></li>
+                
+                <li <!--{if $type=="2"}-->style="BACKGROUND: url(image/baby_sctn01_button2.jpg) no-repeat;"<!--{else}-->style="BACKGROUND: url(image/baby_sctn01_button1.jpg) no-repeat;"<!--{/if}-->><a <!--{if $type=="2"}-->style="COLOR: #fff; font-Weight: bold"<!--{else}-->style="COLOR: #529F05; font-Weight: bold"<!--{/if}--> href="babyCenter.php?mod=checkbaby&type=2">宝贝寻家</a></li>
+                
+                <li <!--{if $type=="3"}-->style="BACKGROUND: url(image/baby_sctn01_button2.jpg) no-repeat;"<!--{else}-->style="BACKGROUND: url(image/baby_sctn01_button1.jpg) no-repeat;"<!--{/if}-->><a <!--{if $type=="3"}-->style="COLOR: #fff; font-Weight: bold"<!--{else}-->style="COLOR: #529F05; font-Weight: bold"<!--{/if}--> href="babyCenter.php?mod=checkbaby&type=3">流浪乞讨</a></li>
+                
+                <li <!--{if $type=="5"}-->style="BACKGROUND: url(image/baby_sctn01_button2.jpg) no-repeat;"<!--{else}-->style="BACKGROUND: url(image/baby_sctn01_button1.jpg) no-repeat;"<!--{/if}-->><a <!--{if $type=="5"}-->style="COLOR: #fff; font-Weight: bold"<!--{else}-->style="COLOR: #529F05; font-Weight: bold"<!--{/if}--> href="babyCenter.php?mod=checkbaby&type=5">海外寻人</a></li>
+                
+                <li <!--{if $type=="4"}-->style="BACKGROUND: url(image/baby_sctn01_button2.jpg) no-repeat;"<!--{else}-->style="BACKGROUND: url(image/baby_sctn01_button1.jpg) no-repeat;"<!--{/if}-->><a <!--{if $type=="4"}-->style="COLOR: #fff; font-Weight: bold"<!--{else}-->style="COLOR: #529F05; font-Weight: bold"<!--{/if}--> href="babyCenter.php?mod=checkbaby&type=4">其他寻人</a></li>
+             </ul>
+		</div>
+
+
+	   <table id="slist" width="760" border="0" cellpadding="0" cellspacing="0" align="right">
+		   <tr>
+			   <td width="5%"></td>
+			   <td width="5%">ID</td>
+			   <td style="line-height:40px; font-weight:bold; color:#458C08" width="10%">姓名</td>
+			   <td style="line-height:40px; font-weight:bold; color:#458C08" width="8%">性别</td>
+			   <td style="line-height:40px; font-weight:bold; color:#458C08" width="10%">联系人</td>
+			   <td style="line-height:40px; font-weight:bold; color:#458C08" width="12%">提交时间</td>
+			   <td style="line-height:40px; font-weight:bold; color:#458C08" width="10%">类别</td>
+			   <td align=center width="30%">操作</td>
+		   </tr>
+		
+	  <!--{loop $babyList $k $v}-->
+		   <tr
+		   <!--{if $k%2==0}-->
+		   bgcolor="#f4f4f4"
+		   <!--{/if}-->
+		   >
+				<td style="height:25px;line-height:25px;vertical-align:middle;"><a href="javascript:void(0);" onclick="javascript:showtr($v['id']);" title="点击展开"><span id="span_div_$v['id']" onclick="javascript:showdiv($v['id']);">+</span></a></td>
+			   <td>$v['id']</td>
+			   <td>$v['name']</td>
+			   <td>$v['sex']</td>
+			   <td>$v['contact_name']</td>
+			   <td>$v['insert_time']</td>
+			   <td>$v['type']</td>
+			   <td align="center">$v['view'] 
+				<a href="babyCenter.php?mod=managebaby&do=edit&id=$v['id']">编辑</a> <a onclick="if (confirm('确定要删除吗？')) return true; else return false;" href="babyCenter.php?mod=managebaby&do=del&id=$v['id']" >删除</a>&nbsp;&nbsp;$v['check']&nbsp;&nbsp;$v['check2']
+				</td>
+		   </tr>
+		   <tr class="showtr" style="display:none;font-size:12px;border-bottom:1px solid #ccc;border-top:1px solid #ccc;" id="v$v['id']"		   
+		   <!--{if $k%2==0}-->
+		   bgcolor="#f4f4f4"
+		   <!--{/if}-->
+		   >
+			   <td colspan="10">
+				   <div style="margin:5px;">
+				   <table width="100%" border="1">
+				   <tr>
+				   <td width='21%'>手机:$v['moblie']</td><td width='21%'>电话:$v['tel']</td><td width='27%'>邮箱:$v['email']</td><td width='31%'>QQ号:$v['qq']</td>
+				   </tr>
+				   <tr>
+				   <td>出生日期:$v['birth_day']</td><td>失踪日期:$v['lost_day']</td><td>失踪人户籍所在地:$v['birth_address']</td><td>失踪地:$v['lost_address']</td>
+				   <tr><td>联系人姓名:$v['contact_name']</td><td>联系人与失踪人关系:$v['contact_relation']</td><td>填写人与失踪人关系:$v['write_relation']</td><td>其他联系方式:$v['other_contact']</td>		
+				   </tr>		   
+				   <tr><td colspan="2">地址:$v['address']</td></tr>				  
+				   </table>
+				   </div>
+			   </td>
+		   </tr>
+	  <!--{/loop}-->
+		</table>
+
+
+    </div>  <br/><br/>
+	<div class="sctn20_a" style="float:right;" >
+             <div style="margin-top:0px; width:310px; height:24px; float:left;background:url(../image/stcn21_search1.jpg) no-repeat;background-position: 0px -10px;float:right;" >
+          	<div style="width:120px; height:24px; float:left;"></div>
+            <form action="/babyCenter.php?mod=checkbaby" method="post">
+          	<div style="width:140px; height:24px; float:left; padding-top:-1px;"><input name="key" type="text" class="sctn21_1_1_2_4"/></div>
+          	<div style="width:40px; height:24px; float:left; padding-top:-1px;"><input name="" type="submit" value="" class="sctn21_1_1_2_3"/></div></form>
+          </div>
+          
+    <div class="pe-page2">
+	  $multipage
+    </div>	
+               </div>
+            </div>
+			
+            </div>
+		
+
+			
+			</div> 
+		
+	
+
+
+    <script>
+	
+	function ti(t){
+	for(f=1;f<=2;f++){
+	document.getElementById("ti"+f).style.display="none"
+	document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+	document.getElementById("a"+f).style.color="#529F05"
+	document.getElementById("a"+f).style.fontWeight=""
+	}
+	document.getElementById("ti"+t).style.display=""
+	document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+	document.getElementById("a"+t).style.color="#fff"
+	document.getElementById("a"+t).style.fontWeight="bold"
+
+	}	
+	
+	</script>
+    
+	
+	<!--{subtemplate baby/foot}-->

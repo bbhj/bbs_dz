@@ -1,0 +1,136 @@
+<!--{subtemplate baby/head}-->
+<link href="/css/style1.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.lbt{
+ display: block;
+  float: left;
+
+width:200px;
+}
+.rbt{
+}
+.rightalign{
+float:right;
+height:30px;
+line-height:30px;
+vertical-align:middle;
+}
+a.rightalign{
+color:#529F05;
+}
+a.rightalign:hover{
+color:red;
+}
+</style>
+    <!--personalcenter-->
+    <!--{subtemplate babyCenter/left}-->
+	
+      <div id="yonghuzhongxin">
+        <div class="omcenter" id="ti1">
+          <div class="om_center">
+            
+			<div class="personalcenter_r_bot" id="ti1">
+		
+		
+        
+		<div id="personalcenter_r_top">
+			  <ul>
+                 <li><a href="#">寻亲数据查看</a></li>
+             </ul>
+			 <a class="rightalign" href="babyCenter.php?mod=managebaby">返回列表</a>
+		</div>
+	
+	     
+    <br/>
+      	<table border="1" id="FormView1_"  width="100%">
+
+<!--{if $result['status']==0}-->
+		<tr><td><b>操作：</b>
+		</td><td align="left"><a href="babyCenter.php?mod=checkbaby&do=pass&id=$result['id']" style="color:#529E05;line-height20px;height20px;width:42px;"> 通 过 </a>  | 
+		<a href="babyCenter.php?mod=checkbaby&do=unpass&id=$result['id']" style="color:#529E05;line-height20px;height20px;width:42px;">不通过</a></td></tr>
+		<tr>
+<!--{elseif $result['status']==2}-->
+		<tr><td><b>操作：</b>
+		 </td><td align="left"><a href="babyCenter.php?mod=checkbaby&do=pass&id=$result['id']" class="n5" style="color:#fff;line-height20px;height20px;width:42px;"> 通 过 </a></td></tr>
+		<tr>
+<!--{/if}-->
+<td width="50%" style="vertical-align:top;"><b class="lbt">类型：</b>
+		         <!--{if $type==1}-->
+            	家寻宝贝
+        		 <!--{elseif $type==2}-->
+        		宝贝寻家
+        		 <!--{elseif $type==3}-->
+        		流浪乞讨
+        		 <!--{elseif $type==4}-->
+        		 其他寻人
+        		 	<!--{elseif $type==5}-->
+        		 海外寻人
+        		 <!--{/if}--><br/>
+
+
+	<b class="lbt">编号：</b>$result['id']<br/>
+    <b class="lbt">照片是否隐藏：</b><!--{if $result['photo_show']==0}-->显示<!--{else}-->隐藏<!--{/if}--><br/>
+    <b class="lbt">状态：</b>$result['state']<br/>
+	<b class="lbt">
+		<!--{if $type==1}-->
+			失踪人姓名：
+		<!--{elseif $type==2}-->
+			寻家人姓名：
+		<!--{elseif $type==3}-->
+			儿童姓名（或小名）：
+		<!--{elseif $type==4}-->
+			失踪人姓名：
+		<!--{elseif $type==5}-->
+			失踪人姓名：
+		<!--{/if}-->
+		</b>$result['name']<br/>
+		<!--{if $result['sex']!=""}-->
+			<b class="lbt">性别：</b>$result['sex']</td>
+		<td width="50%" style="vertical-align:top;"><b class="lbt"></b>
+            <!--{if $result['photo']}--><img src="$result['photo']" style="border: 1px solid rgb(217, 217, 217); padding: 2px;"><!--{else}--><img src="$result['photo_3']" width="120px" height="150px" style="border: 1px solid rgb(217, 217, 217); padding: 2px;">没有剪切<!--{/if}-->
+		</td>
+		</tr>
+
+			<!--{if $type==1}-->
+				<!--{subtemplate babyCenter/baby_view_1}-->
+			<!--{elseif $type==2}-->
+				<!--{subtemplate babyCenter/baby_view_2}-->
+			<!--{elseif $type==3}-->
+				<!--{subtemplate babyCenter/baby_view_3}-->
+			<!--{elseif $type==4}-->
+				<!--{subtemplate babyCenter/baby_view_4}-->
+			<!--{elseif $type==5}-->
+				<!--{subtemplate babyCenter/baby_view_5}-->	
+			<!--{/if}-->
+		<!--{/if}-->
+		</table>
+		
+		</div>	
+				
+          </div>
+         
+        </div>
+        
+      </div>
+      <div style="clear:both"></div>
+    </div>
+    <script>
+	
+	function ti(t){
+	for(f=1;f<=2;f++){
+	document.getElementById("ti"+f).style.display="none"
+	document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+	document.getElementById("a"+f).style.color="#529F05"
+	document.getElementById("a"+f).style.fontWeight=""
+	}
+	document.getElementById("ti"+t).style.display=""
+	document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+	document.getElementById("a"+t).style.color="#fff"
+	document.getElementById("a"+t).style.fontWeight="bold"
+
+	}	
+	
+	</script>
+    
+	
+	<!--{subtemplate baby/foot}-->

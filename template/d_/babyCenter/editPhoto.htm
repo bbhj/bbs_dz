@@ -1,0 +1,95 @@
+<!--{subtemplate baby/head}-->
+<!--personalcenter-->
+<!--{subtemplate babyCenter/left}-->
+<script src="js/jquery.Jcrop.js"></script>
+<script src="js/jquery.Jcrop.min.js"></script>
+<link rel="stylesheet" href="css/jquery.Jcrop.css" type="text/css" />
+<div class="sctn20_1_2">
+<div class="sctn20_1_2_2">
+<div class="sctn20_1_2_2_2" id="zhiyuanzhesousuo">
+
+     <script language="Javascript">
+
+
+
+			jQuery(function() {
+			jQuery('#cropbox').Jcrop({
+				
+				aspectRatio: 170/210,
+
+					onSelect: updateCoords
+				});
+			
+			});
+
+
+
+			function updateCoords(c)
+
+			{
+
+				$('#x').val(c.x);
+
+				$('#y').val(c.y);
+
+				$('#w').val(c.w);
+
+				$('#h').val(c.h);
+
+			}
+
+
+
+			function checkCoords()
+
+			{
+
+				if (parseInt($('#w').val())) return true;
+
+				alert('Please select a crop region then press submit.');
+
+				return false;
+
+			}
+			
+			
+
+
+
+		</script>
+
+		
+
+
+
+<div style="clear:both"></div>
+<div style="text-align:center; width:750px; height:450px">
+
+		<img src="data/attachment/baby/$photo_3" id="cropbox" />
+
+
+
+		<!-- This is the form that our event handler fills -->
+
+		<form action="babyCenter.php?mod=managebaby&do=editPhoto&step=2" target="show" method="post" onsubmit="return checkCoords();">
+
+			<input type="hidden" id="x" name="x" />
+
+			<input type="hidden" id="y" name="y" />
+
+			<input type="hidden" id="w" name="w" />
+
+			<input type="hidden" id="h" name="h" />
+			<input type="hidden" name="id" value="$id">
+
+			<p><input type="submit" class="sctn21_1_3_1" value="剪切" />&nbsp;&nbsp;&nbsp;</p>
+
+		</form>
+</div>
+</div>
+</div> 
+</div>
+
+
+</div>
+<!--{subtemplate baby/foot}-->

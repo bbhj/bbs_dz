@@ -1,0 +1,87 @@
+<!--{subtemplate baby/head}-->
+
+    <!--personalcenter-->
+    <!--{subtemplate babyCenter/left}-->
+	
+      <div id="yonghuzhongxin">
+        <div class="omcenter" id="ti1">
+          <div class="om_center">
+            
+			<div class="personalcenter_r_bot" id="ti1">
+		
+		
+        <!--{if empty($do)}-->
+		<div id="personalcenter_r_top">
+			  <ul>
+                 <li><a href="babyCenter.php?mod=managetv">管理相关视频</a></li>
+                 <li><a href="babyCenter.php?mod=managetv&do=add">添加相关视频</a></li>
+             </ul>
+		</div>
+		<!--{eval $form->showList('审核志愿者',array('标题','图片','添加时间'),$mydataList,$babyCount,'babyCenter.php?mod=managetv','babyCenter.php?mod=managetv',1,0,0);}-->	
+		 <!--{elseif $do=='add' OR $do=='edit'}-->
+	     
+    <div id="personalcenter_r_top">
+			<ul>
+			   <li><a href="babyCenter.php?mod=managetv">管理相关视频</a></li>
+                 <li><a href="babyCenter.php?mod=managetv&do=add">添加相关视频</a></li>
+			</ul>
+		</div>
+      	<table cellspacing="0" border="0" id="FormView1" style="border-collapse:collapse;">
+
+		<tr>
+		<td colspan="2">
+       
+           
+			<div class="text">
+			
+			
+         	
+         	<form action="babyCenter.php?mod=managetv&do=$do" method="POST" target="show" enctype="multipart/form-data">
+            	<table style="margin:0px auto">
+					<tr><td><span>视频标题：</span></td><td><input type="text" class="text_a" name="title" value="$result['title']" /></td></tr>
+					<tr><td><span>视频地址：</span></td><td><input type="text" class="text_a" name="tvurl" value="$result['tvurl']" /></td></tr>
+					<tr><td><span>视频时长：</span></td><td><input type="text" class="text_a" name="timelong" value="$result['timelong']" />单位分钟</td></tr>
+					<tr><td><span>幻灯片图：</span></td><td><input type="file" class="text_a" name="pic"/></td></tr>
+					<!--{if $result['img']!=""}--><tr><td><span>原幻灯片：</span></td><td><img src="$result['img']"></td></tr><!--{/if}-->
+            	<input type="hidden" value='$result['id']' name="id">
+             	<tr><td colspan="2"><input type="submit" value="提交" class="sctn21_1_3_1" /></td></tr>
+				</ul>
+             	</table>
+             	</form>          
+       		 </div>
+
+		 </td>
+		</tr>
+		</table>
+ 
+       <!--{/if}-->
+		
+		</div>	
+				
+          </div>
+         
+        </div>
+        
+      </div>
+	  <div style="clear: both;"></div>
+    </div>
+    <script>
+	
+	function ti(t){
+	for(f=1;f<=2;f++){
+	document.getElementById("ti"+f).style.display="none"
+	document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+	document.getElementById("a"+f).style.color="#529F05"
+	document.getElementById("a"+f).style.fontWeight=""
+	}
+	document.getElementById("ti"+t).style.display=""
+	document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+	document.getElementById("a"+t).style.color="#fff"
+	document.getElementById("a"+t).style.fontWeight="bold"
+
+	}	
+	
+	</script>
+    
+	
+	<!--{subtemplate baby/foot}-->

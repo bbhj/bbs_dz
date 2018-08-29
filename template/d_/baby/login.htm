@@ -1,0 +1,89 @@
+<!--{subtemplate baby/head}-->
+
+
+
+<!--content-->
+
+<div class="sctn21_1">
+<div class="sctn21_1_1">
+<div class="sctn21_1_1_1"><img src="image/icon.gif" width="51" height="43" align="top" />用户登录</div>
+</div>     
+
+    <div style="margin:0 auto; height:0px;"></div>
+
+
+        <div class="main_step_text" style="position:relative; margin:0 auto; padding:5px 0 0;">
+
+            <div id="login_9" style="float:none; width:350px; height:150px; margin:50px auto; margin-bottom:0px; padding-bottom:50px; font-size:14px">
+
+                <div id="lianxiren" style="height:auto; width:auto">
+
+                    <div id="login_botb2" style="line-height:45px;">
+
+                    <form action="" method="POST">
+
+                    <div style="width:300px; height:50px;">账&nbsp;号：&nbsp;<input class="text_a" name="username" id="textfield" type="text"/></div>
+
+                    <div style="width:300px; height:50px;">密&nbsp;码：&nbsp;<input class="text_a" name="password" id="textfield" type="password"/></div>
+
+					
+					
+                    <div style="width:300px; height:50px;">安全提问：&nbsp;
+					<select id="loginquestionid_LKv2e" width="213" name="questionid" onchange="if($('loginquestionid_LKv2e').value > 0) {$('#loginanswer_row_LKv2e').hide();} else {$('#loginanswer_row_LKv2e').show();}">
+<option value="0">安全提问(未设置请忽略)</option>
+<option value="1">母亲的名字</option>
+<option value="2">爷爷的名字</option>
+<option value="3">父亲出生的城市</option>
+<option value="4">你其中一位老师的名字</option>
+<option value="5">你个人计算机的型号</option>
+<option value="6">你最喜欢的餐馆名称</option>
+<option value="7">驾驶执照最后四位数字</option>
+</select></div>
+					
+                    <div id="loginanswer_row_LKv2e" style="display:none;width:300px; height:50px;">答&nbsp;案&nbsp;<input type="text" name="answer" id="loginanswer_LKv2e" autocomplete="off" size="30" class="px p_fre" tabindex="1" /></div>
+
+                    <input type="hidden" value="$refer" name="refer">
+
+                    <div style="width:300px; height:50px;"><input class="sctn21_1_3_1" name="login" type="submit" value="登录" style="margin:15px auto auto 50px;"  /><span><!--<a style="font-size:12px; color:#D10C11; margin-left:10px;">忘记密码？</a>--></span></div>
+                    </p>
+
+                    </form>
+                    
+
+                    </div>
+
+
+            </div>
+
+        </div>
+
+       <!--<div class="main_button" style="position:relative;"><input name="" type="button" value="下一步" style="background:url(image/button.jpg); width:92px; height:27px; color:#FFF; font-size:15px; font-family:黑体; font-weight:bold; border:0px; margin:auto;cursor:pointer;" /></div>-->
+
+    </div>
+
+
+
+    <div class="pe-page">
+
+		  
+
+		  $multi
+
+		  
+
+		</div>
+
+    <div style="margin:0 auto; height:50px;"></div>
+
+</div>
+	
+
+	
+
+    
+
+    
+
+	
+
+<!--{subtemplate baby/foot}-->

@@ -1,0 +1,76 @@
+<!--{subtemplate baby/head}-->
+<!--personalcenter-->
+<!--{subtemplate babyCenter/left}-->
+<div class="sctn20_1_2">
+<div class="sctn20_1_2_2">
+<div class="sctn20_1_2_2_2">
+<div style="font-size:14px; font-weight:bold; color:#333333; line-height:25px; margin-left:114px; margin-top:10px; border-bottom:1px solid #f0f6e9;">关键词搜索</div>
+      <form action="babyCenter.php" method="GET">
+	   <input type="text" name='key' class="scorll_size" value="$key" style=" margin-left:114px; height:20px;" />
+	   <input value="搜索" type="submit" align="absmiddle"  class="sctn21_1_3_1" style="margin:0; float:none; display:inline;" />
+	   <input type="hidden" name="mod" value="so">
+	   <input type="hidden" name="type" value="1">
+      </form>
+</div>
+<script type="text/javascript" src="/js/calendar/WdatePicker.js"></script>
+<form action="babyCenter.php" method="GET">
+
+<div style="font-size:14px; font-weight:bold; color:#333333; line-height:30px; margin-left:114px;border-bottom:1px solid #f0f6e9;">高级搜索</div>
+
+<div class="sctn20_1_2_2_2">
+    <div class="personalcenter_r_bot" id="ti1">
+    <table width="550" cellspacing="0" border="0" id="FormView1" align="center" style=" margin:0 auto;">
+    	<tr><td>
+        <div>
+        <ul>
+            <li> 
+            类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:
+            <input type="radio" name="stype" id="radio" value="1" />&nbsp;家寻宝贝&nbsp;
+            <input type="radio" name="stype" id="radio" value="2" />&nbsp;宝贝寻家&nbsp;
+            <input type="radio" name="stype" id="radio" value="3" />&nbsp;流浪乞讨&nbsp;
+            <input type="radio" name="stype" id="radio" value="4" />&nbsp;其他寻人&nbsp;
+            <input type="radio" name="stype" id="radio" value="5" />&nbsp;海外寻亲
+            </li>
+            <li><span>失踪时间：</span><input type="text" name="lost_day" id="textfield" onClick="WdatePicker()" onFocus="WdatePicker()" ></li>
+            <li><span>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</span>
+			<input type="radio" name="sex" id="radio" value="1" />&nbsp;男&nbsp;<input type="radio" name="sex" id="radio" value="2" />&nbsp;女</li>
+            <li><span>出生日期：</span><input type="text" name="birth_day" id="textfield" onClick="WdatePicker()" onFocus="WdatePicker()" ></li>
+            <li><span>户籍所在：</span><input type="text" name="birth_address" id="textfield" /></li>
+            <li><span>丢失地点：</span><input type="text" name="lost_address" id="textfield" /></li>
+            <li><span>特&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;征：</span><input type="text" name="lost_person_feature" id="textfield" /></li>
+            <li><span>编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</span><input type="text" name="id" id="textfield" /></li>
+            <li><span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</span><input type="text" name="name" id="textfield" /></li>
+            </ul>
+        </div>
+        </td></tr>
+    </table>
+    </div>
+</div>
+<div class="sctn20_1_2_2_2">
+	<div class="main_button" style="position:relative; margin:15px 170px;">
+	<input type="hidden" name="mod" value="so">
+	<input type="hidden" name="type" value="2"><input name="login" class="sctn21_1_3_1" type="submit" value="搜 索" style="margin:0;" /></div>
+</div>
+</form>
+<div class="sctn20_1_2_2_2">
+<!--search-->
+</div>
+</div>
+</div>
+<div style="clear: both;"></div>
+</div>
+<script>
+function ti(t){
+for(f=1;f<=2;f++){
+document.getElementById("ti"+f).style.display="none"
+document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+document.getElementById("a"+f).style.color="#529F05"
+document.getElementById("a"+f).style.fontWeight=""
+}
+document.getElementById("ti"+t).style.display=""
+document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+document.getElementById("a"+t).style.color="#fff"
+document.getElementById("a"+t).style.fontWeight="bold"
+}	
+</script>
+<!--{subtemplate baby/foot}-->

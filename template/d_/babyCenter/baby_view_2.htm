@@ -1,0 +1,33 @@
+
+
+<!--{if $result['birth_day']!=""}--><tr><td><b class="lbt">出生日期：</b>$result['birth_day']</td><td></td></tr><!--{/if}-->
+<!--{if $result['lost_height']!=""}--><tr><td><b class="lbt">失踪时身高：</b>$result['lost_height']</td><td></td></tr><!--{/if}-->
+<!--{if $result['lost_day']!=""}--><tr><td><b class="lbt">失踪日期：</b>$result['lost_day']</td><td></td></tr><!--{/if}-->
+<!--{if $result['birth_address']!=""}--><tr><td colspan="2"><b class="lbt">寻家人目前所在地： </b>$result['birth_address']</td></tr><!--{/if}-->
+<!--{if $result['lost_address']!=""}--><tr><td colspan="2"><b class="lbt">失踪地： </b>$result['lost_address']</td></tr><!--{/if}--> 
+
+<!--{if $result['is_take_blood']!=""}--><tr><td><b class="lbt">是否采血：</b>$result['is_take_blood']</td><td></td></tr><!--{/if}-->
+<!--{if $result['take_blood_name']!=""}--><tr><td><b class="lbt">采血人姓名：</b>$result['take_blood_name']</td><td></td></tr><!--{/if}-->
+<!--{if $result['blood_address']!=""}--><tr><td colspan="2"><b class="lbt">采血地点：</b>$result['blood_address']</td></tr><!--{/if}-->
+<!--{if $result['blood_time']!=""}--><tr><td><b class="lbt">采血时间：</b>$result['blood_time']</td><td></td></tr><!--{/if}-->
+<!--{if $result['blood_is_add']!=""}--><tr><td><b class="lbt">DNA是否入全国打拐数据库：</b>$result['blood_is_add']</td><td></td></tr><!--{/if}-->
+
+
+
+<!--{if $result['lost_person_feature']!=""}--><tr><td colspan="2"><b class="lbt">寻家人特征描述： </b>$result['lost_person_feature']</td></tr><!--{/if}--> 
+<!--{if $result['other_intro']!=""}--><tr><td colspan="2"><b class="lbt">其他资料： </b>$result['other_intro']</td></tr><!--{/if}-->
+
+<!--{if $result['lost_intro']!=""}--><tr><td colspan="2"><b class="lbt">寻家人失踪前记忆： </b>$result['lost_intro']</td></tr><!--{/if}-->
+
+
+<tr><td><!--{if $result['contact_name']!=""}--><b class="lbt">联系人姓名：</b>$result['contact_name']<!--{/if}--></td><td>
+<!--{if $result['contact_relation']!=""}--><b class="lbt">联系人与失踪人关系：</b>$result['contact_relation']<!--{/if}-->
+</td></tr>
+
+<!--{if $result['write_relation']!=""}--><tr><td><b class="lbt">填写人与失踪人关系：</b>$result['write_relation']</td><td></td></tr><!--{/if}-->
+<!--{if $result['moblie']!=""}--><tr><td><b class="lbt">手机：</b>$result['moblie']</td><td></td></tr><!--{/if}-->
+<!--{if $result['tel']!=""}--><tr><td><b class="lbt">电话：</b>$result['tel']</td><td></td></tr><!--{/if}-->
+<!--{if $result['email']!=""}--><tr><td><b class="lbt">邮箱：</b>$result['email']</td><td></td></tr><!--{/if}-->
+<!--{if $result['qq']!=""}--><tr><td><b class="lbt">qq：</b>$result['qq']</td><td></td></tr><!--{/if}-->
+<!--{if $result['address']!=""}--><tr><td colspan="2"><b class="lbt">地址：</b>$result['address']</td></tr><!--{/if}-->
+<!--{if $result['other_contact']!=""}--><tr><td colspan="2"><b class="lbt">其他联系方式：</b>$result['other_contact']</td></tr><!--{/if}-->

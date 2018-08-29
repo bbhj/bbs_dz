@@ -1,0 +1,373 @@
+<!--{subtemplate baby/head}-->
+<script type="text/javascript">
+$(function(){
+if ($(".cimg").length)
+{
+$(".cimg").LoadImage(true,120,150,"/image/loading.gif");
+}
+}); 
+</script>
+<script type="text/javascript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<body onLoad="MM_preloadImages('../../../bgks01.jpg','image/bgks01.jpg','image/bgks02.jpg','image/bgks03.jpg')">
+<div class="lueryi">
+<div class="sctn01_1">
+<div class="sctn01_1_1">
+<div class="sctn01_1_1_1">
+<DIV style="VISIBILITY: hidden" id=KinSlideshow>
+<!--{loop $flashList $v}-->
+<a href="$v['url']"><img src="$v['pic']" alt="$v['title']" title="$v['note']" width="322" height="240" /></a>
+<!--{/loop}-->
+</DIV>
+</div>
+<div class="sctn01_1_1_2">
+<div class="sctn01_1_1_2_1">&nbsp;&nbsp;快速链接</div>
+<div class="sctn01_1_1_2_2">
+<dl>
+<a href="forum.php?mod=forumdisplay&fid=173" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('bgsk','','image/bgks0.jpg',1)"><img src="image/bgks.jpg" name="bgsk" width="66" height="80" border="0" id="bgsk" /></a>
+</dl>
+<dl>
+<a href="baby.php?mod=sug2" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image17','','image/bgks01.jpg',1)"><img src="image/bgks1.jpg" name="Image17" border="0" id="Image17" /></a>
+<!--<dt><a href="forum.php?mod=forumdisplay&fid=160"><img src="image/picb.gif" width="40" border="0"/></a></dt>
+<dd><a href="forum.php?mod=forumdisplay&fid=160">举报信箱</a></dd>-->
+</dl>
+
+<dl><a href="portal.php?mod=aboutus" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image16','','image/bgks02.jpg',1)"><img src="image/bgks2.jpg" name="Image16" border="0" id="Image16" /></a>
+<!--<dt><a href="portal.php?mod=aboutus"><img src="image/picc.gif" width="40" border="0"/></a></dt>
+<dd><a href="portal.php?mod=aboutus">关于我们</a></dd>-->
+</dl>
+<dl>
+  <a href="baby.php?mod=sug" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image18','','image/bgks03.jpg',1)"><img src="image/bgks3.jpg" name="Image18" border="0" id="Image18" /></a>
+<!--<dt><a href="baby.php?mod=sug"><img src="image/picd.gif" width="40" border="0"/></a></dt>
+<dd><a href="baby.php?mod=sug">给管理留言</a></dd>-->
+</dl>
+</div>
+</div>
+<div class="sctn01_1_1_3"><a href="#"><img src="image/baby_sctn01_4.jpg" border="0"/></a></div>
+<div class="sctn01_1_1_4"><a href="#"><img src="image/baby_sctn01_3.jpg" border="0"/></a></div>
+</div>
+<div class="sctn01_1_2">
+<div class="sctn01_1_2_1">
+<div class="sctn01_1_2_1_1">
+<UL>
+<LI id=aa1 style="BACKGROUND: url(image/baby_sctn01_button2.jpg) no-repeat;"><A style="COLOR: #fff; font-Weight: bold" id=a1 onmouseover=ti(1) href="forum.php?mod=forumdisplay&fid=191" target=_blank>家寻宝贝</A></LI>
+<LI id=aa2 style="BACKGROUND: url(image/baby_sctn01_button1.jpg) bottom no-repeat;"><A style="COLOR: #529F05;" id=a2 onmouseover=ti(2) href="forum.php?mod=forumdisplay&fid=189" target=_blank>宝贝寻家</A></LI>
+<LI id=aa3 style="BACKGROUND: url(image/baby_sctn01_button1.jpg) bottom no-repeat;"><A style="COLOR: #529F05;" id=a3 onmouseover=ti(3) href="forum.php?gid=35" target=_blank>流浪乞讨</A></LI>
+<LI id=aa4 style="BACKGROUND: url(image/baby_sctn01_button1.jpg) bottom no-repeat;"><A style="COLOR: #529F05;" id=a4 onmouseover=ti(4) href="forum.php?mod=forumdisplay&fid=201" target=_blank>活动报道</A></LI>
+<LI id=aa5 style="BACKGROUND: url(image/baby_sctn01_button1.jpg) bottom no-repeat;"><A style="COLOR: #529F05;" id=a5 onmouseover=ti(5) href="forum.php?mod=forumdisplay&fid=27" target=_blank>打拐政策</A></LI>
+<LI id=aa6 style="BACKGROUND: url(image/baby_sctn01_button1.jpg) bottom no-repeat;"><A style="COLOR: #529F05;" id=a6 onmouseover=ti(6) href="forum.php?mod=forumdisplay&fid=202" target=_blank>志愿者指南</A></LI>
+</UL>
+<script>
+function ti(t){
+for(p=1;p<=6;p++){
+document.getElementById("ti"+p).style.display="none"
+document.getElementById("aa"+p).style.background="url(image/baby_sctn01_button1.jpg) bottom no-repeat"
+document.getElementById("a"+p).style.color="#529F05"
+document.getElementById("a"+p).style.fontWeight=""
+}
+document.getElementById("ti"+t).style.display=""
+document.getElementById("aa"+t).style.background="url(image/baby_sctn01_button2.jpg) no-repeat"
+document.getElementById("a"+t).style.color="#fff"
+document.getElementById("a"+t).style.fontWeight="bold"
+}	
+</script>
+</div>
+<!--<div style="width:660px;height:1px;background:url(image/baby_sctn01_1_gdt.jpg) no-repeat;font-size:1px;line-height:1px;"></div>-->
+<!--{eval $i=0;}-->
+<!--{loop $arrTabs $k $v}-->
+<!--{eval $i++;}-->
+<!--{eval $list = $$k;}-->
+<div class="sctn01_1_2_1_2" id="ti{$i}" <!--{if $i!=1}-->style="display:none"<!--{/if}-->>
+<div class="sctn01_1_2_1_2_1">
+
+    <DIV class=cotbl_ul>
+        <UL style="height:auto">
+            <!--{loop $list['other1'] $v2}-->
+            <li>
+            <span class="li_left">
+            <a target="_blank" href="$v2['url']" title="$v2['title']">$v2['stitle']</a>
+            </span>
+            <span class="li_right">$v2['time']</span>
+            </li>
+            <!--{/loop}-->
+        </UL>
+    </DIV>
+</div>
+<div class="sctn01_1_2_1_2_2">
+
+    <DIV class=cotbl_ul>
+        <UL style="height:auto">
+            <!--{loop $list['other2'] $v2}-->
+            <li>
+            <span class="li_left"><a target="_blank" href="$v2['url']" title="$v2['title']">$v2['stitle']</a></span>
+            <span class="li_right">$v2['time']</span>
+            </li>
+            <!--{/loop}-->
+        </UL>
+    </DIV>
+    <SPAN class=li_right style="text-align:right;float:right;margin-top:120px;">
+    <A style="COLOR: #fff; _display:block;_padding-top:0px;" " href="$bbsIDArr[$k]" target=_blank>
+    <img src="image/baby_sctn01_1_gd.jpg" width="49" height="19"/>
+    </A>
+    </SPAN>
+</div>   
+</div>
+<!--{/loop}-->
+</div>
+<div class="sctn01_1_2_2">
+<div style="width:630px; height:35px;">
+<span class="sctn01_1_2_2_span1" style="width:130px;">&nbsp;</span>
+<span class="sctn01_1_2_2_span1">已有</span><span class="sctn01_1_2_2_span2">$re2['totalmembers']</span><span class="sctn01_1_2_2_span1">位爱心人士</span></div>
+<div style="width:630px; height:30px;">
+<span class="sctn01_1_2_2_span3" style="width:60px;">&nbsp;</span>
+<span class="sctn01_1_2_2_span3">已有</span><span class="sctn01_1_2_2_span4">$succeesCount</span><span class="sctn01_1_2_2_span3">人通过我们找到亲人</span></div>
+<div style="width:630px; height:20px;">
+<span class="sctn01_1_2_2_span5" style="width:40px;">&nbsp;</span>
+<span class="sctn01_1_2_2_span5">目前还有家寻宝贝</span><span class="sctn01_1_2_2_span6">$jiaXunBaoCount</span><span class="sctn01_1_2_2_span5">人，宝贝寻家</span><span class="sctn01_1_2_2_span6">$baoXunjiaCount</span><span class="sctn01_1_2_2_span5">人，期待大家的帮助</span></div>
+</div>
+</div>
+</div>
+<div class="page-space">&nbsp;</div>
+<div class="sctn01_2">
+<div class="sctn01_2_1"><span style="margin-left:20px; font-family:'微软雅黑'">最新寻人</span></div>
+<div class="sctn01_2_2">
+<div class="sctn01_2_2_1">
+<A id="J_prev" href="javascript:void(0);"><IMG id=LeftArr border=0 alt=上一屏 src="image/baby_sctn01_2_left.jpg"></A>
+</div>
+<div class="sctn01_2_2_2">
+<DIV id="sctn01_jsid">
+<DIV class=wrapa>
+<UL class='wrapa_c loadpic'>
+<!--{loop $newBabyList $v}-->
+<li>
+<a target="_blank" href="baby.php?mod=view&id=$v['id']" class="wrapa_d">
+<img src="$v['photo']" class="cimg1" width="120" height="150"/>
+<!--<div class="top">
+<div class="top2">
+$v['name'] $v['sex'] $v['lost_day']走失
+</div>
+</div>-->
+</a>
+</li>
+<!--{/loop}-->
+</UL>
+</DIV>
+</DIV>
+</div>
+<div class="sctn01_2_2_3">
+<A id="J_next" href="javascript:void(0);"><IMG id=RightArr border=0 alt=下一屏 src="image/baby_sctn01_2_right.jpg"></A> 
+</div>
+<SCRIPT type=text/javascript src="js/scrollpic.js"></SCRIPT>
+<SCRIPT type=text/javascript>
+var D=YAHOO.util.Dom, E=YAHOO.util.Event;
+KISSY().use("*", function(S) {
+var el = D.get('sctn01_jsid'),
+activeIndex = parseInt(el.getAttribute('data-active-index')) || 0;
+var carousel = new S.Carousel(el, {
+hasTriggers: false,
+navCls: 'ks-switchable-nav',
+contentCls: 'wrapa_c',
+activeTriggerCls: 'current',
+effect: "scrollx",
+steps:7,
+viewSize: [910],
+activeIndex: activeIndex
+});
+E.on('J_prev', 'click', carousel.prev, carousel, true);
+E.on('J_next', 'click', carousel.next, carousel, true);
+});
+KISSY().use("*", function(S) {
+var el = D.get('J_shoppingGuide');
+if(!el){
+return;
+}
+var	activeIndex = parseInt(el.getAttribute('data-active-index')) || 0;
+var carousel = new S.Carousel(el, {
+navCls: 'ks-switchable-nav',
+contentCls: 'wrapa_c',
+activeTriggerCls: 'current',
+effect: "scrollx",
+steps: 7,
+viewSize: [910],
+activeIndex: activeIndex
+});
+E.on('J_shoppingGuidePrev', 'click', carousel.prev, carousel, true);
+E.on('J_shoppingGuideNext', 'click', carousel.next, carousel, true);
+});
+</SCRIPT>
+</div>
+</div>
+<div class="page-space">&nbsp;</div>
+<div class="sctn01_3">
+<a href="#">
+<img src="image/baby_sctn01_3_img2.jpg" border="0" style="width:970px;"/>
+</a>
+</div>
+<div class="page-space">&nbsp;</div>
+<div class="sctn01_4">
+<div class="sctn01_4_1">
+<div class="sctn01_4_1_1">
+<div class="sctn01_4_1_1_1">
+<div style="float:left;margin-left:6px;">
+<strong style="font-size:14px; line-height:22px; color:#29790a;font-family:'微软雅黑', '宋体',Arial, Helvetica, sans-serif">
+成功案例
+</strong>
+（<a href='baby.php?mod=succeed'><span style="color:#F00;">$succeesCount</span></a>例）
+</div> 
+<div class="green_a" style="float:right;margin-right:10px;">
+<a href="forum.php?mod=forumdisplay&fid=200" style="font-size:12px; font-family:'宋体'">>>更多</a>
+</div>
+</div>
+<div class="sctn01_4_1_1_2">
+<div class="lab_bottom">
+<div class="lab_bottom_l"><img src="$succeeTop['pic']" width="92" height="68"/></div>
+<div class="lab_bottom_r">
+<p style="width:150px; height:20px; overflow:hidden;"><strong><a href="$succeeTop['url']" style="color:#f38023;">$succeeTop['title']</a></strong></p>
+<p style="width:150px; height:60px; overflow:hidden;">$succeeTop['summary']... <a href="$succeeTop['url']">[详情]</a></p>
+</div>
+</div>
+<div class="lab_bottomtwo">
+<ul>
+<!--{loop $succeeList $v}-->
+<li><a target="_blank" href="$v['url']" title="$v['title']">$v['stitle']</a></li>
+<!--{/loop}-->
+</ul>
+</div>
+</div>
+</div>
+<div class="sctn01_4_1_1">
+<div class="sctn01_4_1_1_1">
+<div style="float:left;margin-left:6px;"><strong style="font-size:14px; line-height:22px; color:#29790a;font-family:'微软雅黑', '宋体',Arial, Helvetica, sans-serif">公安打拐成果</strong>&nbsp;</div> <div class="green_a" style="float:right;margin-right:10px;"><a href="forum.php?mod=forumdisplay&fid=28" style="font-size:12px; font-family:'宋体'">>>更多</a></div>
+</div>
+<div class="sctn01_4_1_1_2">
+<div class="lab_bottom">
+<div class="lab_bottom_l"><img src="$succeeTop2['pic']" width="92" height="68"/></div>
+<div class="lab_bottom_r">
+<p style="width:150px; height:20px; overflow:hidden;"><strong><a href="$succeeTop2['url']" style="color:#f38023;">$succeeTop2['title']</a></strong></p>
+<p style="width:150px; height:60px; overflow:hidden;">$succeeTop2['summary']...<a href="$succeeTop2['url']">[详情]</a></p>
+</div>
+</div>
+<div class="lab_bottomtwo">
+<ul>
+<!--{loop $succeeList2 $v}-->
+<li><a target="_blank" href="$v['url']" title="$v['title']">$v['stitle']</a></li>
+<!--{/loop}-->
+</ul>
+</div>
+</div>
+</div>
+<div class="sctn01_4_1_3">
+<div class="sctn01_4_1_3_1">
+<UL>
+<!--<LI><A id=b3 onmouseover=tia(3) href="javascript:void(0);" target=_blank style="COLOR: #fff;">新华微博</A> </LI>-->
+<LI><A id=b2 onmouseover=tia(2) href="http://t.qq.com/baobeihuijiaguanfang" target=_blank style="COLOR: #fff;">腾讯微博</A> </LI>
+<LI><A style="BACKGROUND: url(image/baby_sctn01_4_title.gif) no-repeat; COLOR: #38a605; FONT-WEIGHT: bold" id=b1 onmouseover=tia(1) href="http://weibo.com/u/1933895942" target=_blank>新浪微博</A> </LI>
+</UL>
+</div>
+<div class="sctn01_4_1_3_2">
+<DIV id=tia1 class=content_two_lcb>
+<iframe width="262" height="430" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=262&height=430&fansRow=2&ptype=1&speed=0&skin=5&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=1933895942&verifier=af679072&dpc=1"></iframe>
+</DIV>
+<DIV style="DISPLAY: none" id=tia2 class=content_two_lcb>
+<iframe frameborder="0" scrolling="no" src="http://show.v.t.qq.com/index.php?c=show&a=index&n=baobeihuijiaguanfang&w=262&h=428&fl=2&l=8&o=1&co=4&cs=FCFCFC_FCFCFC_060914_D1D1D1" width="262" height="432"></iframe>
+</DIV>
+<!--<DIV style="DISPLAY: none" id=tia3 class=content_two_lcb>
+<IFRAME class=share_self height=430 src="" frameBorder=0 width="100%"></IFRAME>
+</DIV>-->
+</div>
+<SCRIPT>
+function tia(ta){
+for(pa=1;pa<=2;pa++){
+document.getElementById("tia"+pa).style.display="none"
+document.getElementById("b"+pa).style.background="url(image/baby_sctn01_4_title2.gif) top no-repeat"
+document.getElementById("b"+pa).style.color="#fff"
+document.getElementById("b"+pa).style.fontWeight=""
+}
+document.getElementById("tia"+ta).style.display=""
+document.getElementById("b"+ta).style.background="url(image/baby_sctn01_4_title.gif) no-repeat"
+document.getElementById("b"+ta).style.color="#38a605"
+document.getElementById("b"+ta).style.fontWeight="bold"
+}	
+</SCRIPT>
+</div>
+</div>
+<div class="sctn01_4_2">
+<div class="sctn01_1_2_1_1" style=" width:600px;">
+<UL>
+<LI id="cc1" style="BACKGROUND: url(image/baby_sctn01_button2.jpg) no-repeat;"><A style="COLOR: #fff; font-Weight: bold" id=c1 onmouseover=tic(1) href="baby.php?mod=list&tid=1" target=_blank>家寻宝贝</A></LI>
+<LI id="cc2" style="BACKGROUND: url(image/baby_sctn01_button1.jpg) bottom no-repeat;"><A style="COLOR: #529F05;" id=c2 onmouseover=tic(2) href="baby.php?mod=list&tid=2" target=_blank>宝贝寻家</A></LI>
+<LI id="cc3" style="BACKGROUND: url(image/baby_sctn01_button1.jpg) bottom no-repeat;"><A style="COLOR: #529F05;" id=c3 onmouseover=tic(3) href="baby.php?mod=list&tid=3" target=_blank>流浪乞讨</A></LI>
+<LI id="cc4" style="BACKGROUND: url(image/baby_sctn01_button1.jpg) bottom no-repeat;"><A style="COLOR: #529F05;" id=c4 onmouseover=tic(4) href="baby.php?mod=list&tid=4" target=_blank>其它寻人</A></LI>
+<LI id="cc5" style="BACKGROUND: url(image/baby_sctn01_button1.jpg) bottom no-repeat;"><A style="COLOR: #529F05;" id=c5 onmouseover=tic(5) href="baby.php?mod=list&tid=5" target=_blank>海外寻人</A></LI>
+<!--<li style="line-height:70px; margin-left:80px; margin-top:8px;"><a href="baby.php?mod=list&tid=1" target=_blank id="more"><img src="image/baby_sctn01_1_gd.jpg" width="49" height="19" /></a></li>-->
+</UL>
+<SCRIPT>
+function tic(t){
+for(p=1;p<=5;p++){
+document.getElementById("tic"+p).style.display="none"
+document.getElementById("cc"+p).style.background="url(image/baby_sctn01_button1.jpg) bottom no-repeat"
+document.getElementById("c"+p).style.color="#529F05"
+document.getElementById("c"+p).style.fontWeight=""
+}
+document.getElementById('more').href='baby.php?mod=list\&tid='+t;
+document.getElementById("tic"+t).style.display=""
+document.getElementById("cc"+t).style.background="url(image/baby_sctn01_button2.jpg) no-repeat"
+document.getElementById("c"+t).style.color="#fff"
+document.getElementById("c"+t).style.fontWeight="bold"
+}	
+</SCRIPT>
+</div>
+<div class="sctn01_4_2_3">
+    <div style="margin-top:10px;">
+    <a href="baby.php?mod=list&tid=1" target=_blank id="more"><img src="image/baby_sctn01_1_gd.jpg" width="49" height="19" /></a>
+    </div>
+</div>
+<div style="width:660px;height:1px;background:url(image/baby_sctn01_1_gdt.jpg) no-repeat;font-size:1px;line-height:1px;float:left;"></div>
+<!--{eval $i=0;}-->
+<!--{loop $babyList $k $v}-->
+<!--{eval $i++;}-->
+<div class="sctn01_4_2_2" id="tic{$i}" <!--{if $k!=1}-->style="display:none"<!--{/if}-->>
+<ul class="loadpic">
+<!--{loop $v $k1 $v1}-->
+<li>
+<INPUT id=$v1['id']-hid value=$v1['name'],$v1['birth_day'],$v1['lost_day'],$v1['id'],$v1['lost_address'],$v1['follow_uid'],$v1['insert_time'] type=hidden>
+<DL>
+<!--<DD><A href="baby.php?mod=view&id=$v1['id']" target=_blank style=" color:#999; font-weight:bold; font-size:13px;">$v1['birth_address']</A></DD>-->
+<DT id=dt_$v1['id']>
+<A href="baby.php?mod=view&id=$v1['id']" target=_blank>
+<IMG style="border:1px solid #d9d9d9; padding:2px 2px 2px 2px; text-align:center;" class="cimg" id=$v1['id'] onmousemove=popImg(event) onmouseout=closePopImg(event) src="$v1['photo']"></A></DT>
+<DD>&nbsp;<A href="baby.php?mod=view&id=$v1['id']" target=_blank style=" font-size:12px; font-weight:bold;">$v1['name']</A>
+<A href="baby.php?mod=view&id=$v1['id']" target=_blank style=" color:#999;  font-size:12px;">$v1['birth_address']</A></DD>
+</DL>
+</li>
+<!--{/loop}-->
+</ul>
+</div>
+<!--{/loop}-->
+</div>
+</div>
+<!--{subtemplate baby/foot}-->
+</div>

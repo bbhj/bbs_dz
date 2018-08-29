@@ -1,0 +1,47 @@
+<!--{subtemplate baby/head}-->
+<link href="/css/style1.css" rel="stylesheet" type="text/css" />
+    <!--personalcenter-->
+    <!--{subtemplate babyCenter/left}-->
+	
+      <div id="yonghuzhongxin">
+        <div class="omcenter" id="ti1">
+				<div id="personalcenter_r_top">
+			  <ul>
+                 <li><a href="#">所属志愿者群</a></li>
+             </ul>
+		</div>
+		<table width="90%" border="0" cellpadding="0" cellspacing="0">
+		  <tr align="center">
+			<td width="20%" style="line-height:40px; font-weight:bold; color:#458C08">群号</td>
+			<td width="80%" style="line-height:40px; font-weight:bold; color:#458C08">操作</td>
+		  </tr>
+		  
+<!--{loop $qqgroup $v}-->
+		  <tr align="center" bgcolor="#f4f4f4">
+			<td>$v['qqgroup']</td>
+			<td><a href="babyCenter.php?mod=manageqq&do=view&id=$v['id']">进入</a></td>
+		  </tr>
+<!--{/loop}-->
+		</table>
+        </div>        
+    </div>
+    <script>
+	
+	function ti(t){
+	for(f=1;f<=2;f++){
+	document.getElementById("ti"+f).style.display="none"
+	document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+	document.getElementById("a"+f).style.color="#529F05"
+	document.getElementById("a"+f).style.fontWeight=""
+	}
+	document.getElementById("ti"+t).style.display=""
+	document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+	document.getElementById("a"+t).style.color="#fff"
+	document.getElementById("a"+t).style.fontWeight="bold"
+
+	}	
+	
+	</script>
+    
+	
+	<!--{subtemplate baby/foot}-->

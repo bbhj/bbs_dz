@@ -1,0 +1,199 @@
+<!--{subtemplate baby/head}-->
+<!--personalcenter-->
+<!--{subtemplate babyCenter/left}-->
+
+<div class="sctn20_1_2">
+  <div class="sctn20_1_2_2">
+    <div class="sctn20_1_2_2_2" id="zhiyuanzhesousuo">
+    <!--{if $info_type=='1'}-->
+      <form action="" target="show" method="POST" id="form">
+        <table  style="width:740px; float:right; margin-top:20px;">
+          <tr style="font-size:14px;color:#656565;height:35px;line-height:35px;">
+            <td style="text-align:center;" colspan="2"><div style="margin:0px auto"><!--{if $result['photo']==''}--><img  style="border:1px solid #d9d9d9; padding:2px 2px 2px 2px; text-align:center;"  src="/ucenter/data/avatar/000/06/92/35_avatar_middle.jpg" /><!--{else}--><img  style="border:1px solid #d9d9d9; padding:2px 2px 2px 2px; text-align:center;"  src="/data/attachment/baby/$result['photo']" /><!--{/if}--></div></td>
+          </tr>
+
+     		<tr><td colspan="2" style="text-align:center;"><a href="/baby.php?mod=volunteer_reg">您还没加入志愿者,现在申请加入？</a></td></tr>
+        </table>
+      </form>
+      <!--{else}-->
+      	<table cellspacing="0" border="0" id="FormView1" style="border-collapse:collapse; margin-left:100px">
+            <tr>
+                <td colspan="2"><div style="margin:0px auto"><!--{if $result['photo']==''}--><img  style="border:1px solid #d9d9d9; padding:2px 2px 2px 2px; text-align:center;"  src="/ucenter/data/avatar/000/06/92/35_avatar_middle.jpg" /><!--{else}--><img  style="border:1px solid #d9d9d9; padding:2px 2px 2px 2px; text-align:center;"  src="/data/attachment/baby/$result['photo']" /><!--{/if}--></div></td>
+              </tr>
+              <tr style="font-size:14px;color:#656565;height:35px;line-height:35px;">
+                <td colspan="2"><a href="babyCenter.php?mod=profile&amp;action=avatar&amp;step=2">修改头像</a></td>
+              </tr>
+            <tr>
+              <td colspan="2">
+              
+                <div class="text">
+                  <ul>
+                    <!--{if $result['name']!=''}--><li><span>姓名：</span>$result['name']</li><!--{/if}-->
+                    <!--{if $result['age']!=''}--><li><span>年龄：</span>$result['age']</li><!--{/if}-->
+                  <!--{if $result['sex']!=''}-->  <li><span>性别：</span>$result['sex']</li><!--{/if}-->
+                   <!--{if $result['idnum']!=''}--> <li><span>身份证号码：</span>$result['idnum']</li><!--{/if}-->
+                   <!--{if $result['work']!=''}--> <li><span>职业：</span>$result['work']</li><!--{/if}-->
+                   <!--{if $result['address']!=''}--> <li><span>详细地址：</span>$result['address']</li><!--{/if}-->
+                   <!--{if $result['tel']!=''}--> <li><span>电话号码：</span>$result['tel']</li><!--{/if}-->
+                   <!--{if $result['mobile']!=''}--> <li><span>手机：</span>$result['mobile']</li><!--{/if}-->
+                   <!--{if $result['email']!=''}--> <li><span>email：</span>$result['email']</li><!--{/if}-->
+                   <!--{if $result['qq']!=''}--> <li><span>qq：</span>$result['qq']</li><!--{/if}-->
+                   <!--{if $result['nickname']!=''}--> <li><span>昵称：</span>$result['nickname']</li><!--{/if}-->
+                   <!--{if $result['is_other']!=''}--> <li><span>是否参见过其他公益组织：</span>$result['is_other']</li><!--{/if}-->
+                   <!--{if $result['province']!=''}--> <li><span>所在省市：</span>$result['province'] $result['city']</li><!--{/if}-->
+                  </ul>
+                </div></td>
+            </tr>
+          </table>
+      
+      <!--{/if}-->
+    </div>
+  </div>
+</div>
+
+<div style="clear:both"></div>
+</div>
+<br />
+<br />
+<br />
+<script type="text/javascript"> 
+ 
+$(document).ready(function(){
+ 
+$.formValidator.initConfig({
+ 
+formID:"form",
+ 
+onError:function(){
+ 
+alert("信息填写不完善，请填写完成后在继续");
+ 
+}
+ 
+});
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+$("#name").formValidator({
+ 
+onShow:"请填写姓名",
+ 
+onFocus: "请填写您的真实姓名",
+ 
+onCorrect:"姓名输入正确"}).regexValidator({
+ 
+regExp:"notempty",
+ 
+dataType:"enum",
+ 
+onError:"姓名输入错误"
+ 
+});
+ 
+ 
+ 
+ 
+$("#mobile").formValidator({
+ 
+onShow:"请填写手机号",
+ 
+onFocus: "请填写您的手机号",
+ 
+onCorrect:"手机号输入正确"}).regexValidator({
+ 
+regExp:"mobile",
+ 
+dataType:"enum",
+ 
+onError:"您的手机号格式不正确"
+ 
+});
+ 
+ 
+ 
+$("#email").formValidator({
+ 
+onShow:"请填写邮箱",
+ 
+onFocus: "请填写您的邮箱",
+ 
+onCorrect:"邮箱输入正确"}).regexValidator({
+ 
+regExp:"email",
+ 
+dataType:"enum",
+ 
+onError:"您的邮箱格式不正确"
+ 
+});
+ 
+$("#qq").formValidator({
+ 
+onShow:"请填写QQ",
+ 
+onFocus: "请填写您的QQ",
+ 
+onCorrect:"QQ输入正确"}).regexValidator({
+ 
+regExp:"qq",
+ 
+dataType:"enum",
+ 
+onError:"QQ号格式不对"
+ 
+});
+ 
+$("#nickname").formValidator({
+ 
+onShow:"请填写昵称",
+ 
+onFocus: "请填写您的昵称",
+ 
+onCorrect:"昵称输入正确"}).regexValidator({
+ 
+regExp:"notempty",
+ 
+dataType:"enum",
+ 
+onError:"昵称不能为空"
+ 
+});
+ 
+ 
+ 
+$("#address").formValidator({
+onShow:"请填写详细地址",
+onFocus: "请填写您的详细地址",
+onCorrect:"填写正确"}).regexValidator({
+	regExp:"notempty",
+	dataType:"enum",
+	onError:"详细地址不能为空"
+});
+ 
+ 
+ 
+ 
+ 
+});
+ 
+ 
+function isCardID2(sID){
+var info = isCardID(sID);
+ 
+if(info!==true){
+$("#idnumTip").html(info);
+}else{
+$("#idnumTip").html("身份证输入正确");
+}
+ 
+ 
+}
+</script> 
+<!--{subtemplate baby/foot}-->

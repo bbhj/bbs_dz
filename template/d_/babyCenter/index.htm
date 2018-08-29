@@ -1,0 +1,117 @@
+<!--{subtemplate baby/head}-->
+<!--personalcenter-->
+<!--{subtemplate babyCenter/left}-->
+
+<div class="sctn20_1_2">
+<div class="sctn20_1_2_1">
+<div class="sctn20_1_2_1_1">
+<div class="sctn20_1_2_1_1_1">
+<div class="sctn20_1_2_1_1_1_1">
+<!--{avatar($_G['uid'])}-->
+</div>
+</div>
+<div class="sctn20_1_2_1_1_2">
+    <div style="width:500px;height:35px;float:left;"></div>
+    <div style="width:500px;font-family:'微软雅黑'; font-size:18px; line-height:36px; text-indent:6em; float:left; font-weight:bold;">个人资料</div>
+    <div style="width:500px;padding:10px 10px; float:left;">
+    <div style="width:45%;padding:10px 10px; float:left;">
+    <span style="background:url(image/omcenter_12.gif) no-repeat;padding:5px 0px 5px 25px;line-height:24px;">姓名：$_G['username']</span><br />
+    <br />
+    <span style="background:url(image/omcenter_13.gif) no-repeat;padding:5px 0px 5px 25px;line-height:24px;">我是</span>
+    <span style="color:red; width:50px;">$myGroup</span>
+    <br /><br />
+    <span style="background:url(image/omcenter_20.gif) no-repeat; padding:5px 0px 5px 25px; line-height:24px;">会员等级：</span><br />
+    <span style="color:red; padding-right:30px;"><!-- 萌芽--></span>
+    </div>
+    <div style="width:45%;padding:10px 10px; float:left;">
+    {if $result_address['province']}
+    <span style="background:url(image/omcenter_01.gif) no-repeat;padding:5px 0px 5px 25px;line-height:24px;">所在地：{$result_address['province']}&nbsp;&nbsp;{$result_address['city']}&nbsp;&nbsp;{$result_address['area']}</span><br /><br />{/if}
+
+<!--    <span style="background:url(image/omcenter_03.gif) no-repeat;padding:5px 0px 5px 25px;line-height:24px;">志愿者编号：</span><br />-->
+    <span style="color:red; padding-right:30px;"><!-- 0023--></span>
+    <!--<span style="color:red;line-height:24px;">如何成为志愿者</span>-->
+    {if $_G[member][newpm]}
+    <span style="background:url(image/omcenter_05.gif) no-repeat; padding:5px 0px 5px 25px; line-height:24px;">站内消息：</span><br />
+    <span style="color:red; line-height:24px;"><a>{if $_G[member][newpm]}<a href="home.php?mod=space&do=pm" >
+    <span style="color:red; line-height:24px;">新消息</span></a>{/if}</a></span>
+   	{/if}
+    </div>
+    </div>
+</div>
+</div>
+</div>
+<div style="margin-right:0px; height:5px; width:755px; float:right;"><img src="image/right-line.jpg" /></div>
+<div class="sctn20_1_2_2">
+<div class="sctn20_1_2_2_1">我所关注的寻亲信息：</div>
+<div class="sctn20_1_2_2_2">
+	
+    <!--{if empty($followList)}-->
+	<div style="color:#666; text-align:center">暂时没有数据</div>
+	<!--{/if}-->
+
+    <!--{loop $followList $k $v}-->
+    <!--{if $k%2==0}-->
+    <table>
+    <tr>
+      <!--{/if}-->
+        <td>
+        <!--{if !empty($v)}-->
+            <div id="message">
+                <div style="float:left; width:170px;">
+                    <div style="float:left; width:170px;">
+                    <img src="$v['photo']" width="170" height="210" />
+                    </div>
+                </div>
+                <div style="float:right; width:170px;">
+                    <div style="float:right; width:155px;margin-top:10px;margin-right:10px;_margin-right:5px;"> 
+                    <span><strong style="color:#676767">姓名：</strong></span>
+                    <span style="color:#666668;">$v['name']</span><br /><br />
+                    <span><strong style="color:#676767">简介：</strong></span>
+                    <span style="color:#666668;">$v['intro']</span>
+                    <span style="color:#128b0a;">[</span><a href="baby.php?mod=view&id=$v['id']"><span style="color:#128b0a;">查看详情</span></a><span style="color:#128b0a;">]</span><br /><br />
+                    <span><strong style="color:#676767">状态：</strong></span>
+                    <span style="color:red">$v['state']</span><br /><br />
+                    <a href="baby.php?mod=view&id=$v['id']&do=unfollow"> <span style="background:url(image/stcn20_cancel.jpg) no-repeat;padding:7px 10px;margin-left:40px;line-height:24px;color:#fff">取消关注</span> </a> 
+
+                    </div>
+                </div>
+            </div>
+            
+        <!--{/if}-->
+        </td>
+      <!--{if $k%2==0}-->
+      <td width="10"></td>
+      <!--{else}-->
+    </tr>
+    </table>
+    <table>
+    <tr>
+      <td height="10"></td>
+    </tr>
+    </table>
+    <!--{/if}-->
+    <!--{/loop}-->
+</div>
+</div>
+<div style=" width:150px; height:100px; float:left;"></div>
+</div>
+
+<div style="clear:both"></div>
+
+<!--
+<script>
+function ti(t){
+for(f=1;f<=2;f++){
+document.getElementById("ti"+f).style.display="none"
+document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+document.getElementById("a"+f).style.color="#529F05"
+document.getElementById("a"+f).style.fontWeight=""
+}
+document.getElementById("ti"+t).style.display=""
+document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+document.getElementById("a"+t).style.color="#fff"
+document.getElementById("a"+t).style.fontWeight="bold"
+}	
+</script>
+-->
+<!--{subtemplate baby/foot}-->

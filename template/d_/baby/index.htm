@@ -1,0 +1,765 @@
+<!--{subtemplate baby/head1}-->
+
+
+
+<div class="sctn01_1">
+
+  <div class="sctn01_1_1">
+
+    <div class="sctn01_1_1_1">
+
+      <DIV style="POSITION: absolute; FLOAT: left; VISIBILITY: hidden" id=KinSlideshow class=hdpic>
+
+        <!--{loop $flashList $v}-->
+
+        <a target="_blank" href="$v['url']" target="_blank"><img src="$v['pic']" alt="$v['title']" width="360" height="270" /></a>
+
+        <!--{/loop}-->
+
+      </DIV>
+
+    </div>
+
+    <div class="sctn01_1_1_2">
+
+      <div class="sctn01_1_1_2_1">快速链接</div>
+
+      <div class="sctn01_1_1_2_2">
+
+        <dl style="margin-left:5px">
+
+          <dt><a href="forum.php?mod=forumdisplay&fid=173"><img src="image/pica.gif" width="53" height="60" border="0"/></a></dt>
+
+          <dd><a href="forum.php?mod=forumdisplay&fid=173">爱心企业</a></dd>
+
+        </dl>
+
+        <dl>
+
+          <dt><a href="forum.php?mod=forumdisplay&fid=160"><img src="image/picb.gif" width="53" height="60" border="0"/></a></dt>
+
+          <dd><a href="forum.php?mod=forumdisplay&fid=160">举报信箱</a></dd>
+
+        </dl>
+
+        <dl>
+
+          <dt><a href="portal.php?mod=aboutus"><img src="image/picc.gif" width="53" height="60" border="0"/></a></dt>
+
+          <dd><a href="portal.php?mod=aboutus">关于我们</a></dd>
+
+        </dl>
+
+        <dl>
+
+          <dt><a href="baby.php?mod=sug"><img src="image/picd.gif" width="53" height="60" border="0"/></a></dt>
+
+          <dd><a href="baby.php?mod=sug">给管理留言</a></dd>
+
+        </dl>
+
+      </div>
+
+    </div>
+
+    <div class="sctn01_1_1_3"><a href="#"><img src="image/index10.jpg" width="176" height="117" border="0"/></a></div>
+
+    <div class="sctn01_1_1_4"><a href="http://www.onefoundation.cn/" target="_blank"><img src="image/index11.jpg" width="176" height="117" border="0"/></a></div>
+
+  </div>
+
+  <div class="sctn01_1_2">
+
+    <div class="sctn01_1_2_1">
+
+      <div class="sctn01_1_2_1_1">
+
+        <UL>
+
+          <LI><A style="BACKGROUND: url(image/baby_sctn01_1_xxk1.jpg) bottom no-repeat; COLOR: #fff; font-Weight: bold" id=a1 onmouseover=ti(1) href="forum.php?mod=forumdisplay&fid=191" target=_blank>家寻宝贝</A></LI>
+
+          <LI><A style="BACKGROUND: url(image/baby_sctn01_1_xxk2.jpg) bottom no-repeat;" id=a2 onmouseover=ti(2) href="forum.php?mod=forumdisplay&fid=189" target=_blank>宝贝寻家</A></LI>
+
+          <LI><A style="BACKGROUND: url(image/baby_sctn01_1_xxk3.jpg) bottom no-repeat;" id=a3 onmouseover=ti(3) href="forum.php?gid=35" target=_blank>流浪乞讨</A></LI>
+
+          <LI><A style="BACKGROUND: url(image/baby_sctn01_1_xxk3.jpg) bottom no-repeat;" id=a4 onmouseover=ti(4) href="forum.php?mod=forumdisplay&fid=201" target=_blank>活动报道</A></LI>
+
+          <LI><A style="BACKGROUND: url(image/baby_sctn01_1_xxk3.jpg) bottom no-repeat;" id=a5 onmouseover=ti(5) href="forum.php?mod=forumdisplay&fid=27" target=_blank>打拐政策</A></LI>
+
+          <LI><A style="BACKGROUND: url(image/baby_sctn01_1_xxk3.jpg) bottom no-repeat;" id=a6 onmouseover=ti(6) href="forum.php?mod=forumdisplay&fid=202" target=_blank>志愿者指南</A></LI>
+
+          <LI><A style="BACKGROUND: url(image/baby_sctn01_1_xxk5.jpg) bottom no-repeat;width:12px;" id=a7 href="#" target=_blank>&nbsp;</A></LI>
+
+        </UL>
+
+        <SCRIPT>
+
+    function ti(t){
+
+	maxp=7  //饱含多出的一个
+
+    for(p=1;p<=(maxp-1);p++){
+
+    document.getElementById("ti"+p).style.display="none"
+
+	if(t>p){ 
+
+    document.getElementById("a"+p).style.background="url(image/baby_sctn01_1_xxk3.jpg) bottom no-repeat"
+
+    document.getElementById("a"+p).style.color="#666"
+
+    document.getElementById("a"+p).style.fontWeight=""
+
+	}
+
+	else if(t==p){
+
+    document.getElementById("ti"+t).style.display=""
+
+    document.getElementById("a"+t).style.background="url(image/baby_sctn01_1_xxk1.jpg) bottom no-repeat"
+
+    document.getElementById("a"+t).style.color="#fff"
+
+    document.getElementById("a"+t).style.fontWeight="bold"
+
+	}
+
+	else if((t+1)==p){
+
+    document.getElementById("a"+p).style.background="url(image/baby_sctn01_1_xxk2.jpg) bottom no-repeat"
+
+    document.getElementById("a"+p).style.color="#666"
+
+    document.getElementById("a"+p).style.fontWeight=""
+
+	}
+
+	else{
+
+	document.getElementById("a"+p).style.background="url(image/baby_sctn01_1_xxk3.jpg) bottom no-repeat"
+
+    document.getElementById("a"+p).style.color="#666"
+
+    document.getElementById("a"+p).style.fontWeight=""
+
+	}
+
+    }
+
+	if(t>1){
+
+	document.getElementById("a1").style.background="url(image/baby_sctn01_1_xxk4.jpg) bottom no-repeat"
+
+    document.getElementById("a1").style.color="#666"
+
+    document.getElementById("a1").style.fontWeight=""
+
+	document.getElementById("a"+maxp).style.background="url(image/baby_sctn01_1_xxk5.jpg) bottom no-repeat"
+
+    document.getElementById("a"+maxp).style.color="#666"
+
+    document.getElementById("a"+maxp).style.fontWeight=""
+
+	}
+
+	if(t==(maxp-1)){
+
+	document.getElementById("a"+maxp).style.background="url(image/baby_sctn01_1_xxk6.jpg) bottom no-repeat"
+
+    document.getElementById("a"+maxp).style.color="#666"
+
+    document.getElementById("a"+maxp).style.fontWeight=""
+
+	}
+
+    }	
+
+    </SCRIPT>
+
+      </div>
+
+      <!--{eval $i=0;}-->
+
+      <!--{loop $arrTabs $k $v}-->
+
+      <!--{eval $i++;}-->
+
+      <!--{eval $list = $$k;}-->
+
+      <div class="sctn01_1_2_1_2" id="ti{$i}" 
+
+      <!--{if $i!=1}-->
+
+      style="display:none"
+
+      <!--{/if}-->
+
+      >
+
+      <div class="sctn01_1_2_1_2_1">
+
+        <DIV class=cotbl_top>
+
+          <UL>
+
+            <LI><SPAN class=li_left><a target="_blank" href="$list['top'][0]['url']" title="$list['top'][0]['title']">$list['top'][0]['stitle']</a></SPAN><SPAN 
+
+    class=li_right>$list['top'][0]['time']</SPAN> </LI>
+
+          </UL>
+
+        </DIV>
+
+        <DIV class=cotbl_bot>
+
+          <DIV class=cotbl_bot_l><img src="$list['top'][0]['pic']" /></DIV>
+
+          <DIV class=cotbl_bot_r>
+
+            <P>$list['top'][0]['summary']<a target="_blank" href="$list['top'][0]['url']">[查看详情]</a></P>
+
+          </DIV>
+
+        </DIV>
+
+        <DIV class=cotbl_ul>
+
+          <UL>
+
+            <!--{loop $list['other1'] $v2}-->
+
+            <li><span class="li_left"><a target="_blank" href="$v2['url']" title="$v2['title']">$v2['stitle']</a></span><span class="li_right">$v2['time']</span></li>
+
+            <!--{/loop}-->
+
+          </UL>
+
+        </DIV>
+
+      </div>
+
+      <div class="sctn01_1_2_1_2_2">
+
+        <DIV class=cotbl_top>
+
+          <UL>
+
+            <LI><SPAN class=li_left><a target="_blank" href="$list['top'][1]['url']" title="$list['top'][1]['title']">$list['top'][1]['stitle']</a></SPAN><SPAN 
+
+    class=li_right>$list['top'][1]['time']</SPAN> </LI>
+
+          </UL>
+
+        </DIV>
+
+        <DIV class=cotbl_bot>
+
+          <DIV class=cotbl_bot_l><img src="$list['top'][1]['pic']" width="92" height="68"/></DIV>
+
+          <DIV class=cotbl_bot_r>
+
+            <P>$list['top'][1]['summary']<a target="_blank" href="$list['top'][1]['url']">[查看详情]</a></P>
+
+          </DIV>
+
+        </DIV>
+
+        <DIV class=cotbl_ul>
+
+          <UL>
+
+            <!--{loop $list['other2'] $v2}-->
+
+            <li><span class="li_left"><a target="_blank" href="$v2['url']" title="$v2['title']">$v2['stitle']</a></span><span class="li_right">$v2['time']</span></li>
+
+            <!--{/loop}-->
+
+            <LI style="BACKGROUND: none transparent scroll repeat 0% 0%">
+
+              <!-- <SPAN class=li_left><A href="http://baobei.neteasy.cn/portal.php#" target=_blank>&nbsp;</A></SPAN> //-->
+
+              <SPAN class=li_right style=" text-align:right; float:right;"> <A style="COLOR: #fff" href="$bbsIDArr[$k]" target=_blank> <img src="image/baby_sctn01_1_gd.jpg" width="49" height="19" /> </A> </SPAN> </LI>
+
+          </UL>
+
+        </DIV>
+
+      </div>
+
+    </div>
+
+    <!--{/loop}-->
+
+  </div>
+
+  <div class="sctn01_1_2_2"> <span class="sctn01_1_2_2_span1" style="width:130px;">&nbsp;</span> <span class="sctn01_1_2_2_span1">已有</span><span class="sctn01_1_2_2_span2">$re2['totalmembers']</span><span class="sctn01_1_2_2_span1">位爱心人士</span> <span class="sctn01_1_2_2_span1" style="width:450px;">&nbsp;</span> <span class="sctn01_1_2_2_span3" style="width:60px;">&nbsp;</span> <span class="sctn01_1_2_2_span3">已有</span><span class="sctn01_1_2_2_span4">$succeesCount</span><span class="sctn01_1_2_2_span3">人通过我们找到亲人</span> <span class="sctn01_1_2_2_span3" style="width:420px;">&nbsp;</span> <span class="sctn01_1_2_2_span5" style="width:40px;">&nbsp;</span> <span class="sctn01_1_2_2_span5">目前还有家寻宝贝</span><span class="sctn01_1_2_2_span6">$jiaXunBaoCount</span><span class="sctn01_1_2_2_span5">人，宝贝寻家</span><span class="sctn01_1_2_2_span6">$baoXunjiaCount</span><span class="sctn01_1_2_2_span5">人，期待大家的帮助</span> </div>
+
+</div>
+
+</div>
+
+<div class="page-space">&nbsp;</div>
+
+<div class="sctn01_2">
+
+  <div class="sctn01_2_1"><span style="margin-left:20px;">最新寻人</span></div>
+
+  <div class="sctn01_2_2">
+
+    <div class="sctn01_2_2_1"> <A id="J_prev" href="javascript:void(0);"><IMG id=LeftArr border=0 alt=上一屏 src="image/baby_sctn01_2_left.jpg"></A> </div>
+
+    <div class="sctn01_2_2_2">
+
+      <DIV id="sctn01_jsid">
+
+        <DIV class=wrapa>
+
+          <UL class=wrapa_c>
+
+            <!--{loop $newBabyList $v}-->
+
+            <li><a target="_blank" href="baby.php?mod=view&id=$v['id']" class="wrapa_d"> <img src="$v['photo']" width="120" height="150" />
+
+              <div class="top">
+
+                <div class="top2">$v['name'] $v['sex'] $v['lost_day']走失</div>
+
+              </div>
+
+              </a></li>
+
+            <!--{/loop}-->
+
+          </UL>
+
+        </DIV>
+
+      </DIV>
+
+    </div>
+
+    <div class="sctn01_2_2_3"> <A id="J_next" href="javascript:void(0);"><IMG id=RightArr border=0 alt=下一屏 src="image/baby_sctn01_2_right.jpg"></A> </div>
+
+    <SCRIPT type=text/javascript src="js/scrollpic.js"></SCRIPT>
+
+    <SCRIPT type=text/javascript>
+
+var D=YAHOO.util.Dom, E=YAHOO.util.Event;
+
+
+
+
+
+KISSY().use("*", function(S) {
+
+var el = D.get('sctn01_jsid'),
+
+activeIndex = parseInt(el.getAttribute('data-active-index')) || 0;
+
+
+
+var carousel = new S.Carousel(el, {
+
+hasTriggers: false,
+
+navCls: 'ks-switchable-nav',
+
+contentCls: 'wrapa_c',
+
+activeTriggerCls: 'current',
+
+effect: "scrollx",
+
+steps:7,
+
+viewSize: [1060],
+
+activeIndex: activeIndex
+
+});
+
+
+
+E.on('J_prev', 'click', carousel.prev, carousel, true);
+
+E.on('J_next', 'click', carousel.next, carousel, true);
+
+});
+
+
+
+KISSY().use("*", function(S) {
+
+var el = D.get('J_shoppingGuide');
+
+if(!el){
+
+return;
+
+}
+
+var	activeIndex = parseInt(el.getAttribute('data-active-index')) || 0;
+
+
+
+var carousel = new S.Carousel(el, {
+
+navCls: 'ks-switchable-nav',
+
+contentCls: 'wrapa_c',
+
+activeTriggerCls: 'current',
+
+effect: "scrollx",
+
+steps: 7,
+
+viewSize: [1060],
+
+activeIndex: activeIndex
+
+});
+
+
+
+E.on('J_shoppingGuidePrev', 'click', carousel.prev, carousel, true);
+
+E.on('J_shoppingGuideNext', 'click', carousel.next, carousel, true);
+
+});
+
+</SCRIPT>
+
+  </div>
+
+</div>
+
+<div class="page-space">&nbsp;</div>
+
+<div class="sctn01_3"> <a href="#"> <img src="image/baby_sctn01_3_img.jpg" width="1120" height="130" border="0"/> </a> </div>
+
+<div class="page-space">&nbsp;</div>
+
+<div class="sctn01_4">
+
+  <div class="sctn01_4_1">
+
+    <div class="sctn01_4_1_1">
+
+      <div class="sctn01_4_1_1_1">
+
+        <div style="float:left;margin-left:6px;"><strong style="font-size:16px; line-height:22px; color:#29790a; font-family:'Trebuchet MS', Arial, Helvetica, sans-serif">成功案例</strong>（<span style="color:#F00;">$succeesCount</span>例）</div>
+
+        <div class="green_a" style="float:right;margin-right:10px;"><a href="forum.php?mod=forumdisplay&fid=200">>> 更多</a></div>
+
+      </div>
+
+      <div class="sctn01_4_1_1_2">
+
+        <div class="lab_bottom">
+
+          <div class="lab_bottom_l"><img src="$succeeTop['pic']" width="92" height="68"/></div>
+
+          <div class="lab_bottom_r">
+
+            <p><strong><a href="$succeeTop['url']" style="color:#f38023;">$succeeTop['title']</a></strong></p>
+
+            <p>$succeeTop['summary']... <a href="$succeeTop['url']">[详情]</a></p>
+
+          </div>
+
+        </div>
+
+        <div class="lab_bottomtwo">
+
+          <ul>
+
+            <!--{loop $succeeList $v}-->
+
+            <li><a target="_blank" href="$v['url']" title="$v['title']">$v['stitle']</a></li>
+
+            <!--{/loop}-->
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="sctn01_4_1_1">
+
+      <div class="sctn01_4_1_1_1">
+
+        <div style="float:left;margin-left:6px;"><strong style="font-size:16px; line-height:22px; color:#29790a; font-family:'Trebuchet MS', Arial, Helvetica, sans-serif">公安打拐成果</strong>&nbsp;</div>
+
+        <div class="green_a" style="float:right;margin-right:10px;"><a href="forum.php?mod=forumdisplay&fid=28">>> 更多</a></div>
+
+      </div>
+
+      <div class="sctn01_4_1_1_2">
+
+        <div class="lab_bottom">
+
+          <div class="lab_bottom_l"><img src="$succeeTop2['pic']" width="92" height="68"/></div>
+
+          <div class="lab_bottom_r">
+
+            <p><strong><a href="$succeeTop2['url']" style="color:#f38023;">$succeeTop2['title']</a></strong></p>
+
+            <p>$succeeTop2['summary']...<a href="$succeeTop2['url']">[详情]</a></p>
+
+          </div>
+
+        </div>
+
+        <div class="lab_bottomtwo">
+
+          <ul>
+
+            <!--{loop $succeeList2 $v}-->
+
+            <li><a target="_blank" href="$v['url']" title="$v['title']">$v['stitle']</a></li>
+
+            <!--{/loop}-->
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="sctn01_4_1_3">
+
+      <div class="sctn01_4_1_3_1">
+
+        <UL>
+
+          <!--<LI><A id=b3 onmouseover=tia(3) href="javascript:void(0);" target=_blank style="COLOR: #fff;">新华微博</A> </LI>-->
+
+          <LI><A id=b2 onmouseover=tia(2) href="http://t.qq.com/baobeihuijiaguanfang" target=_blank style="COLOR: #fff;">腾讯微博</A> </LI>
+
+          <LI><A style="BACKGROUND: url(image/baby_sctn01_4_title.gif) no-repeat; COLOR: #38a605; FONT-WEIGHT: bold" id=b1 onmouseover=tia(1) href="http://weibo.com/u/1933895942" target=_blank>新浪微博</A> </LI>
+
+        </UL>
+
+      </div>
+
+      <div class="sctn01_4_1_3_2">
+
+        <DIV id=tia1 class=content_two_lcb>
+
+          <iframe width="339" height="430" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=339&height=430&fansRow=2&ptype=1&speed=0&skin=2&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=1933895942&verifier=af679072&dpc=1"></iframe>
+
+        </DIV>
+
+        <DIV style="DISPLAY: none" id=tia2 class=content_two_lcb>
+
+          <iframe frameborder="0" scrolling="no" src="http://show.v.t.qq.com/index.php?c=show&a=index&n=baobeihuijiaguanfang&w=339&h=428&fl=2&l=8&o=1&co=4&cs=FCFCFC_FCFCFC_060914_D1D1D1"" width="341" height="432"></iframe>
+
+        </DIV>
+
+        <DIV style="DISPLAY: none" id=tia3 class=content_two_lcb>
+
+          <IFRAME class=share_self height=430 src="index_files/index(1).htm" frameBorder=0 width="100%"></IFRAME>
+
+        </DIV>
+
+      </div>
+
+      <SCRIPT>
+
+function tia(ta){
+
+for(pa=1;pa<=2;pa++){
+
+document.getElementById("tia"+pa).style.display="none"
+
+document.getElementById("b"+pa).style.background="url(image/baby_sctn01_4_title2.gif) top no-repeat"
+
+document.getElementById("b"+pa).style.color="#fff"
+
+document.getElementById("b"+pa).style.fontWeight=""
+
+}
+
+document.getElementById("tia"+ta).style.display=""
+
+document.getElementById("b"+ta).style.background="url(image/baby_sctn01_4_title.gif) no-repeat"
+
+document.getElementById("b"+ta).style.color="#38a605"
+
+document.getElementById("b"+ta).style.fontWeight="bold"
+
+
+
+}	
+
+
+
+</SCRIPT>
+
+    </div>
+
+  </div>
+
+  <div class="sctn01_4_2">
+
+    <div class="sctn01_4_2_1">
+
+      <UL>
+
+        <LI><A style="BACKGROUND: url(image/baby_sctn01_1_xxk1.jpg) bottom no-repeat; COLOR: #fff; font-Weight: bold" id=c1 onmouseover=tic(1) href="baby.php?mod=list&tid=1" target=_blank>家寻宝贝</A></LI>
+
+        <LI><A style="BACKGROUND: url(image/baby_sctn01_1_xxk2.jpg) bottom no-repeat; COLOR: #666;" id=c2 onmouseover=tic(2) href="baby.php?mod=list&tid=2" target=_blank>宝贝寻家</A></LI>
+
+        <LI><A style="BACKGROUND: url(image/baby_sctn01_1_xxk3.jpg) bottom no-repeat; COLOR: #666;" id=c3 onmouseover=tic(3) href="baby.php?mod=list&tid=3" target=_blank>流浪乞讨</A></LI>
+
+        <LI><A style="BACKGROUND: url(image/baby_sctn01_1_xxk3.jpg) bottom no-repeat; COLOR: #666;" id=c4 onmouseover=tic(4) href="baby.php?mod=list&tid=4" target=_blank>其它寻人</A></LI>
+
+        <LI><A style="BACKGROUND: url(image/baby_sctn01_1_xxk3.jpg) bottom no-repeat; COLOR: #666;" id=c5 onmouseover=tic(5) href="baby.php?mod=list&tid=5" target=_blank>海外寻人</A></LI>
+
+        <LI><A style="BACKGROUND: url(image/baby_sctn01_1_xxk5.jpg) bottom no-repeat; COLOR: #666; width:12px;" id=c6 href="#" target=_blank>&nbsp;</A></LI>
+
+      </UL>
+
+      <SCRIPT>
+
+    function tic(t){
+
+	maxp=6  //饱含多出的一个
+
+    for(p=1;p<=(maxp-1);p++){
+
+    document.getElementById("tic"+p).style.display="none"
+
+	if(t>p){ 
+
+    document.getElementById("c"+p).style.background="url(image/baby_sctn01_1_xxk3.jpg) bottom no-repeat"
+
+    document.getElementById("c"+p).style.color="#666"
+
+    document.getElementById("c"+p).style.fontWeight=""
+
+	}
+
+	else if(t==p){
+
+    document.getElementById("tic"+t).style.display=""
+
+    document.getElementById("c"+t).style.background="url(image/baby_sctn01_1_xxk1.jpg) bottom no-repeat"
+
+    document.getElementById("c"+t).style.color="#fff"
+
+    document.getElementById("c"+t).style.fontWeight="bold"
+
+	}
+
+	else if((t+1)==p){
+
+    document.getElementById("c"+p).style.background="url(image/baby_sctn01_1_xxk2.jpg) bottom no-repeat"
+
+    document.getElementById("c"+p).style.color="#666"
+
+    document.getElementById("c"+p).style.fontWeight=""
+
+	}
+
+	else{
+
+	document.getElementById("c"+p).style.background="url(image/baby_sctn01_1_xxk3.jpg) bottom no-repeat"
+
+    document.getElementById("c"+p).style.color="#666"
+
+    document.getElementById("c"+p).style.fontWeight=""
+
+	}
+
+    }
+
+	if(t>1){
+
+	document.getElementById("c"+"1").style.background="url(image/baby_sctn01_1_xxk4.jpg) bottom no-repeat"
+
+    document.getElementById("c"+"1").style.color="#666"
+
+    document.getElementById("c"+"1").style.fontWeight=""
+
+	document.getElementById("c"+maxp).style.background="url(image/baby_sctn01_1_xxk5.jpg) bottom no-repeat"
+
+    document.getElementById("c"+maxp).style.color="#666"
+
+    document.getElementById("c"+maxp).style.fontWeight=""
+
+	}
+
+	if(t==(maxp-1)){
+
+	document.getElementById("c"+maxp).style.background="url(image/baby_sctn01_1_xxk6.jpg) bottom no-repeat"
+
+    document.getElementById("c"+maxp).style.color="#666"
+
+    document.getElementById("c"+maxp).style.fontWeight=""
+
+	}
+
+    }	
+
+    </SCRIPT>
+
+    </div>
+
+    <!--{eval $i=0;}-->
+
+    <!--{loop $babyList $k $v}-->
+
+    <!--{eval $i++;}-->
+
+    <div class="sctn01_4_2_2" id="tic{$i}" 
+
+    <!--{if $k!=1}-->
+
+    style="display:none"
+
+    <!--{/if}-->
+
+
+    <ul>
+
+      <!--{loop $v $k1 $v1}-->
+
+      <li>
+
+        <INPUT id=$v1['id']-hid value=$v1['name'],$v1['birth_day'],$v1['lost_day'],$v1['id'],$v1['lost_address'] type=hidden>
+
+        <DL>
+
+          <DD><A href="baby.php?mod=view&id=$v1['id']" target=_blank style="color:#666666; font-weight:bold; font-size:13px;">$v1['birth_address']</A></DD>
+
+          <DT id=dt_$v1['id']> <A href="baby.php?mod=view&id=$v1['id']" target=_blank> <IMG id=$v1['id'] onmousemove=popImg(event) onmouseout=closePopImg(event) src="$v1['photo']" width=117 height=149></A></DT>
+
+          <DD>&nbsp;<A href=baby.php?mod=view&id=$v1['id']" target=_blank style="color:#f28125; font-size:12px;">$v1['name']</A> <A href="baby.php?mod=view&id=$v1['id']" target=_blank style="color:#707b7f; font-size:12px;">$v1[lost_day2]走失</A></DD>
+
+        </DL>
+
+      </li>
+
+      <!--{/loop}-->
+
+    </ul>
+
+  </div>
+
+  <!--{/loop}-->
+
+</div>
+
+</div>
+
+
+
+<!--{subtemplate baby/foot1}-->
+

@@ -1,0 +1,68 @@
+<!--{subtemplate baby/head}-->
+
+
+
+<!--content-->
+
+  <script src="js/jquery.Jcrop.js"></script>
+
+    <link rel="stylesheet" href="css/jquery.Jcrop.css" type="text/css" />
+    
+<div class="sctn21_1">
+  <div class="sctn21_1_1">
+    <div class="sctn21_1_1_1"><img src="image/icon.gif" width="51" height="43" align="top" /> 寻亲数据库登记</div>
+  </div>
+  <div class="sctn21_1_2">
+    <ul>
+      <li>1.选择登记类型</li>
+      <li>2.填写登记信息</li>
+      <li class="sctn21_1_2_1">3.上传照片</li>
+      <li>4.完成登记</li>
+    </ul>
+  </div>
+
+
+
+
+
+
+
+	  
+
+	    <div class="main_step_text_1">
+
+       		<div class="main_text_left_1">
+
+			
+
+		
+
+
+
+	 <form action="baby.php?mod=group&type=$type&step=3" method="POST" target="show" enctype="multipart/form-data">
+
+		<span class="s1"><strong>　*&nbsp;</strong></span>上传真实照片：<input id='mypic' type="file" class="text_a" name="photo" />　<br />
+
+		<input type="hidden" value="$id" name="id"/>
+
+
+
+		
+<div class="sctn21_1_3_2" style="width:700px; margin:0 auto; float:none"><input style="float:none; margin:15px auto" type="submit" value="下一步" class="sctn21_1_3_1" /></div>
+		</form>
+
+		 </div>
+
+	  </div>
+
+	
+
+	</div>
+
+	 <div class="sctn21_2"> &nbsp;</div>
+
+  
+
+    <!--conttentend-->
+
+<!--{subtemplate baby/foot}-->

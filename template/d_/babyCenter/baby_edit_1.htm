@@ -1,0 +1,22 @@
+<li><span>编号：</span>$result['id']</li>
+<li><span>失踪人姓名：</span><input type="text" class="text_a" name="name" value="$result['name']" /></li>
+<li><span>性别：</span>男 <input type="radio" name="sex" value="1" <!--{if $result['sex']==1}-->checked="checked"<!--{/if}--> />
+ 女 <input type="radio" name="sex" value="2" <!--{if $result['sex']==2}-->checked="checked"<!--{/if}--> /></li>
+<li><span>出生日期：</span><input type="text" class="text_a" name="birth_day" value="$result['birth_day']"></li>
+<li><span>失踪时身高：</span><input type="text" class="text_a" name="lost_height" value="$result['lost_height']"></li>
+<li><span>失踪日期：</span><input type="text" class="text_a" name="lost_day" value="$result['lost_day']"></li>
+<li><span>是否采血：</span>是<input type="radio" name="is_take_blood" value="1" <!--{if $result['is_take_blood']==1}-->checked="checked"<!--{/if}--> />　否<input type="radio" name="is_take_blood" value="2" <!--{if $result['is_take_blood']==2}-->checked="checked"<!--{/if}--> /></li>
+<li><span>父亲姓名：</span><input type="text" class="text_a" name="take_blood_fad" value="$result['take_blood_fad']"></li>
+<li><span>母亲姓名：</span><input type="text" class="text_a" name="take_blood_mad" value="$result['take_blood_mad']"></li>
+<li><span>采血地点：</span><input type="text" class="text_a" name="blood_address" value="$result['blood_address']"></li>
+<li><span>采血时间：</span><input type="text" class="text_a" name="blood_time" value="$result['blood_time']"></li>
+<li><span>DNA是否入全国打拐数据库：</span>是<input type="radio" name="blood_is_add" value="1" <!--{if $result['blood_is_add']==1}-->checked="checked"<!--{/if}--> />　否　</span><input type="radio" name="blood_is_add" value="2" <!--{if $result['blood_is_add']==2}-->checked="checked"<!--{/if}--> /></li>
+<li><span>是否报案：</span>是<input type="radio" name="is_report" value="1" <!--{if $result['is_report']==1}-->checked="checked"<!--{/if}--> />　否　</span><input type="radio" name="is_report" value="2" <!--{if $result['is_report']==2}-->checked="checked"<!--{/if}--> /></li>
+<li><span>报案机关名称：</span><input type="text" class="text_a" name="report_name" value="$result['report_name']"></li>
+<li><span>是否立案：</span>是<input type="radio" name="report_is_add" value="1" <!--{if $result['report_is_add']==1}-->checked="checked"<!--{/if}--> />　否　</span><input type="radio" name="report_is_add" value="2" <!--{if $result['report_is_add']==2}-->checked="checked"<!--{/if}--> /></li>
+<li><span>失踪人户籍所在地： </span><input type="text" class="text_a" name="birth_address" value="$result['birth_address']"></li>
+<li><span>失踪地： </span><input type="text" class="text_a" name="lost_address" value="$result['lost_address']"></li> 
+<li style="margin-bottom:42px;"><span>失踪人特征描述： </span><textarea rows="3" cols="30" name="lost_person_feature">$result['lost_person_feature']</textarea></li> 
+<li style="margin-bottom:42px;"><span>失踪经过： </span><textarea rows="3" cols="30" name="lost_intro">$result['lost_intro']</textarea></li> 
+<li style="margin-bottom:42px;"><span>家庭背景以及线索资料： </span><textarea rows="3" cols="30" name="family">$result['family']</textarea></li> 
+<li style="margin-bottom:42px;"><span>其他资料： </span><textarea rows="3" cols="30" name="other_intro">$result['other_intro']</textarea></li> 

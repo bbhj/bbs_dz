@@ -1,0 +1,88 @@
+<!--{subtemplate baby/head}-->
+<link href="/css/style1.css" rel="stylesheet" type="text/css" />
+    <!--personalcenter-->
+    <!--{subtemplate babyCenter/left}-->
+	
+      <div id="yonghuzhongxin">
+        <div class="omcenter" id="ti1">
+          <div class="om_center">
+            
+			<div class="personalcenter_r_bot" id="ti1">
+		
+		
+        <!--{if empty($do)}-->
+		<div id="personalcenter_r_top">
+			  <ul>
+                 <li><a href="babyCenter.php?mod=manageflash">管理首页幻灯</a></li>
+                 <li><a href="babyCenter.php?mod=manageflash&do=add">添加首页幻灯</a></li>
+             </ul>
+		</div>
+		<!--{eval $form->showList('审核志愿者',array('标题','图片','显示顺寻'),$mydataList,$babyCount,'babyCenter.php?mod=manageflash','babyCenter.php?mod=manageflash',1,0,0);}-->	
+		 <!--{elseif $do=='add' OR $do=='edit'}-->
+	     
+    <div id="personalcenter_r_top">
+			  <ul>
+                <li><a href="babyCenter.php?mod=manageflash">管理首页幻灯</a></li>
+                 <li><a href="babyCenter.php?mod=manageflash&do=add">添加首页幻灯</a></li>
+             </ul>
+		</div>
+      	<table cellspacing="0" border="0" id="FormView1" style="border-collapse:collapse;">
+
+		<tr>
+		<td colspan="2">
+       
+           
+			<div class="text" style="width:700px;">
+			
+			
+         	
+         	<form action="babyCenter.php?mod=manageflash&do=$do" method="POST" target="show" enctype="multipart/form-data">
+            	<table style="margin:0px auto">
+					<tr><td><span>标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题：</span><input type="text" class="text_a" name="title" value="$result['title']" /></td></tr>
+                    <tr><td><span>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：</span><input type="text" class="text_a" name="note" value="$result['note']" /></td></tr>
+					<tr><td><span>链&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;接：</span><input type="text" size="35" class="text_a" name="url" value="$result['url']"  /></td></tr>
+					<tr><td><span>显示顺序：</span><input type="text" class="text_a" name="order_num" value="$result['order_num']" />&nbsp;数字越大显示越靠前</td></tr>
+					<tr><td><span>幻灯片图：</span><input type="file" class="text_a" name="pic"/> &nbsp;&nbsp;[标准尺寸：290x218]</td></tr>
+	
+            	<input type="hidden" value='$result['id']' name="id">
+             	<tr><td><input type="submit" value="提交" name="submit" class="sctn21_1_3_1"></td></tr>
+				</table>
+             	
+             	</form>          
+       		 </div>
+
+		 </td>
+		</tr>
+		</table>
+ 
+       <!--{/if}-->
+		
+		</div>	
+				
+          </div>
+         
+        </div>
+        
+      </div>
+	  <div style="clear: both;"></div>
+    </div>
+    <script>
+	
+	function ti(t){
+	for(f=1;f<=2;f++){
+	document.getElementById("ti"+f).style.display="none"
+	document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+	document.getElementById("a"+f).style.color="#529F05"
+	document.getElementById("a"+f).style.fontWeight=""
+	}
+	document.getElementById("ti"+t).style.display=""
+	document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+	document.getElementById("a"+t).style.color="#fff"
+	document.getElementById("a"+t).style.fontWeight="bold"
+
+	}	
+	
+	</script>
+    
+	
+	<!--{subtemplate baby/foot}-->

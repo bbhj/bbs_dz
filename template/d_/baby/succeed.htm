@@ -1,0 +1,120 @@
+<!--{subtemplate baby/head}-->
+
+
+<!-- body开始 --> 
+
+
+
+
+
+   <div class="sctn21_1">
+  <div class="sctn21_1_5">
+    <div class="sctn21_1_1_1"><img src="image/icon.gif" width="51" height="43" align="top" /> 成功案例列表</div>
+    <div class="sctn21_1_1_2">
+      <div class="sctn21_1_1_2_2"></div>
+      <div class="sctn21_1_1_2_1" style="background:url(../image/stcn21_search1.jpg) no-repeat;">
+        <div class="sctn21_1_1_2_1_1"></div>
+		<form action="baby.php?mod=succeed" method="post">
+        <div class="sctn21_1_1_2_1_2">
+          <input name="keywords" type="text" class="sctn21_1_1_2_4"/>
+        </div>
+        <div class="sctn21_1_1_2_1_3">
+          <input name="" type="submit" value="" class="sctn21_1_1_2_3"/>
+        </div>
+		</form>
+      </div>
+    </div>
+  </div>
+  <div class="sctn21_1_4">
+
+
+    <table border="0" cellspacing="0" align="center" style="margin:0 auto; font-size:14px; text-align:center" bordercolor="#CCCCCC">
+      <tr>
+        <td id="bstitle">编号</td>
+        <td id="bstitle">原因</td>
+        <td id="bstitle">姓名</td>
+        <td id="bstitle">年龄</td>
+        <td id="bstitle">原籍</td>
+        <td id="bstitle">拐入地</td>
+        <td id="bstitle" style="width:100px; padding:0">离家时间</td>
+        <td id="bstitle" style="width:100px">回家时间</td>
+        <td id="bstitle">链接</td>
+      </tr>
+
+	  <!--{loop $list $v}-->
+      <tr>
+        <td height="23" width="5%" id="bscont">$v['num']</td>
+        <td height="23" width="12%" id="bscont">$v['reason']</td>
+        <td height="23" width="12%" id="bscont">$v['name']</td>
+        <td height="23" width="10%" id="bscont">$v['age']</td>
+        <td height="23" width="10%" id="bscont">$v['address_1']</td>
+        <td height="23" width="10%" id="bscont">$v['address_2']</td>
+        <td height="23" width="8%" id="bscont">$v['lost_time']</td>
+        <td height="23" width="10%" id="bscont">$v['return_time']</td>
+        <td height="23" id="bscont"><a href="$v['link']" target="_blank">点击查看</a> | <a href="javascript:void(0);" title="$v['link']" onclick="javascript:copyToClipboard(this.title);">复制链接</a></td>
+      </tr>
+	  <!--{/loop}-->
+     
+    </table>
+  </div><br /><br />
+  <div class="pe-page2">
+
+	  $multi
+
+    </div>
+</div>
+<div class="sctn21_2"> &nbsp;</div>
+
+
+
+
+
+<script type="text/javascript">
+function copyToClipboard(txt) {
+	if (window.clipboardData) {
+		window.clipboardData.clearData();
+		window.clipboardData.setData("Text", txt);
+	} else if (navigator.userAgent.indexOf("Opera") != -1) {
+		window.location = txt;
+	} else if (window.netscape) {
+		try {
+			netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+		} catch (e) {
+			alert("被浏览器拒绝！\n请在浏览器地址栏输入'about:config'并回车\n然后将'signed.applets.codebase_principal_support'设置为'true'");
+		}
+		var clip = Components.classes['@mozilla.org/widget/clipboard;1'].createInstance(Components.interfaces.nsIClipboard);
+		if (!clip)
+		return;
+		var trans = Components.classes['@mozilla.org/widget/transferable;1'].createInstance(Components.interfaces.nsITransferable);
+		if (!trans)
+		return;
+		trans.addDataFlavor('text/unicode');
+		var str = new Object();
+		var len = new Object();
+		var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
+		var copytext = txt;
+		str.data = copytext;
+		trans.setTransferData("text/unicode", str, copytext.length * 2);
+		var clipid = Components.interfaces.nsIClipboard;
+		if (!clip)
+		return false;
+		clip.setData(trans, null, clipid.kGlobalClipboard);
+	}
+	alert("已复制到剪贴板了！");
+}  
+</script>
+
+
+<!-- body结束 -->
+
+
+
+    
+
+	
+
+
+
+	
+
+	<!--{subtemplate baby/foot}-->

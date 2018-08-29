@@ -1,0 +1,79 @@
+<div class="tl">
+	<div class="sttl mbn">
+		<h2><!--{if $keyword}-->{lang search_result_keyword} <!--{if $modfid}--><a href="forum.php?mod=modcp&action=thread&fid=$modfid&keywords=$modkeyword&submit=true&do=search&page=$page" target="_blank">{lang goto_memcp}</a><!--{/if}--><!--{else}-->{lang search_result}<!--{/if}--></h2>
+	</div>
+	<!--{ad/search/y mtw}-->
+	<!--{if empty($threadlist)}-->
+		<p class="emp xs2 xg2">{lang search_nomatch}</p>
+	<!--{else}-->
+		<div class="slst mtw" id="threadlist" {if $modfid} style="position: relative;"{/if} style="width:100%;">
+			<!--{if $modfid}-->
+			<form method="post" autocomplete="off" name="moderate" id="moderate" action="forum.php?mod=topicadmin&action=moderate&fid=$modfid&infloat=yes&nopost=yes">
+			<!--{/if}-->
+			<style>
+			.search_list_baby table tr td a{
+				color:#333;
+				text-decoration:none;
+			}
+			.search_list_baby table tr td a:hover{
+				text-decoration:underline;
+				color:#0099a9;
+			}
+			</style>
+			<div style="width:100%;" class="search_list_baby">
+			<table cellspacing="0" cellpadding="0" style="width:100%;">
+				<tr>
+					<td class="icn" style="background:#e8ece6; font-weight:bold; border-top:1px solid #d2dace; border-bottom:1px solid #d2dace; padding:5px 5px;">&nbsp;</td>
+					<td style="background:#e8ece6; font-weight:bold; border-top:1px solid #d2dace; border-bottom:1px solid #d2dace; padding:5px 5px; ">标题</td>
+					<td style="background:#e8ece6; font-weight:bold; border-top:1px solid #d2dace; border-bottom:1px solid #d2dace; padding:5px 5px;width:100px;">板块</td>
+					<td style="background:#e8ece6; font-weight:bold; border-top:1px solid #d2dace; border-bottom:1px solid #d2dace; padding:5px 5px;width:100px;">作者</td>
+					<td style="background:#e8ece6; font-weight:bold; border-top:1px solid #d2dace; border-bottom:1px solid #d2dace; padding:5px 5px;width:100px;">回复/查看</td>
+					<td style="background:#e8ece6; font-weight:bold; border-top:1px solid #d2dace; border-bottom:1px solid #d2dace; padding:5px 5px;width:100px;">最后发表</td>
+				</tr>
+				<!--{loop $threadlist $thread}-->
+				<tr>
+					<td class="icn">
+						<a href="forum.php?mod=viewthread&tid=$thread[tid]&highlight=$index[keywords]" title="{lang open_new_window}" target="_blank">
+						<!--{if $thread[folder] == 'lock'}-->
+							<img src="{IMGDIR}/folder_lock.gif" />
+						<!--{elseif $thread['special'] == 1}-->
+							<img src="{IMGDIR}/pollsmall.gif" alt="{lang poll}" />
+						<!--{elseif $thread['special'] == 2}-->
+							<img src="{IMGDIR}/tradesmall.gif" alt="{lang trade}" />
+						<!--{elseif $thread['special'] == 3}-->
+							<img src="{IMGDIR}/rewardsmall.gif" alt="{lang reward}" />
+						<!--{elseif $thread['special'] == 4}-->
+							<img src="{IMGDIR}/activitysmall.gif" alt="{lang activity}" />
+						<!--{elseif $thread['special'] == 5}-->
+							<img src="{IMGDIR}/debatesmall.gif" alt="{lang debate}" />
+						<!--{elseif in_array($thread['displayorder'], array(1, 2, 3, 4))}-->
+							<img src="{IMGDIR}/pin_$thread[displayorder].gif" alt="$_G[setting][threadsticky][3-$thread[displayorder]]" />
+						<!--{else}-->
+							<img src="{IMGDIR}/folder_$thread[folder].gif" />
+						<!--{/if}-->
+						</a>
+					</td>
+					<td style="padding:5px 5px;"><a href="forum.php?mod=viewthread&tid=$thread[realtid]&highlight=$index[keywords]" target="_blank" $thread[highlight]>$thread[subject]</a></td>
+					<td style="padding:5px 5px;"><a href="forum.php?mod=forumdisplay&fid=$thread[fid]" target="_blank" class="xi1">$thread[forumname]</a></td>
+					<td style="padding:5px 5px;">	<!--{if $thread['authorid'] && $thread['author']}-->
+								<a href="home.php?mod=space&uid=$thread[authorid]" target="_blank">$thread[author]</a>
+							<!--{else}-->
+								<!--{if $_G['forum']['ismoderator']}--><a href="home.php?mod=space&uid=$thread[authorid]" target="_blank">{lang anonymous}</a><!--{else}-->{lang anonymous}<!--{/if}-->
+							<!--{/if}--></td>
+					<td style="padding:5px 5px;">$thread[replies] / $thread[views] {lang a_visit}</td>
+					<td style="padding:5px 5px;"><cite><a href="home.php?mod=space&username=$thread[lastposterenc]" target="_blank">$thread[lastposter]</a></cite>
+									<em><a href="forum.php?mod=redirect&tid=$thread[tid]&goto=lastpost#lastpost" target="_blank">$thread[lastpost]</a></em></td>
+				</tr>
+				<!--{/loop}-->
+			</table>
+			
+		
+		<!--{if $modfid}-->
+			</forum>
+			<script type="text/javascript" src="{$_G[setting][jspath]}forum_moderate.js?{VERHASH}"></script>
+			<!--{template forum/topicadmin_modlayer}-->
+		<!--{/if}-->
+		</div>
+	<!--{/if}-->
+	<!--{if !empty($multipage)}--><div class="pgs cl mbm" style="margin-top:10px;">$multipage</div><!--{/if}-->
+</div>

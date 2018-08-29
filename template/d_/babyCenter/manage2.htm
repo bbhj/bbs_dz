@@ -1,0 +1,72 @@
+<!--{subtemplate baby/head}-->
+<link href="/css/style1.css" rel="stylesheet" type="text/css" />
+    <!--personalcenter-->
+    <!--{subtemplate babyCenter/left}-->
+	
+      <div id="yonghuzhongxin">
+        <div class="omcenter" id="ti1">
+          <div class="om_center">
+            
+			<div class="personalcenter_r_bot" id="ti1">
+		
+		<div id="personalcenter_r_top">
+			  <ul>
+                 <li><a href="babyCenter.php?mod=manageg2">管理工作组</a></li>
+                 <li><a href="babyCenter.php?mod=manageg2&do=add">添加工作组</a></li>
+             </ul>
+		</div>
+		<!--{if empty($do)}-->
+		<!--{eval $form->showList('管理链接',array('工作组名称','现有人数'),$babyList,$babyCount,'babyCenter.php?mod=manageg2','babyCenter.php?mod=manageg2',1,0,0);}-->	
+       <!--{elseif $do=='add' OR $do=='edit'}-->
+	     
+    <form action="" method="POST" target="show" enctype="multipart/form-data">
+      	<table cellspacing="0" border="0" id="FormView1" style="border-collapse:collapse;">
+
+		<tr>
+		<td>
+       
+            
+			<div class="text">
+            	<ul>
+        		 	<li><span>工作组名称：</span><input name="name" value="$result['name']"></li>
+             	</ul>          
+       		 </div>
+
+		 </td>
+		</tr>
+		<tr>
+			<td>
+				<input type="hidden" value="$result['id']" name="id">
+				<input type="submit" value="提交" name="submit" class="sctn21_1_3_1">
+			</td>
+		</tr>
+		</table>
+		</form>
+ 
+       <!--{/if}-->
+		
+		
+         </div> 
+        </div> </div> 
+      </div>
+    </div>
+    <script>
+	
+	function ti(t){
+	for(f=1;f<=2;f++){
+	document.getElementById("ti"+f).style.display="none"
+	document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+	document.getElementById("a"+f).style.color="#529F05"
+	document.getElementById("a"+f).style.fontWeight=""
+	}
+	document.getElementById("ti"+t).style.display=""
+	document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+	document.getElementById("a"+t).style.color="#fff"
+	document.getElementById("a"+t).style.fontWeight="bold"
+
+	}	
+	
+	</script>
+    
+	
+	<!--{subtemplate baby/foot}-->

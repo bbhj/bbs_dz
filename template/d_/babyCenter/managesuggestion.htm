@@ -1,0 +1,95 @@
+<!--{subtemplate baby/head}-->
+<!--personalcenter-->
+<!--{subtemplate babyCenter/left}-->
+<div class="sctn20_1_2">
+<!--<div class="sctn20_1_2_2" id="wodeyijian">-->
+<div class="sctn20_1_2_2">
+<div class="sctn20_1_2_2_2">
+<div class="sctn20_1_2_2_2_1">
+    <ul>
+    <li><a href="babyCenter.php?mod=managesuggestion&do=all" id="a2">所有意见建议</a></li>
+    </ul>
+</div>
+</div>
+<div class="sctn20_1_2_2_2">
+    <!--{loop $list $k $v}-->
+    <div id="uc_commend">
+    <ul>
+    <li id="uc_commend_1">
+    <li id="uc_commend_2">建议内容：
+    <li id="uc_commend_3">会员：
+    <li id="uc_commend_4">$v['username']
+    <li id="uc_commend_5">$v['inserttime']
+    <li id="uc_commend_6"> 
+    <li id="uc_commend_7">$v['message'] 
+    <!--{loop $v['list'] $k1 $v1}-->
+    <li id="uc_commend_8">
+    <li id="uc_commend_2">$v1['username']回复：
+    <li id="uc_commend_3">
+    <li id="uc_commend_4">
+    <li id="uc_commend_5">$v1['inserttime']
+    <li id="uc_commend_6">
+    <li id="uc_commend_7">$v1['message']
+    <!--{/loop}-->
+    <li id="uc_commend_9"> 
+    <li id="uc_commend_10"><a href="babyCenter.php?mod=managesuggestion&do=reply&id=$v['id']#reply"><img src="image/d_login16.gif" width="67" height="23" border="0"/></a>
+    </ul>
+    </div>	
+    <!--{/loop}-->	
+</div>
+<div class="sctn20_1_2_2_2">
+	<div class="pe-page2">$multi</div>
+</div>
+<div class="sctn20_1_2_2_2">
+    <div id="uc_commend_16">
+    <form action="" method="POST" target="show">
+    <ul>
+    <li id="uc_commend_11"><a name="reply"><!--{if $pid}-->发表回复：<!--{else}-->发表建议：<!--{/if}--></a>
+    <li id="uc_commend_12"><textarea cols="60" rows="5" name="message"></textarea>
+    <div><font color="#FF0000">*</font>输入文字不能少于5个字符</div>
+    <!--<li id="uc_commend_13">-->
+<div><input name="submit2" type="submit" value="提交" class="sctn21_1_3_1" style=" margin: 15px auto auto 1px;"  /></div><input type="hidden" value="$pid" name="pid">
+    </ul>
+    </form>  
+    </div>
+<!--
+	<div id='reply'>
+    <form action="" method="POST" target="show">
+    <a name="reply">-->
+    <!--{if $pid}-->
+    <!--发表回复：-->
+    <!--{else}-->
+    <!--发表建议：-->
+    <!--{/if}-->
+    <!--</a><br/>
+    <input type="hidden" value="$pid" name="pid">
+    <textarea cols="60" rows="5" name="message"></textarea>
+    <br /><br />
+    <font color="#FF0000">*</font>输入文字不能少于10个字符<br /><br />
+    <input name="submit2" type="submit" value="提交" />
+    </form>   
+    </div>	-->
+</div>
+	<div class="sctn20_1_2_2_2">
+		<div style=" width:150px; height:200px; float:left;"></div>
+	</div>
+   </div>
+</div>
+<div style="clear: both;"></div>
+</div>
+<script>
+function ti(t){
+	for(f=1;f<=2;f++)
+	{
+		//document.getElementById("ti"+f).style.display="none"
+		document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+		document.getElementById("a"+f).style.color="#529F05"
+		document.getElementById("a"+f).style.fontWeight=""
+	}
+	//document.getElementById("ti"+t).style.display=""
+	document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+	document.getElementById("a"+t).style.color="#fff"
+	document.getElementById("a"+t).style.fontWeight="bold"
+}	
+</script>
+<!--{subtemplate baby/foot}-->

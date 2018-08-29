@@ -1,0 +1,229 @@
+<!--{subtemplate baby/head}-->
+<script type="text/javascript">
+$(function(){
+if ($(".cimg").length)
+{
+$(".cimg").LoadImage(true,270,360,"/image/loading.gif");
+}
+}); 
+</script>
+<style type="text/css">
+a{}
+a:hover{
+color:#009b00;
+}
+#_table_1_photo {
+    height: 370px;
+    margin: 40px 10px 10px;
+    padding: 5px;
+    width: 277px;
+	text-align:center;
+}
+</style>
+<!-- body开始 --> 
+<div id="table_1">
+<!-- 宝贝信息开始 --> 
+<div id="table_1_normaldivl">
+<ul>
+<li><div id="_table_1_photo"><img class="cimg" src="$result['photo_2']" style="border: 1px solid rgb(217, 217, 217); padding: 2px; width: 120px; height: 148.235px;" /></div>
+<li><div id="font_red">本网站不保证寻亲酬金的有效性，知情人如需要有偿提供线索，请亲自与寻亲人联系确认，本网站及志愿者提供的寻亲服务均是免费。</div>
+</ul>
+</div>
+<div id="table_1_normaldivr">
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td colspan="4" align="center" style=" padding:20px"><img src="image/d_djxx.jpg" width="200" height="50" /></td>
+</tr>
+<tr>
+<td align="right" class="TITLE130 bl">类&nbsp;&nbsp;&nbsp;别：</td>
+<td align="left" class="br">$result['type']</td>
+<td align="right" class="TITLE130 bl">出生日期：</td>
+<td align="left" class="br">$result['birth_day']</td>
+</tr>
+<tr>
+<td align="right" class="TITLE130 bl">宝贝回家编号：</td>
+<td align="left" class="br">$result['id']<!--{if $result['bbs_id']!="" && $result['bbs_id']!=0}--> | <a href="http://bbs.baobeihuijia.com/thread-$result['bbs_id']-1-1.html" target="_blank">去论坛看看</a><!--{/if}--></td>
+
+<td align="right" class="TITLE130 bl">
+<!--{if $result['type']=='流浪乞讨'}-->
+儿童身高：
+<!--{else}-->
+失踪时身高：
+<!--{/if}-->
+</td>
+<td align="left" class="br">$result['lost_height']</td>
+
+</tr>
+<tr>
+<td align="right" class="TITLE130 bl">姓&nbsp;&nbsp;&nbsp;名：</td>
+<td align="left" class="br">$result['name']</td>
+<td align="right" class="TITLE130 bl">
+<!--{if $result['type']=='流浪乞讨'}-->
+发现时间：
+<!--{else}-->
+失踪时间：
+<!--{/if}-->
+</td>
+<td align="left" class="br">$result['lost_day']</td>
+</tr>
+<tr>
+<td align="right" class="TITLE130 bl">性&nbsp;&nbsp;&nbsp;别：</td>
+<td align="left">$result['sex']</td>
+<td align="right" class="TITLE130 bl">
+<!--{if $result['type']=='流浪乞讨'}-->发现地点：<!--{else}-->失踪人所在地：<!--{/if}-->
+
+</td>
+<td align="left" class="br">$result['birth_address']</td>
+</tr>
+<!--{if $result['type']!='流浪乞讨'}-->
+<tr>
+<td align="right" class="TITLE130 bl">失踪地点：</td>
+<td colspan="3" align="left" class="br"><div id="table_1_li_top">$result['lost_address']</div></td>
+</tr>
+<!--{/if}-->
+<tr>
+<td align="right" class="TITLE130 bl">
+<!--{if $result['type']=='流浪乞讨'}-->发现详细经过:<!--{else}-->其他资料：<!--{/if}-->
+
+</td>
+<td colspan="3" align="left" class="br"><div id="table_1_li_top">$result['other_intro']</div></td>
+</tr>
+<tr>
+<td align="right" class="TITLE130 bl">
+<!--{if $result['type']=='家寻宝贝'}-->失踪人特征描述：<!--{/if}-->
+<!--{if $result['type']=='宝贝寻家'}-->寻家人特征描述：<!--{/if}-->
+<!--{if $result['type']=='流浪乞讨'}-->儿童特征描述：<!--{/if}-->
+<!--{if $result['type']=='其他寻人'}-->失踪人特征描述：<!--{/if}-->
+<!--{if $result['type']=='海外寻亲'}-->失踪人特征描述：<!--{/if}-->
+</td>
+<td colspan="3" align="left" class="br"><div id="table_1_li_top">$result['lost_person_feature']</div></td>
+</tr>
+<!--{if $result['type']!='流浪乞讨' or $result['type']!='其他寻人'}-->
+<tr>
+<td align="right" class="TITLE130 bl">
+<!--{if $result['type']=='家寻宝贝'}-->失踪经过：<!--{/if}-->
+<!--{if $result['type']=='宝贝寻家'}-->寻家人失踪前记忆：<!--{/if}-->
+<!--{if $result['type']=='海外寻亲'}-->寻家人失踪经过：<!--{/if}-->
+</td>
+<td colspan="3" align="left" class="br"><div id="table_1_li_top">$result['lost_intro']</div></td>
+</tr>
+<!--{/if}-->
+<tr>
+<td align="right" class="TITLE130 bl">注册时间：</td>
+<td colspan="3" align="left" class="br">$result['insert_time']</td>
+</tr>
+<tr>
+<td align="right" valign="middle" class="TITLE130 bl">操作：</td>
+<td colspan="3" align="left" class="br">
+<div style="float:left;padding-top:0px;margin-top:0px;">
+<div style="float:left;margin-top:5px;">
+<a href="baby.php?mod=view&id=$id&do=<!--{if $uidTmp}-->unfollow<!--{else}-->follow<!--{/if}-->">
+<font color="Red"><!--{if $uidTmp}-->取消关注<!--{else}--><img src="../image/guanzhujiaodian_tb_1.jpg" alt="关注" title="关注" width="32" height="32" /><!--{/if}--></font></a></div>
+</div>
+<div style="float:left;padding-top:0px;margin-top:0;">
+<!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
+<a class="bds_qzone"></a>
+<a class="bds_tsina"></a>
+<a class="bds_tqq"></a>
+<a class="bds_renren"></a>
+<span class="bds_more">更多</span>
+<a class="shareCount"></a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+var bds_config = {'bdPic':'$result["photo"]'};
+document.getElementById("bdshell_js").src = "http://share.baidu.com/static/js/shell_v2.js?t=" + new Date().getHours();
+</script>
+
+<script type="text/javascript">
+function copyToClipboard(txt) {
+	if (window.clipboardData) {
+		window.clipboardData.clearData();
+		window.clipboardData.setData("Text", txt);
+	} else if (navigator.userAgent.indexOf("Opera") != -1) {
+		window.location = txt;
+	} else if (window.netscape) {
+		try {
+			netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+		} catch (e) {
+			alert("被浏览器拒绝！\n请在浏览器地址栏输入'about:config'并回车\n然后将'signed.applets.codebase_principal_support'设置为'true'");
+		}
+		var clip = Components.classes['@mozilla.org/widget/clipboard;1'].createInstance(Components.interfaces.nsIClipboard);
+		if (!clip)
+		return;
+		var trans = Components.classes['@mozilla.org/widget/transferable;1'].createInstance(Components.interfaces.nsITransferable);
+		if (!trans)
+		return;
+		trans.addDataFlavor('text/unicode');
+		var str = new Object();
+		var len = new Object();
+		var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
+		var copytext = txt;
+		str.data = copytext;
+		trans.setTransferData("text/unicode", str, copytext.length * 2);
+		var clipid = Components.interfaces.nsIClipboard;
+		if (!clip)
+		return false;
+		clip.setData(trans, null, clipid.kGlobalClipboard);
+	}
+	alert("已复制到剪贴板了！");
+}  
+</script>
+
+<!-- Baidu Button END -->
+</div>
+</td>
+</tr>
+<tr>
+<td colspan="4" align="center"  class="bl"><input type="hidden" value="$info_str" id="info_str" /><input type="button" value="复制信息" onclick="javascript:copyToClipboard($('#info_str').val());" style=" width:67px; height:25px; background:url(image/stcn20_cancel.jpg); border-width:0px; font-size:14px; font-weight:bold; color:#fff; margin-bottom:0px;"  name="button"></td>
+</tr>
+
+<!--{if !empty($result['follow_uid'])}-->
+<tr>
+<td align="right" class="TITLE130 bl">跟进志愿者</td>
+<td colspan="3" align="left" class="br">$result['follow_uid']</td>
+</tr>
+<!--{/if}-->
+</table>
+</div>
+<div style="clear:both;"></div>
+<!-- 宝贝信息结束 -->
+<div style="padding:15px; _width:950px">
+<!-- UY BEGIN -->
+<!--{ad/custom_1}-->
+<!-- UY END -->
+</div>
+<!--{if $bbsList1}-->
+<!-- 论坛信息开始 -->
+<div id="table_1_lt1">
+</div>
+<div id="table_1_lt4">
+<div id="table_1_lt2">
+<ul>
+<li id="table_1_lt_li1">最新评论：
+<!--{loop $bbsList1 $k $v}-->
+<li id="table_1_lt_li2">$v['author']：{$v['message']}
+<li id="table_1_lt_li3">          $v['dateline']
+<!--{/loop}-->
+</ul>
+</div>
+<div id="table_1_lt3">
+</div>
+<div id="table_1_lt2">
+<ul>
+<li id="table_1_lt_li1">最新评论： 
+<!--{loop $bbsList2 $k $v}-->
+<li id="table_1_lt_li2">$v['author']：{$v['message']}
+<li id="table_1_lt_li3">         $v['dateline']
+<!--{/loop}-->
+</ul>
+</div>
+</div>
+<!-- 论坛信息结束 -->
+<!--{/if}-->
+</div>
+<!-- body结束 -->
+<!--{subtemplate baby/foot}-->
+

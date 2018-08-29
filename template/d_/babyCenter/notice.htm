@@ -1,0 +1,55 @@
+<!--{subtemplate baby/head}-->
+<!--personalcenter-->
+<!--{subtemplate babyCenter/left}-->
+<div class="sctn20_1_2">
+<div class="sctn20_1_2_2">
+<div class="sctn20_1_2_2_2">
+<div class="sctn20_1_2_2_2_1">
+      <ul>
+         <li><a href="babyCenter.php?mod=notice">管理公告</a></li>
+         <li><a href="babyCenter.php?mod=notice&do=add">添加公告</a></li>
+     </ul>
+</div>
+</div>
+<!--{if empty($do)}-->
+<div class="sctn20_1_2_2_2">
+<div class="personalcenter_r_bot" id="ti1">
+	<!--{eval $form->showList('审核志愿者',array('标题','添加日期','添加者'),$babyList,$babyCount,'babyCenter.php?mod=notice','babyCenter.php?mod=notice',1,0,0);}-->	
+</div>
+</div>
+<!--{elseif $do=='add' OR $do=='edit'}-->
+<div class="sctn20_1_2_2_2">
+    <div class="personalcenter_r_bot" id="ti1">
+    <form action="" method="POST" target="show">
+    <div style="width:450px; height:500px; font-size:14px; color:#666; line-height:20px; padding-top:10px; padding-left:10px;">
+        <ul>
+            <li style="float:left; width:50px; height:35px;">标题：</li>
+            <li style="float:left; width:380px; height:35px;"><input name="title" value="$result['title']"></li>
+            <li style="float:left; width:50px; height:200px;">内容：</li>
+            <li style="float:left; width:380px; height:200px;"><textarea name="message" style=" width:320px;height:180px;">$result['message']</textarea></li>
+            <li style="float:left; width:360px; height:35px;"><input type="hidden" value="$result['id']" name="id"><input type="submit" class="sctn21_1_3_1" value="提交" name="submit"></li>
+        </ul>          
+     </div>
+    </form>
+    </div>
+</div>
+<!--{/if}-->
+</div>
+</div>
+ <div style="clear: both;"></div>
+</div>
+<script>
+function ti(t){
+for(f=1;f<=2;f++){
+document.getElementById("ti"+f).style.display="none"
+document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+document.getElementById("a"+f).style.color="#529F05"
+document.getElementById("a"+f).style.fontWeight=""
+}
+document.getElementById("ti"+t).style.display=""
+document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+document.getElementById("a"+t).style.color="#fff"
+document.getElementById("a"+t).style.fontWeight="bold"
+}	
+</script>
+<!--{subtemplate baby/foot}-->

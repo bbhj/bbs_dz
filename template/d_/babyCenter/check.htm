@@ -1,0 +1,102 @@
+<!--{subtemplate baby/head}-->
+<style type="text/css">
+.lbt{
+ display: block;
+  float: left;
+
+width:200px;
+}
+.rbt{
+}
+</style>
+    <!--personalcenter-->
+    <!--{subtemplate babyCenter/left}-->
+	
+      <div id="yonghuzhongxin">
+        <div class="omcenter" id="ti1">
+          <div class="om_center">
+            
+			<div class="personalcenter_r_bot" id="ti1" style="background-color:#fff;">
+		<!--{if empty($do)}-->
+		<!--<div style="height:7px;background-color:white;">&nbsp;</div>-->
+		<div id="personalcenter_r_top" style="background-color:white;">
+			  <ul>
+                 <li <!--{if $status=="0"}-->style="BACKGROUND: url(image/baby_sctn01_button2.jpg) no-repeat;"<!--{else}-->style="BACKGROUND: url(image/baby_sctn01_button1.jpg) no-repeat;"<!--{/if}-->><a <!--{if $status=="0"}-->style="COLOR: #fff; font-Weight: bold"<!--{else}-->style="COLOR: #529F05; font-Weight: bold"<!--{/if}--> href="/babyCenter.php?mod=check&status=0">待审核志愿者</a></li>
+                 <li <!--{if $status=="2"}-->style="BACKGROUND: url(image/baby_sctn01_button2.jpg) no-repeat;"<!--{else}-->style="BACKGROUND: url(image/baby_sctn01_button1.jpg) no-repeat;"<!--{/if}-->><a <!--{if $status=="2"}-->style="COLOR: #fff; font-Weight: bold"<!--{else}-->style="COLOR: #529F05; font-Weight: bold"<!--{/if}--> href="/babyCenter.php?mod=check&status=2">未通过志愿者</a></li>
+				     <li style="margin-top:0px;BORDER-BOTTOM: #54b301 2px solid; width:310px; height:30px;background:url(../image/stcn21_search1.jpg) no-repeat;background-position: 0px -10px;float:right;" >
+          	<div style="width:120px; height:26px; float:left;"></div>
+            <form action="/babyCenter.php?mod=check&status=$status" method="post">
+          	<div style="width:140px; height:26px; float:left; padding-top:3px;"><input name="key" type="text" class="sctn21_1_1_2_4"/></div>
+          	<div style="width:40px; height:26px; float:left; padding-top:3px;"><input name="" type="submit" value="" class="sctn21_1_1_2_3"/></div></form>
+          </li>
+             </ul>
+		</div>
+		
+
+		<!--{eval $form->showList('审核志愿者',array('姓名','年龄','职业','省份',qq,'注册时间'),$babyList,$babyCount,'babyCenter.php?mod=check','babyCenter.php?mod=check'.$urlAnd,0,1,1);}-->	
+       <!--{else}-->
+	         <div id="personalcenter_r_top">
+			  <ul>
+                 <li><a href="#">查看志愿者</a></li>
+             </ul>
+		</div>
+    <br/>
+      	<table cellspacing="0" border="0" id="FormView1" style="border-collapse:collapse;">
+
+		<tr>
+		<td colspan="2">
+       
+            <!--{avatar($result['uid'])}-->
+			<div class="text">
+            	<ul>
+                	<li><b class="lbt">用户ID：</b>$result['uid']</li>
+        		 	<li><b class="lbt">用户名：</b>$result['username']</li>
+                	<li><b class="lbt">姓名：</b>$result['name']</li>
+                	<li><b class="lbt">年龄：</b>$result['age']</li>
+                	<li><b class="lbt">性别：</b>$result['sex']</li>
+                	<li><b class="lbt">身份证号码：</b>$result['idnum']</li>
+                	<li><b class="lbt">职业：</b>$result['work']</li>
+                	<li><b class="lbt">详细地址：</b>$result['address']</li>
+                	<li><b class="lbt">电话号码：</b>$result['tel']</li>
+                	<li><b class="lbt">手机：</b>$result['mobile']</li>
+                	<li><b class="lbt">email：</b>$result['email']</li>
+                	<li><b class="lbt">qq：</b>$result['qq']</li>
+                	<li><b class="lbt">昵称：</b>$result['nickname']</li>
+                	<li><b class="lbt">是否参加过其他公益组织：</b>$result['is_other']</li>
+                	<li><b class="lbt">所在省市：</b>$result['province'] $result['city']</li>
+                	<li><b class="lbt">注册时间：</b>$result['regtime']</li>
+             	</ul>          
+       		 </div>
+
+		 </td>
+		</tr>
+		</table>
+
+ 
+       <!--{/if}-->
+		
+		
+         </div> 
+        </div> </div> 
+      </div>
+    </div>
+    <script>
+	
+	function ti(t){
+	for(f=1;f<=2;f++){
+	document.getElementById("ti"+f).style.display="none"
+	document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+	document.getElementById("a"+f).style.color="#529F05"
+	document.getElementById("a"+f).style.fontWeight=""
+	}
+	document.getElementById("ti"+t).style.display=""
+	document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+	document.getElementById("a"+t).style.color="#fff"
+	document.getElementById("a"+t).style.fontWeight="bold"
+
+	}	
+	
+	</script>
+    
+	
+	<!--{subtemplate baby/foot}-->

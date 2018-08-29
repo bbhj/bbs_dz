@@ -1,0 +1,41 @@
+<!--{subtemplate baby/head}-->
+
+    <!--personalcenter-->
+    <!--{subtemplate babyCenter/left}-->
+	
+      <div id="yonghuzhongxin">
+        <div class="omcenter" id="ti1">
+          <div class="om_center">
+            
+			<div class="personalcenter_r_bot" id="ti1">
+		<div id="personalcenter_r_top">
+			<ul>
+                 <li><a href="babyCenter.php?mod=managework">管理日志</a></li>
+             </ul>
+		</div>
+		<!--{eval $form->showList('表单',array('操作人','动作','操作时间','IP'),$list,$babyCount,'babyCenter.php?mod=managelog','babyCenter.php?mod=managelog',2,0,0);}-->	
+         </div> 
+        </div> </div> 
+      </div>
+	  <div style="clear: both;"></div>
+    </div>
+    <script>
+	
+	function ti(t){
+	for(f=1;f<=2;f++){
+	document.getElementById("ti"+f).style.display="none"
+	document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+	document.getElementById("a"+f).style.color="#529F05"
+	document.getElementById("a"+f).style.fontWeight=""
+	}
+	document.getElementById("ti"+t).style.display=""
+	document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+	document.getElementById("a"+t).style.color="#fff"
+	document.getElementById("a"+t).style.fontWeight="bold"
+
+	}	
+	
+	</script>
+    
+	
+	<!--{subtemplate baby/foot}-->

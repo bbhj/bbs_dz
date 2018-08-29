@@ -1,0 +1,86 @@
+<!--{subtemplate baby/head}-->
+<link href="/css/style1.css" rel="stylesheet" type="text/css" />
+    <!--personalcenter-->
+	
+	
+	
+		
+		
+		
+    <div id="om">
+      <div id="zhiyuanzhe_l">
+        <div class="tv_sidebox">
+		<h2>{lang category_related}</h2>
+		<ul>
+			<!--{eval $cNum = count($cat[others]);}-->
+		<!--{loop $cat[others] $k $value}-->
+					
+					<li><a href="{echo getportalcategoryurl($value[catid]);}" <!--{if $cNum==$k}-->style="border-bottom:0;"<!--{/if}-->>$value[catname]</a></li>
+		<!--{/loop}-->
+		</ul>
+		</div>
+      </div>
+      	<div class="tv_listbox">
+			<div class="bm vw">
+				<div class="h hm">
+				<h1 class="ph">$article[title] <!--{if $article['status'] == 1}-->({lang moderate_need})<!--{elseif $article['status'] == 2}-->({lang ignored})<!--{/if}--></h1>
+				<p class="xg1"> $article[dateline]<span class="pipe">|</span> 发布者: <a href="home.php?mod=space&uid=$article[uid]">$article[username]</a><span class="pipe">|</span> 查看: <!--{if $article[viewnum] > 0}-->$article[viewnum]<!--{else}-->0<!--{/if}--><span class="pipe">|</span> 评论: <!--{if $article[commentnum] > 0}--><a href="$common_url" title="{lang view_all_comments}">$article[commentnum]</a><!--{else}-->0<!--{/if}-->
+				<!--{if $article[author]}--><span class="pipe">|</span>{lang view_author_original}: $article[author]<!--{/if}-->
+				<!--{if $article[from]}--><span class="pipe">|</span>{lang from}: <!--{if $article[fromurl]}--><a href="$article[fromurl]" target="_blank">$article[from]</a><!--{else}-->$article[from]<!--{/if}--><!--{/if}-->
+		</div>
+		<!--{if $article[summary] && empty($cat[notshowarticlesummay])}--><div class="s"><div><strong>{lang article_description}</strong>: $article[summary]</div></div><!--{/if}-->
+		
+				
+				<div class="d">
+					<table cellspacing="0" cellpadding="0" class="vwtb">
+						<tbody>
+						<tr>
+						<td id="article_content"><!--{if $content[title]}-->
+					<div><b>$content[title]</b></div>
+					<!--{/if}-->
+					$content[content]</td>
+						</tr>
+						</tbody>
+					</table>
+					<!--{if $multi}--><div class="ptw pbw cl">$multi</div><!--{/if}-->
+					
+					
+				</div>
+				
+				<!--{if !empty($contents)}-->
+				<div id="inner_nav" class="ptn xs1">
+					<h3>{lang article_inner_navigation}</h3>
+					<ul class="xl xl2 cl">
+						<!--{loop $contents $key $value}-->
+						<!--{eval $curpage = $key+1;}-->
+						<li>&bull; <a href="portal.php?mod=view&aid=$aid&page=$curpage"{if $key === $start} class="xi1"{/if}>{lang article_inner_page_pre} {$curpage} {lang article_inner_page} $value[title]</a></li>
+						<!--{/loop}-->
+					</ul>
+				</div>
+				<!--{/if}-->
+		
+				<div class="o cl ptm pbm">
+		<!--{if $_G['group']['allowmanagearticle'] || ($_G['group']['allowpostarticle'] && $article['uid'] == $_G['uid'] && (empty($_G['group']['allowpostarticlemod']) || $_G['group']['allowpostarticlemod'] && $article['status'] == 1)) || $categoryperm[$value['catid']]['allowmanage']}-->
+					<a href="portal.php?mod=portalcp&ac=article&op=edit&aid=$article[aid]&page=$_G[page]">{lang edit}</a><span class="pipe">|</span>
+					<!--{if $article[status]>0 && ($_G['group']['allowmanagearticle'] || $categoryperm[$value['catid']]['allowmanage'])}-->
+						<a href="portal.php?mod=portalcp&ac=article&op=verify&aid=$article[aid]" id="article_verify_$article[aid]" onclick="showWindow(this.id, this.href, 'get', 0);">{lang moderate}</a>
+					<!--{else}-->
+						<a href="portal.php?mod=portalcp&ac=article&op=delete&aid=$article[aid]" id="article_delete_$article[aid]" onclick="showWindow(this.id, this.href, 'get', 0);">{lang delete}</a>
+					<!--{/if}-->
+					<span class="pipe">|</span>
+				<!--{/if}-->
+				</div>
+			</div>
+			
+		<!--{if $article['allowcomment']==1}-->
+			<!--{eval $data = &$article}-->
+			<!--{subtemplate portal/portal_comment}-->
+		<!--{/if}-->
+		
+			
+		</div>
+		
+		
+
+    </div>
+  <!--{subtemplate baby/foot}-->

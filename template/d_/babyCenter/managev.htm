@@ -1,0 +1,210 @@
+<!--{subtemplate baby/head}-->
+
+<!--personalcenter-->
+<!--{subtemplate babyCenter/left}-->
+<div id="yonghuzhongxin">
+  <div class="omcenter" id="ti1">
+    <div class="om_center">
+      <div class="personalcenter_r_bot" id="ti1"> 
+        <!--{if empty($do)}-->
+        <div id="personalcenter_r_top"  style=" width:440px; height:30px; float:left;">
+          <ul>
+            <li><a href="#">志愿者管理</a></li>
+          </ul>
+          <!--
+          <div align="right">
+            <div class="sctn21_1_1_2">
+              <div class="sctn21_1_1_2_12">
+                <div class="sctn21_1_1_2_1_1"></div>
+                <form action="">
+                  <div class="sctn21_1_1_2_1_2">
+                    <input name="key" type="text" class="sctn21_1_1_2_4"/>
+                  </div>
+                  <div class="sctn21_1_1_2_1_3">
+                    <input name="" type="submit" value="" class="sctn21_1_1_2_3"/>
+                  </div>
+                </form>
+              </div>
+            </div>
+            -->
+            <!-- <form action="">
+            <div class="sctn21_1_1_2_12">
+              <input name="key" type="text" class="sctn21_1_1_2_4"/>
+              <div class="sctn21_1_1_2_1_3">
+              <input name="" type="submit" value="" class="sctn21_1_1_2_3"/>
+            </div>
+            </div>
+        </form>--> 
+          </div>
+          <div style="margin-top:10px;BORDER-BOTTOM: #54b301 2px solid; width:310px; height:30px; float:left;background:url(../image/stcn21_search1.jpg) no-repeat;background-position: 0px -10px;" >
+          	<div style="width:120px; height:26px; float:left;"></div>
+            <form action="/babyCenter.php?mod=managev" method="post">
+          	<div style="width:140px; height:26px; float:left; padding-top:3px;"><input name="key" type="text" class="sctn21_1_1_2_4"/></div>
+          	<div style="width:40px; height:26px; float:left; padding-top:3px;"><input name="" type="submit" value="" class="sctn21_1_1_2_3"/></div></form>
+          </div>
+          <!--{eval $form->showList('审核志愿者',array('姓名','年龄','职业','省份',qq,'注册时间'),$mydataList,$babyCount,'babyCenter.php?mod=managev','babyCenter.php?mod=managev'.$urlAnd,1,0,1, array('13%','8%','10%','12%','15%','15%'),$urlAnd);}--> 
+          
+        
+          <!--{elseif $do=='view'}-->
+		  <style type="text/css">
+ul > li > span{
+	display: block;
+	float: left;
+	width:200px;
+	font-weight:bolder;
+}
+</style>
+          <div id="personalcenter_r_top">
+                <ul>
+                  <li>查看志愿者</li>
+                </ul>
+           </div>
+          <table cellspacing="0" border="0" id="FormView1" style="border-collapse:collapse; margin-left:100px">
+          <tr>
+                <td colspan="2"><div style="margin:0px auto"><!--{if $result['photo']==''}--><img  style="border:1px solid #d9d9d9; padding:2px 2px 2px 2px; text-align:center;"  src="/ucenter/data/avatar/000/06/92/35_avatar_middle.jpg" /><!--{else}--><img  style="border:1px solid #d9d9d9; padding:2px 2px 2px 2px; text-align:center;"  src="/data/attachment/baby/$result['photo']" /><!--{/if}--></div></td>
+              </tr>
+              <tr style="font-size:14px;color:#656565;height:35px;line-height:35px;">
+                <td colspan="2"><a href="babyCenter.php?mod=profile&amp;action=avatar&amp;step=2">修改头像</a></td>
+              </tr>
+            <tr>
+              <td colspan="2">
+              
+                <div class="text">
+                  <ul>
+                    <li><span>用户ID：</span>$result['uid']</li>
+                    <li><span>用户名：</span>$result['username']</li>
+                    <!--{if $result['name']!=''}--><li><span>姓名：</span>$result['name']</li><!--{/if}-->
+                    <!--{if $result['age']!=''}--><li><span>年龄：</span>$result['age']</li><!--{/if}-->
+                  <!--{if $result['sex']!=''}-->  <li><span>性别：</span>$result['sex']</li><!--{/if}-->
+                   <!--{if $result['idnum']!=''}--> <li><span>身份证号码：</span>$result['idnum']</li><!--{/if}-->
+                   <!--{if $result['work']!=''}--> <li><span>职业：</span>$result['work']</li><!--{/if}-->
+                   <!--{if $result['address']!=''}--> <li><span>详细地址：</span>$result['address']</li><!--{/if}-->
+                   <!--{if $result['tel']!=''}--> <li><span>电话号码：</span>$result['tel']</li><!--{/if}-->
+                   <!--{if $result['mobile']!=''}--> <li><span>手机：</span>$result['mobile']</li><!--{/if}-->
+                   <!--{if $result['email']!=''}--> <li><span>email：</span>$result['email']</li><!--{/if}-->
+                   <!--{if $result['qq']!=''}--> <li><span>qq：</span>$result['qq']</li><!--{/if}-->
+                   <!--{if $result['nickname']!=''}--> <li><span>昵称：</span>$result['nickname']</li><!--{/if}-->
+                   <!--{if $result['is_other']!=''}--> <li><span>是否参见过其他公益组织：</span>$result['is_other']</li><!--{/if}-->
+                   <!--{if $result['province']!=''}--> <li><span>所在省市：</span>$result['province'] $result['city'] $result['area']</li><!--{/if}-->
+                   <!--{if $result['regtime']!=''}--> <li><span>注册时间：</span>$result['regtime']</li><!--{/if}-->
+                  </ul>
+                </div></td>
+            </tr>
+          </table>
+          
+          <!--{elseif $do=='edit'}-->
+          <div id="personalcenter_r_top">
+            <ul>
+              <li><a href="#">编辑志愿者</a></li>
+            </ul>
+          </div>
+          <table cellspacing="0" border="0" id="FormView1" style="border-collapse:collapse;">
+            <tr>
+              <td colspan="2"><div class="text">
+                  <form action="babyCenter.php?mod=managev&do=edit" method="POST" target="show">
+                    <table border="0" cellpadding="0" cellspacing="0">
+                    <tr style="font-size:14px;color:#656565;height:35px;line-height:35px;">
+                        <td style="text-align:center;" colspan="2"><div style="margin:0px auto"><!--{if $result['photo']==''}--><img  style="border:1px solid #d9d9d9; padding:2px 2px 2px 2px; text-align:center;"  src="/ucenter/data/avatar/000/06/92/35_avatar_middle.jpg" /><!--{else}--><img  style="border:1px solid #d9d9d9; padding:2px 2px 2px 2px; text-align:center;"  src="/data/attachment/baby/$result['photo']" /><!--{/if}--></div></td>
+                      </tr>
+                      <tr style="font-size:14px;color:#656565;height:35px;line-height:35px;">
+                        <td style="text-align:center;" colspan="2"><a href="babyCenter.php?mod=profile&amp;action=avatar&amp;step=2">修改头像</a></td>
+                      </tr>
+                    <tr>
+                        <td align="right"><strong>*</strong>用户名：</td>
+                        <td><input type="text" class="text_a" name="username" value="$result['username']" /></td>
+                      </tr>
+                      <tr>
+                        <td align="right"><strong>*</strong>姓　名：</td>
+                        <td><input type="text" class="text_a" name="name" value="$result['name']" />
+                          请填写您的真实姓名</td>
+                      </tr>
+                      <tr>
+                        <td align="right"><strong>*</strong>身份证号：</td>
+                        <td><input type="text" class="text_a" name="idnum" value="$result['idnum']"/></td>
+                      </tr>
+                      <tr>
+                        <td align="right"><strong>*</strong>手　机：</td>
+                        <td><input type="text" class="text_a" name="mobile" value="$result['mobile']" /></td>
+                      </tr>
+                      <tr>
+                        <td align="right"><strong>*</strong>性　别：</td>
+                        <td><input type="radio" name="sex" value="1" <!--{if $result['sex']==1}-->checked="checked"<!--{/if}--> />　男　<input type="radio" name="sex" value="2" <!--{if $result['sex']==2}-->checked="checked"<!--{/if}--> /> 女
+                          </li>
+                          <script src="js/PCASClass.js" type="text/javascript"></script></td>
+                      </tr>
+                      <tr>
+                        <td align="right"><strong>*</strong>常驻地：</td>
+                        <td><select name="province">
+                          </select>
+                          <select name="city">
+                          </select>
+
+                          </li>
+                          <script language="javascript" defer>
+					new PCAS("province","city","$result['province']","$result['city']");
+				</script></td>
+                      </tr>
+                      <tr>
+                        <td align="right"><strong>*</strong>详细地址：</td>
+                        <td><input type="text" class="text_a" name="address" value="$result['address']"/>
+                          请填写您的详细街道地址</td>
+                      </tr>
+                      <tr>
+                        <td align="right">职　业：</td>
+                        <td><input type="text" class="text_a" name="work" value="$result['work']"/></td>
+                      </tr>
+                      <tr>
+                        <td align="right"><strong>*</strong>EMAIL：</td>
+                        <td><input type="text" class="text_a" name="email" value="$result['email']"/></td>
+                      </tr>
+                      <tr>
+                        <td align="right">固　话：</td>
+                        <td><input type="text" class="text_a" name="tel" value="$result['tel']"/></td>
+                      </tr>
+                      <tr>
+                        <td align="right"><strong>*</strong>年　龄：</td>
+                        <td><select name="age">
+                            $ageHtml
+                          </select></td>
+                      </tr>
+                      <tr>
+                        <td align="right"><strong>*</strong>QQ号：</td>
+                        <td><input type="text" class="text_b" name="qq" value="$result['qq']"/></td>
+                      </tr>
+                      <tr>
+                        <td align="right"><strong>*</strong>昵　称：</td>
+                        <td><input type="text" class="text_a" name="nickname" value="$result['nickname']"/></td>
+                      </tr>
+                      <tr>
+                        <td>是否参加过其它志愿服务：</td>
+                        <td><input type="radio" name="is_other" value="1" <!--{if $result['sex']==1}-->checked="checked"<!--{/if}-->/>&nbsp;是　</span><input type="radio" name="is_other" value="2" <!--{if $result['sex']==2}-->checked="checked"<!--{/if}--> />&nbsp;否</td>
+                      </tr>
+                    </table>
+                    <input type="hidden" value='$result['uid']' name="uid">
+                    <input type="submit" value="修改" class="sctn21_1_3_1" name="submit">
+                  </form>
+                </div></td>
+            </tr>
+          </table>
+          <!--{/if}--> 
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+</div>
+<script>
+function ti(t){
+for(f=1;f<=2;f++){
+document.getElementById("ti"+f).style.display="none"
+document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+document.getElementById("a"+f).style.color="#529F05"
+document.getElementById("a"+f).style.fontWeight=""
+}
+document.getElementById("ti"+t).style.display=""
+document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+document.getElementById("a"+t).style.color="#fff"
+document.getElementById("a"+t).style.fontWeight="bold"
+}	
+</script> 
+<!--{subtemplate baby/foot}--> 

@@ -1,0 +1,81 @@
+<!--{subtemplate baby/head}-->
+
+<!--personalcenter-->
+<!--{subtemplate babyCenter/left}-->
+  <div class="sctn20_1_2">
+    <div class="sctn20_1_2_2">
+        <!--{if $search!=1}-->
+        <br />
+        <br />
+        <div class="sctn20_1_2_2_3" id="zhiyuanzhesousuo">
+            <form action="/babyCenter.php?mod=searchv&search=1" method="POST">
+            <div style="margin:0px auto; font-size:14px; width:300px;">
+             <!--<h1><img src="../image/zhiyuanzhe_tb.jpg" align="absmiddle" style=" float:left; margin-top:10px;" />&nbsp;志愿者搜索</h1>--><br />
+        <br />
+            <p style="padding-top:5px;_padding-top:10px;">性别：<input type="radio" value="1" name="sex">&nbsp;男      <input type="radio" value="2" name="sex">&nbsp;女</p>    
+            <p style="padding-top:5px;_padding-top:10px;">姓名：<input type="text" name="name" ></p>
+            <p style="padding-top:5px;_padding-top:10px;">地址：<input type="text" name="address"></p>
+             <p style="padding-top:10px;_padding-top:12px;"><input type="hidden" name="search" value="1" /><input type="submit" value="搜索" style=" width:67px; height:25px; background:url(image/stcn20_cancel.jpg); border-width:0px; font-size:14px; font-weight:bold; color:#fff; margin-bottom:0px;"></p>
+            </div>
+            </form>  
+        </div>
+        <br/>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <!--{else}-->	
+		<div id="personalcenter_r_top">
+			  <ul>
+                 <li><a href="#">志愿者列表</a></li>
+             </ul>
+		</div>
+        <div class="sctn20_1_2_2_2">
+            <table>
+            <tr align="center">
+            <td width="60" height="40" style="line-height:40px; font-weight:bold; color:#458C08">UID</td>
+            <td width="414" style="line-height:40px; font-weight:bold; color:#458C08">姓名</td>
+            <td width="130" style="line-height:40px; font-weight:bold; color:#458C08">年龄</td>
+            <td width="90">地址</td>
+            </tr>
+            <!--{if empty($uList)}-->
+            <tr align="center"><td colspan="4"> &nbsp;&nbsp;&nbsp;&nbsp;暂无搜索结果</td></tr>
+            <!--{/if}-->
+			<!--{loop $uList $k $v}-->
+			<tr align="center" <!--{if $k%2==0}-->bgcolor="#f4f4f4"<!--{/if}-->>
+			<td>$v['uid']</td>
+			<td>$v['name']</td>
+			<td>$v['age']</td>
+			<td>$v['address']</td>
+			</tr>
+			<!--{/loop}-->
+            </table>
+            <div class="pe-page2">
+        
+              $multipage
+        
+            </div>
+        </div>
+        <!--{/if}-->	
+        
+        </div>
+</div>
+  <div style="clear:both"></div>
+</div>
+</div>
+<script>
+function ti(t){
+for(f=1;f<=2;f++){
+document.getElementById("ti"+f).style.display="none"
+document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+document.getElementById("a"+f).style.color="#529F05"
+document.getElementById("a"+f).style.fontWeight=""
+}
+document.getElementById("ti"+t).style.display=""
+document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+document.getElementById("a"+t).style.color="#fff"
+document.getElementById("a"+t).style.fontWeight="bold"
+}	
+</script>
+<!--{subtemplate baby/foot}-->

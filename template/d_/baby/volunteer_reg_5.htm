@@ -1,0 +1,165 @@
+<!--{subtemplate baby/head}-->
+    <!--content-->
+
+  
+
+    <script src="js/jquery.Jcrop.js"></script>
+
+    <link rel="stylesheet" href="css/jquery.Jcrop.css" type="text/css" />
+
+		<div class="main">
+
+       <div class="main_title"><img src="image/icon.gif" width="51" height="43" align="top" /> 志愿者申请 </div>
+
+        <div style="margin:0 auto; height:50px;"></div>
+
+        
+
+    <div style="margin:0 auto;filter:alpha(opacity=50);width: 968px; text-align:center;"><img src="image/cube1.gif" width="800" height="15" /></div>
+
+       
+
+	<div class="main_cube">
+
+	 <div class="main_step" style="position:relative;">
+
+         <ul>
+
+   		   <li id="normal">1.阅读注册说明</li>
+
+           <li id="normal">2.填写登记信息</li>
+           
+           <li id="select">3.设置头像</li>
+
+           <li id="normal">3.完成注册</li>
+
+       
+
+         </ul>
+
+       </div>
+
+         <script language="Javascript">
+
+
+
+			$(function(){
+
+
+
+				$('#cropbox').Jcrop({
+
+					aspectRatio: 170/210,
+
+					onSelect: updateCoords
+
+
+				});
+
+
+
+			});
+
+
+
+			function updateCoords(c)
+
+			{
+
+				$('#x').val(c.x);
+
+				$('#y').val(c.y);
+
+				$('#w').val(c.w);
+
+				$('#h').val(c.h);
+
+			};
+
+
+
+			function checkCoords()
+
+			{
+
+				if (parseInt($('#w').val())) return true;
+
+				alert('请选择裁剪区域，然后按提交.');
+
+				return false;
+
+			};
+
+			
+
+			function uppic(){
+
+				jQuery.post('baby.php?mod=upimg', '',test);
+
+
+
+			}
+
+			
+
+			function test(a){
+
+				alert(a);
+
+			}
+			
+
+
+
+		</script>
+
+		
+
+	    <div class="main_step_text_1">
+
+       		<div class="main_text_left_1" style="text-align:center;">
+
+			
+
+		<img src="data/attachment/baby/$photo" id="cropbox"  style="text-align:center;"/>
+
+
+
+		<!-- This is the form that our event handler fills -->
+
+		<form action="baby.php?mod=volunteer_reg&step=5&id=$id" target="show" method="post" onsubmit="return checkCoords();">
+
+			<input type="hidden" id="x" name="x" />
+
+			<input type="hidden" id="y" name="y" />
+
+			<input type="hidden" id="w" name="w" />
+
+			<input type="hidden" id="h" name="h" />
+
+			<input type="submit" class="sctn21_1_3_1" value="裁剪" />
+
+		</form>
+		 </div>
+
+	  </div>
+	<div class="main_button" style="position:relative;">
+	<!--<input name="" type="button" value="下一步" style="background:url(image/button.jpg); width:92px; height:27px; color:#FFF; font-size:15px; font-family:黑体; font-weight:bold; border:0px; margin:auto;cursor:pointer;" />-->
+	
+	</div>
+
+    </div>
+
+    <div class="main_cube2"><img src="image/cube2.gif" width="800" height="15" /></div>
+
+    <div style="margin:0 auto; height:50px;"></div>
+	
+
+	</div>
+
+
+
+
+	
+
+	<!--{subtemplate baby/foot}-->

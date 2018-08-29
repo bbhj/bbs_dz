@@ -1,0 +1,210 @@
+/*
+
+[name]宝贝[/name]
+
+[iconbgcolor]#eb3548[/iconbgcolor]
+
+Powered by Discuz! X
+
+*/
+
+
+
+html { background: url(background_bottom.png) no-repeat bottom center; }
+
+body { background: transparent url(bgimg.png) no-repeat top center;}
+
+#nv { background-image: url(nv.png); height:40px;}
+
+#nv li { height:40px; line-height:40px; font-size:18px;}
+
+#nv li, #nv li a:hover, #nv li.hover a, #nv li.hover a:hover { background: url(nv_a.png) 0 40; text-decoration:none; }
+
+
+
+#nv li a { height:40px;  line-height:40px;}
+
+#qmenu { background-image: url(qmenu.png); margin:7px 10px 0; }
+
+#scbar, #scbar_form, .scbar_icon_td, .scbar_txt_td, .scbar_type_td, .scbar_btn_td { background-image: url(search.png); }
+
+#scbar { 
+
+	background-color:#FFF;
+
+}
+
+
+
+
+
+/* 重定义通用容器，定义页面宽度 */ 
+
+.wp { margin: 0 auto; width:990px;} #wp .wp { width: auto; padding:10px 10px; }
+
+
+
+
+
+/* 重定义按钮 */
+
+.pgs #newspecial, .pgs #newspecialtmp { float: left; background: url(pn_post.png) no-repeat 0 0; }
+
+#post_reply, #post_replytmp { float: left; background: url(pn_reply.png) no-repeat 0 0; }
+
+	#newspecial img, #newspecialtmp img, #post_reply img, #post_replytmp img { opacity: 0; filter: alpha(opacity=0); }
+
+.moodfm_btn { background-image: url(mood_input_btn.png) !important; }
+
+#create_group_btn { display: block; background: url(create_group.png) no-repeat 0 0; }
+
+	#create_group_btn img { opacity: 0; filter: alpha(opacity=0); }
+
+.el .ec .hot { background-image: url(hotspot.gif); }
+
+.pll .s { background-image:url(polljoins.gif); }
+
+
+
+/* 重定义主区 */
+
+#wp{ background: #FFF; }
+
+
+
+/* 重定义 {SPECIALBORDER} */
+
+.bmn, .pg a, .pgb.a, .pg strong, .card, .card .o, div.exfm  { border-color: #C5E6DF; }
+
+.pg strong { background-color: #C5E6DF; }
+
+.pn, .tb .o, .tb .o a { background-image: url(pn.png); }
+
+	.pnc, a.pnc, .tb .o { border-color: #066; }
+
+
+
+/* 重定义 登录框 */
+
+.pns2 { padding: 5px 5px;}
+
+
+
+
+
+/*重定义 登陆后信息显示框*/
+
+#um { background: url(login_bg.png) repeat; float: right;padding-left:10px; padding-bottom:5px;}
+
+
+
+/*自定义 登陆后信息显示框*/
+
+#toptb2 { background:url(top_bg.png) repeat-x; } 
+
+#um2 {  float: right;padding-left:10px; padding-bottom:10px; padding-top:10px;}
+
+
+
+/* 重定义 最上方导航 */
+
+#toptb { background: #FFF; }
+
+
+
+/* 重定义 滚动信息*/
+
+#an li{ padding-right: 10px;}
+
+
+
+/* 重定义 所在位置导航条*/
+
+#pt .z{ padding-right: 0; padding-left: 10px;}
+
+
+
+/* 重定义 首页统计位置*/
+
+#chart { padding-right:10px; padding-left:10px;}
+
+
+
+/*重定义 首页发布按钮*/
+
+#quick_button{ margin-bottom:10px; margin-top:10px;}
+
+
+
+/*重定义 友情链接*/
+
+.lk { border: none;}
+
+.lk .x li{ width: 105px;}
+
+
+
+/* 重定义 跳转页面跳转提示*/
+
+.nfl .f_c{ margin: 0 auto; border:none; padding-top:60px; width:auto;}
+
+#messagetext{ border:3px solid #F2F2F2; padding:20px auto;}
+
+
+
+
+
+/*重定义 */
+
+
+
+#ct { min-height:500px;}
+
+
+
+.frame-tab .tb-c li{ border-bottom:1px dotted #ccc;}
+
+
+
+/*重定义 消息页面*/
+
+
+
+#main_message{ margin-top:20px; margin-bottom:200px; margin-right:auto; margin-left:auto; }
+
+
+
+/*重定义 发布信息*/
+
+#postbox { padding: 10px 20px; }
+
+
+
+.mn{ margin-top:10px; margin-bottom:10px;}
+
+
+
+#ft{margin-bottom:50px;}
+
+
+
+
+
+/*首页轮显图*/
+
+.slideshow{
+
+	text-align:center;
+
+}
+
+
+/*重写 登录前 头 微博位置*/
+.fastlg_fm{ margin-top:6px; }
+
+
+.t_l, .t_c, .t_r, .m_l, .m_r, .b_l, .b_c, .b_r {
+    background: none repeat scroll 0 0 #fff;
+    opacity: 1;
+    overflow: hidden;
+}

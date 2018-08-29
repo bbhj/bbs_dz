@@ -1,0 +1,97 @@
+<!--{subtemplate baby/head}-->
+<!--personalcenter-->
+<!--{subtemplate babyCenter/left}-->
+<div class="sctn20_1_2">
+<!--<div class="sctn20_1_2_2" id="wodeyijian">-->
+<div class="sctn20_1_2_2">
+
+<!--{if empty($do)}-->
+<div class="sctn20_1_2_2_2">
+<div class="sctn20_1_2_2_2_1">
+    <ul>
+    <li><a href="babyCenter.php?mod=managework">管理工作人员</a></li>
+    <li><a href="babyCenter.php?mod=managework&do=add">添加工作人员</a></li>
+		 <div style="margin-top:0px; width:310px; height:24px; float:left;background:url(../image/stcn21_search.gif) no-repeat;background-position: 0px -17px;float:right;" >
+          	<div style="width:120px; height:24px; float:left;"></div>
+            <form action="/babyCenter.php?mod=managework" method="post">
+          	<div style="width:140px; height:24px; float:left; padding-top:-1px;"><input name="key" type="text" class="sctn21_1_1_2_4"/></div>
+          	<div style="width:40px; height:24px; float:left; padding-top:-1px;"><input name="" type="submit" value="" class="sctn21_1_1_2_3"/></div></form>
+          </div>
+</div>
+    </ul>
+</div>
+<div class="sctn20_1_2_2_2">
+<div class="personalcenter_r_bot" id="ti1">
+<form action="babyCenter.php?mod=managework" onsubmit="return confirm('该操作不可恢复，您确认要删除吗？');" method="post">
+<table width="760" border="0" cellpadding="0" cellspacing="0">
+<tr><td>ID</td><td style="line-height:40px; font-weight:bold; color:#458C08">用户名</td><td style="line-height:40px; font-weight:bold; color:#458C08">头像</td><td>操作</td></tr>
+<!--{loop $mydataList $v}-->
+<tr><td>$v['uid']</td><td>$v['username']</td><td>$v['avatar']</td><td>$v['del']</td></tr>
+<!--{/loop}-->
+</table>
+</form>
+  <div class="pe-page2">
+
+	  $multipage
+
+    </div>
+</div>
+</div>
+<!--{elseif $do=='add'}-->
+<div class="sctn20_1_2_2_2">
+<div class="sctn20_1_2_2_2_1">
+    <ul>
+    <li><a href="babyCenter.php?mod=managework">管理工作人员</a></li>
+    </ul>
+</div>
+</div>
+<div class="sctn20_1_2_2_2">
+<div class="personalcenter_r_bot" id="ti1">
+<table cellspacing="0" border="0" id="FormView1" style="border-collapse:collapse;">
+<tr>
+<td colspan="2">
+<div class="text">
+<form action="babyCenter.php?mod=managework&do=$do" method="POST" target="show">
+<table style=" margin:0 auto; margin-top:100px">
+<tr><td><span>用户名：</span></td><td><input type="text" class="text_a" name="username" id="query_es" value="$key" /></td></tr>
+<input type="hidden" value='$result['uid']' name="id">
+<input type="hidden" name="mods" value="so">
+<input type="hidden" name="types" value="1">
+<tr><td colspan="2"><input  type="submit" value="提交" class="sctn21_1_3_1" /></td></tr>
+</table>
+</form> 
+<script type="text/javascript">
+var options, a;
+jQuery(function(){
+options = { serviceUrl:'looks.php' };
+a = $('#query_es').autocomplete(options);
+});
+</script> 
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<!--{/if}-->
+
+
+</div>
+</div>
+<div style="clear: both;"></div>
+</div>
+<script>
+function ti(t){
+for(f=1;f<=2;f++){
+document.getElementById("ti"+f).style.display="none"
+document.getElementById("a"+f).style.background="url(image/button_bg.jpg) bottom no-repeat"
+document.getElementById("a"+f).style.color="#529F05"
+document.getElementById("a"+f).style.fontWeight=""
+}
+document.getElementById("ti"+t).style.display=""
+document.getElementById("a"+t).style.background="url(image/button_bga.jpg) no-repeat"
+document.getElementById("a"+t).style.color="#fff"
+document.getElementById("a"+t).style.fontWeight="bold"
+}	
+</script>
+<!--{subtemplate baby/foot}-->

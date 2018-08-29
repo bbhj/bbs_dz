@@ -1,0 +1,273 @@
+<!--footer-->
+
+	
+
+	
+
+
+
+<div class="footer">
+
+    <div class="footer_line"></div>
+
+    <div class="footer_line2"></div>
+
+    <div class="footer_link">
+
+        <span style="float:left;height:42px;line-height:42px;width:70px;color:#333333;font-weight:bold;font-size:12px;">友情链接：</span>
+
+        <div id="footer_links">
+
+            <div class="footer_link2">
+
+                <div class="footer_link3">
+
+                 <!--{loop $lnikList $v}-->
+
+	  <a target="_blank" href="$v['url']"><img src="/$v['img']" height="34" /></a>
+
+	  <!--{/loop}-->
+
+                </div>
+
+                <div class="footer_link3">
+
+                 <!--{loop $lnikList $v}-->
+
+	  <a target="_blank" href="$v['url']"><img src="/$v['img']" height="34" /></a>
+
+	  <!--{/loop}-->
+
+                </div>
+
+            </div>	  
+
+        </div>
+
+    </div>
+
+    <div class="footer_copyright">
+
+        <p>备案信息：吉ICP备08101543号-1　　法律声明　　<bgsound id=bgs loop=infinite src="">
+
+        <a onclick="bgs.src='image/bgmusic.wma'" href="javascript:void(0)">打开背景音乐</a>　　背景音乐名《别让妈妈的世界泪雨飞》
+
+        <a href="http://baobei.neteasy.cn/image/bgmusic.wma" target=_blank>点击下载</a></p>
+
+        <p>版权所有 &copy; 2007-2011 宝贝回家寻子网 All Rights Reserved</p>
+
+        <p>技术支持： <a href="http://www.neteasy.cn/">鹰眼安全文化网</a> 法律顾问：北京市百瑞律师事务所 
+
+        张志伟律师</p>
+
+    </div>
+
+	<SCRIPT language=javascript>
+
+    function scroller(){ //滚动友情联接
+
+        document.getElementById("footer_links").scrollLeft++
+
+        if(document.getElementById("footer_links").scrollLeft>=1030){
+
+            document.getElementById("footer_links").scrollLeft=0
+
+        }
+
+    }
+
+    var d=setInterval(scroller,50)
+
+    document.getElementById("footer_links").onmouseover=function(){clearInterval(d)}
+
+    document.getElementById("footer_links").onmouseout=function(){d=setInterval(scroller,50)}
+
+    </SCRIPT> 
+
+</div>
+
+
+
+<!--bottomend-->
+
+<!--{if !$isNotKefu}-->
+
+<script>
+
+var online= new Array();
+
+</script>
+
+<script src="http://webpresence.qq.com/getonline?Type=1&732951901:732951902:732951903:732951904:"></script>
+
+  <div id="kefu">  
+
+      <div id="kefu_b" style="display: none;">
+
+		<p style="padding-left:9px;height:25px;line-height:30px;vertical-align:middle;"><b>在线咨询：</b></p>
+
+        <div id="kefu_img">
+
+		
+
+		<div style="width:155px;margin:10px auto;">
+
+		<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=732951901&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:732951901:41" alt="点击这里给我发消息" title="点击这里给我发消息"></a>
+
+		<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=732951902&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:732951902:41" alt="点击这里给我发消息" title="点击这里给我发消息"></a>
+
+		<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=732951903&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:732951903:41" alt="点击这里给我发消息" title="点击这里给我发消息"></a>
+
+		<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=732951904&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:732951904:41" alt="点击这里给我发消息" title="点击这里给我发消息"></a>
+
+		</div>
+
+        </div>
+
+        <div id="kefu_font"><!--<a href="#">咨询1</a><a href="#">咨询2</a><a href="#">咨询3</a><a href="#">咨询4</a>--></div>
+
+        <div id="kefu_photo">
+
+        <p>电话：0435-3338090</p>
+
+        <p>信箱：baobeihuijia@yeah.net</p>
+
+        <p>服务时间：08:00-11:30</p>
+
+        <p>　　　　　13:00-16:30</p>
+
+        <p>　　　　　18:00-23:00</p>
+
+        <p>地址：吉林省通化市和平路685号</p>
+
+        <p>邮编：134000</p>
+
+        <p>新浪微博群号：117543，127590</p>
+
+        <p>全国接待QQ群：1840533</p>
+
+        </div>
+
+      </div>
+
+      <div id="kefu_a">
+
+          <div id="kefu_a2" style="cursor:pointer;"></div>
+
+      </div>
+
+    </div>
+
+    <script language="javascript">
+
+var s=0
+
+function gd(){
+
+if(document.documentElement&&document.documentElement.scrollTop){//如果定义文档类型
+
+a=document.documentElement.scrollTop
+
+}
+
+else if(document.body){//如果没有定义文档类型
+
+a=document.body.scrollTop
+
+}
+
+p=0.1*(a-s)
+
+document.getElementById("kefu").style.top=s+"px"
+
+s=s+p
+
+}
+
+setInterval("gd()",1)
+
+
+
+</script>
+
+<script type="text/javascript">
+
+//修正客服在线状态图标
+
+var offlinepic = 'image/q2.jpg';
+
+if (online[0] == 0){$("#keonline0").attr('src', offlinepic);}
+
+if (online[1] == 0){$("#keonline1").attr('src', offlinepic);}
+
+if (online[2] == 0){$("#keonline2").attr('src', offlinepic);}
+
+if (online[3] == 0){$("#keonline3").attr('src', offlinepic);}
+
+</script>
+
+</div>
+
+<!--{/if}-->
+
+
+
+
+
+<!--{if !$_G['setting']['bbclosed']}-->
+
+	<!--{if $_G[uid] && !isset($_G['cookie']['checkpm'])}-->
+
+	<script type="text/javascript" src="home.php?mod=spacecp&ac=pm&op=checknewpm&rand=$_G[timestamp]"></script>
+
+	<!--{/if}-->
+
+
+
+	<!--{if !isset($_G['cookie']['sendmail'])}-->
+
+	<script type="text/javascript" src="home.php?mod=misc&ac=sendmail&rand=$_G[timestamp]"></script>
+
+	<!--{/if}-->
+
+<!--{/if}-->
+
+
+
+<!--{if $_GET['diy'] == 'yes'}-->
+
+	<!--{if (CURMODULE == 'topic' || $_G['group']['allowdiy']) && (empty($do) || $do != 'index') && !empty($_G['style']['tplfile'])}-->
+
+		<script type="text/javascript" src="{$_G[setting][jspath]}common_diy.js?{VERHASH}"></script>
+
+		<script type="text/javascript" src="{$_G[setting][jspath]}portal_diy.js?{VERHASH}"></script>
+
+	<!--{/if}-->
+
+	<!--{if $space['self'] && CURMODULE == 'space' && $do == 'index'}-->
+
+		<script type="text/javascript" src="{$_G[setting][jspath]}common_diy.js?{VERHASH}"></script>
+
+		<script type="text/javascript" src="{$_G[setting][jspath]}space_diy.js?{VERHASH}"></script>
+
+	<!--{/if}-->
+
+<!--{/if}-->
+
+<!--{if $_G['member']['newprompt'] && (empty($_G['cookie']['promptstate_'.$_G[uid]]) || $_G['cookie']['promptstate_'.$_G[uid]] != $_G['member']['newprompt']) && $_G['gp_do'] != 'notice'}-->
+
+	<script type="text/javascript">noticeTitle();</script>
+
+<!--{/if}-->
+
+
+
+<!--{eval userappprompt();}-->
+
+<!--{eval output();}-->
+
+</div>
+
+</body>
+
+</html>

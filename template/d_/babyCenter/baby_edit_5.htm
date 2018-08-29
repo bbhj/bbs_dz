@@ -1,0 +1,27 @@
+<li><span>编号：</span>$result['id']</li>
+<li><span>失踪人姓名：</span><input type="text" class="text_a" name="name" value="$result['name']" /></li>
+<li><span>性别：</span>男 <input type="radio" name="sex" value="1" <!--{if $result['sex']==1}-->checked="checked"<!--{/if}--> />
+ 女 <input type="radio" name="sex" value="2" <!--{if $result['sex']==2}-->checked="checked"<!--{/if}--> /></li>
+<li><span>出生日期：</span><input type="text" class="text_a" name="birth_day" value="$result['birth_day']"></li>
+<li><span>失踪时身高：</span><input type="text" class="text_a" name="lost_height"  value="$result['lost_height']"/></li>
+<li><span>失踪日期：</span><input type="text" class="text_a" name="lost_day" value="$result['lost_day']"></li>
+<li><span>收养机构名称： </span><input type="text" class="text_a" name="request_org" value="$result['request_org']"></li>
+<li><span>接收日期： </span><input type="text" class="text_a" name="request_day" value="$result['request_day']"></li> 
+<li><span>收养家庭领养日期：</span><input type="text" class="text_a" name="request_day2" value="$result['request_day_2']"></li> 
+<li><span>(国外地址)寻家人目前所在地： </span><input type="text" class="text_a" name="now_address"  value="$result['now_address']"/></li> 
+<li><span>是否采血：</span>是<input type="radio" name="is_take_blood" value="1" <!--{if $result['is_take_blood']==1}-->checked="checked"<!--{/if}--> />　否<input type="radio" name="is_take_blood" value="2" <!--{if $result['is_take_blood']==2}-->checked="checked"<!--{/if}--> /></li>
+<li><span>采血地点：</span><input type="text" class="text_a" name="blood_address" value="$result['blood_address']"></li>
+<li><span>采血时间：</span><input type="text" class="text_a" name="blood_time" value="$result['blood_time']"></li>
+<li><span>DNA是否入全国打拐数据库：</span>是<input type="radio" name="blood_is_add" value="1" <!--{if $result['blood_is_add']==1}-->checked="checked"<!--{/if}--> />　否　</span><input type="radio" name="blood_is_add" value="2" <!--{if $result['blood_is_add']==2}-->checked="checked"<!--{/if}--> /></li>
+<li><span>寻家人失踪地点： </span><input type="text" class="text_a" name="lost_address_2" value="$result['lost_address_2']"></li>
+<li style="margin-bottom:42px;"><span>失踪人特征描述： </span><textarea rows="3" cols="30" name="lost_person_feature">$result['lost_person_feature']</textarea></li> 
+<li style="margin-bottom:42px;"><span>失踪经过： </span><textarea rows="3" cols="30" name="lost_intro">$result['lost_intro']</textarea></li> 
+<li style="margin-bottom:42px;"><span>其他资料： </span><textarea rows="3" cols="30" name="other_intro">$result['other_intro']</textarea></li> 
+<li style="margin-bottom:42px;"><span>收养证明： </span><input type="file" name="file_1" /></li> 
+<!--{if $result['file_1']!=""}--><li style="margin-bottom:42px;"><span>收养证明：</span><!--{if !empty($result['file_1'])}--><a href="data/attachment/baby/{$result['file_1']}">下载</a><!--{/if}--></li><!--{/if}-->
+
+<li style="margin-bottom:42px;"><span>寻亲委托书： </span><input type="file" name="file_2" /></li> 
+<!--{if $result['file_2']!=""}--><li style="margin-bottom:42px;"><span>寻亲委托书：</span><!--{if !empty($result['file_2'])}--><a href="data/attachment/baby/{$result['file_12']}">下载</a><!--{/if}--></li><!--{/if}-->
+
+<li style="margin-bottom:42px;"><span>DNA数据： </span><input type="file" name="file_3" /></li> 
+<!--{if $result['file_3']!=""}--><li style="margin-bottom:42px;"><span>DNA数据：</span><!--{if !empty($result['file_3'])}--><a href="data/attachment/baby/{$result['file_3']}">下载</a><!--{/if}--></li><!--{/if}-->

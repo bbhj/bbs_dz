@@ -1,0 +1,874 @@
+<!--{subtemplate baby/head}-->
+<script src="js/PCASClass.js" type="text/javascript"></script>
+<style>
+.background { 
+display: block; 
+width: 100%; 
+height: 100%; 
+opacity: 0.4; 
+filter: alpha(opacity=40); 
+background:while; 
+position: absolute; 
+top: 0; 
+left: 0; 
+z-index: 2000; 
+} 
+.progressBar { 
+border: solid 2px #86A5AD; 
+background: white url(/image/progressBar_m.gif) no-repeat 10px 10px; 
+} 
+.progressBar { 
+display: block; 
+width: 148px; 
+height: 28px; 
+position: fixed; 
+top: 50%; 
+left: 50%; 
+margin-left: -74px; 
+margin-top: -14px; 
+padding: 10px 10px 10px 50px; 
+text-align: left; 
+line-height: 27px; 
+font-weight: bold; 
+position: absolute; 
+z-index: 2001; 
+} 
+.main_text_left_1 TABLE TR TD{font-size:14px;}
+</style>
+<!--content-->
+
+<div class="sctn21_1">
+  <div class="sctn21_1_1">
+    <div class="sctn21_1_1_1"><img src="image/icon.gif" width="51" height="43" align="top" /> $abc 寻亲登记 - {$current_step_name} </div>
+  </div>
+  <div class="sctn21_1_2">
+    <ul>
+      <li>1.选择登记类型</li>
+      <li class="sctn21_1_2_1">2.填写信息登记</li>
+      <li>3.上传照片</li>
+      <li>4.完成登记</li>
+    </ul>
+  </div>
+       
+
+      <div class="main_step_text" style="position:relative;">
+
+      <div class="main_text_left_1">
+
+      <script type="text/javascript" src="/js/calendar/WdatePicker.js"></script>
+
+      <form enctype="multipart/form-data" action="baby.php?mod=find&type=$type&step=2" method="POST" target="show" id="form1" name="form1" >
+
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+
+          <!--{if $type==2}-->
+
+          <tr>
+
+            <td align="right" width="30%"><span class="s1"><strong>　*&nbsp;</strong></span>寻家人姓名：</td>
+
+            <td><input type="text" class="text_a" name="name" value="$result['name']" id="name"/>
+
+            <span id="nameTip"  ></span></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>性别：</td>
+
+            <td>男<input type="radio" name="sex"  value="1" <!--{if $result['sex'] != 2}-->checked="checked"<!--{/if}--> /> 女<input type="radio" name="sex" value="2"  <!--{if $result['sex']==2}-->checked="checked"<!--{/if}-->/></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>出生日期：</td>
+
+            <td><select name="yearbirth_day" id="yearbirth_day" onchange="checkday(this.value,'birth_day')">
+            		$str_year 
+                </select>
+                <select name="monbirth_day" id="monbirth_day" onchange="checkmon(this.value,'birth_day')">    
+                    $str_mon
+                </select>
+                <select name="daybirth_day" id="daybirth_day">
+                $str_day
+                </select>
+             </td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>失踪时身高：</td>
+
+            <td><input type="text" class="text_a" value="$result['lost_height']" name="lost_height" /> 
+            厘米</td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>失踪日期：</td>
+
+            <td><select name="yearlost_day" id="yearlost_day" onchange="checkday(this.value,'lost_day')">
+            		$str_year 
+                </select>
+                <select name="monlost_day" id="monlost_day" onchange="checkmon(this.value,'lost_day')">    
+                    $str_mon
+                </select>
+                <select name="daylost_day" id="daylost_day">
+                $str_day
+                </select>
+             </td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>寻家人目前所在地：</td>
+
+            <td><select name="province" id="province" >
+
+              </select>
+
+              <select name="city">
+
+              </select>  <span id="provinceTip"  ></span></td>
+
+          </tr>
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span></td>
+
+            <td><input type="text" class="text_a" name="birth_address" id="birth_address" value="$result['birth_address']"/>
+
+            <span id="birth_addressTip"  ></span></td>
+
+          </tr>
+
+          <script language="javascript" defer>
+
+		new PCAS("province","city");
+
+
+		</script>
+
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>失踪地点：</td>
+
+            <td><select name="province1" id="province1">
+
+              </select>
+
+              <select name="city1" id="city1">
+
+              </select>  <span id="province1Tip"  ></span></td>
+
+          </tr>
+          <script language="javascript" defer>
+
+		new PCAS("province1","city1");
+
+
+		</script>
+          
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span></td>
+
+            <td><input type="text" class="text_a" name="lost_address" id="lost_address" value="$result['lost_address']"/>
+
+            <span id="lost_addressTip"  ></span></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>是否采血：</td>
+
+            <td>是<input type="radio" name="is_take_blood"  value="1" onclick="add_blood();"/> 否<input type="radio" checked="checked" name="is_take_blood" value="2" onclick="clean_blood();"/></td>
+
+          </tr>
+<!--{if $result['is_take_blood']==1}-->
+<script>
+$(function(){
+     $("#blood").html("<table id='add_blood' width=\"100%\"><tr><td align=\"right\" width=\"28%\">采血人姓名：</td><td><input type=\"text\" value=\"$result['take_blood_name']\" class=\"text_a\" name=\"take_blood_name\"/></td></tr><tr><td align=\"right\" width=\"28%\"><span class=\"s1\"><strong>　*&nbsp;</strong></span>采血地点：</td><td><input type=\"text\" value=\"$result['blood_address']\" class=\"text_a\" name=\"blood_address\"/></td></tr><tr><td align=\"right\"><span class=\"s1\"><strong>　*&nbsp;</strong></span>采血时间：</td><td><select name=\"yearblood_time\" id=\"yearblood_time\" onchange=\"checkday(this.value,'blood_time')\">$str_year</select><select name=\"monblood_time\" id=\"monblood_time\" onchange=\"checkmon(this.value,'blood_time')\">$str_mon</select><select name=\"dayblood_time\" id=\"dayblood_time\">$str_day</select></td></tr><tr><td align=\"right\"><span class=\"s1\"><strong>　*&nbsp;</strong></span>DNA是否入全国打拐数据库：</td><td>是<input type=\"radio\" name=\"blood_is_add\"  <!--{if $result['blood_is_add']==1}-->checked=checked<!--{/if}--> value=\"1\" /> 否<input type=\"radio\" name=\"blood_is_add\" <!--{if $result['blood_is_add']!=1}-->checked=checked<!--{/if}--> value=\"2\" /></td></tr></table>");
+});
+
+ 
+</script>
+<!--{/if}-->
+          <tr>
+
+            <td colspan="2"  id="blood"></td>
+
+          </tr>
+
+          <script>
+
+		function add_blood(){
+
+ 			     $("#blood").html("<table id='add_blood' width=\"100%\"><tr><td align=\"right\" width=\"28%\">采血人姓名：</td><td><input type=\"text\" value=\"$result['take_blood_name']\" class=\"text_a\" name=\"take_blood_name\"/></td></tr><tr><td align=\"right\" width=\"28%\"><span class=\"s1\"><strong>　*&nbsp;</strong></span>采血地点：</td><td><input type=\"text\" value=\"$result['blood_address']\" class=\"text_a\" name=\"blood_address\"/></td></tr><tr><td align=\"right\"><span class=\"s1\"><strong>　*&nbsp;</strong></span>采血时间：</td><td><select name=\"yearblood_time\" id=\"yearblood_time\" onchange=\"checkday(this.value,'blood_time')\">$str_year</select><select name=\"monblood_time\" id=\"monblood_time\" onchange=\"checkmon(this.value,'blood_time')\">$str_mon</select><select name=\"dayblood_time\" id=\"dayblood_time\">$str_day</select></td></tr><tr><td align=\"right\"><span class=\"s1\"><strong>　*&nbsp;</strong></span>DNA是否入全国打拐数据库：</td><td>是<input type=\"radio\" name=\"blood_is_add\"  <!--{if $result['blood_is_add']==1}-->checked=checked<!--{/if}--> value=\"1\" /> 否<input type=\"radio\" name=\"blood_is_add\" <!--{if $result['blood_is_add']!=1}-->checked=checked<!--{/if}--> value=\"2\" /></td></tr></table>");
+			
+
+		}
+
+		function clean_blood(){
+
+ 			 $("#add_blood").empty();
+
+		}
+
+		</script>
+
+          <tr>
+
+            <td align="right"  style="vertical-align: top;"><span class="s1"><strong>　*&nbsp;</strong></span>寻家人特征描述：</td>
+
+            <td><textarea rows="3" cols="30" name="lost_person_feature" id="lost_person_feature">$result['lost_person_feature']</textarea>
+              <span id="lost_person_featureTip"  ></span></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"  style="vertical-align: top;"><span class="s1"><strong>　&nbsp;</strong></span>寻家人失踪前记忆：</td>
+
+            <td><textarea rows="3" cols="30" name="lost_intro">$result['lost_intro']</textarea></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"  style="vertical-align: top;"><span class="s1"><strong>　&nbsp;</strong></span>其他资料：</td>
+
+            <td><textarea rows="3" cols="30" name="other_intro">$result['other_intro']</textarea></td>
+          </tr>
+
+          <tr>
+            <td align="right"><h2>联系人信息</h2></td>
+
+            <td></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>联系人姓名：</td>
+
+            <td><input type="text" class="text_a" name="contact_name" value="$result['contact_name']" id="contact_name"/>
+
+            <span id="contact_nameTip"  ></span></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>联系人与寻家人关系：</td>
+
+            <td><input type="text" class="text_a" name="contact_relation" id="contact_relation" value="$result['contact_relation']"/>
+
+            <span id="contact_relationTip"  ></span></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>填写人与寻家人关系：</td>
+
+            <td><input type="text" class="text_a" name="write_relation" id="write_relation" value="$result['write_relation']"/>
+
+            <span id="write_relationTip"  ></span></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>手机：</td>
+
+            <td><input type="text" class="text_a" name="moblie" id="moblie" value="$result['moblie']"/>
+
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>电话：</td>
+
+            <td><input type="text" class="text_a" name="tel"  value="$result['tel']"/></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>邮箱：</td>
+
+            <td><input type="text" class="text_a" name="email" value="$result['email']" /></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>QQ号：</td>
+
+            <td><input type="text" class="text_a" name="qq"  value="$result['qq']"/></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>地址：</td>
+
+            <td><input type="text" class="text_a" name="address"  value="$result['address']"/></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>其他联系方式：</td>
+
+            <td><input type="text" class="text_a" name="other_contact" value="$result['other_contact']" /></td>
+
+          </tr>
+
+          <!--{elseif $type==1}-->
+
+          <tr>
+
+            <td align="right"  width="30%"><span class="s1"><strong>　*&nbsp;</strong></span>失踪人姓名：</td>
+
+            <td><input type="text" class="text_a"  name="name" id="name" value="$result['name']"/>
+
+            <span id="nameTip"  ></span></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>性别：</td>
+
+             <td>男<input type="radio" name="sex"  value="1" <!--{if $result['sex']!=2}-->checked=checked<!--{/if}--> /> 女<input type="radio" name="sex" value="2"  <!--{if $result['sex']==2}-->checked=checked<!--{/if}-->/></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>出生日期：</td>
+
+             <td><select name="yearbirth_day" id="yearbirth_day" onchange="checkday(this.value,'birth_day')">
+            		$str_year 
+                </select>
+                <select name="monbirth_day" id="monbirth_day" onchange="checkmon(this.value,'birth_day')">    
+                    $str_mon
+                </select>
+                <select name="daybirth_day" id="daybirth_day">
+                $str_day
+                </select>
+             </td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>失踪时身高：</td>
+
+            <td><input type="text" class="text_a" name="lost_height" value="$result['lost_height']"/> 
+            厘米</td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>失踪日期：</td>
+
+            <td><select name="yearlost_day" id="yearlost_day" onchange="checkday(this.value,'lost_day')">
+            		$str_year 
+                </select>
+                <select name="monlost_day" id="monlost_day" onchange="checkmon(this.value,'lost_day')">    
+                    $str_mon
+                </select>
+                <select name="daylost_day" id="daylost_day">
+                $str_day
+                </select>
+             </td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>是否采血：</td>
+
+             <td>是<input type="radio" name="is_take_blood"  value="1" onclick="add_blood();"/> 否<input type="radio" checked="checked" name="is_take_blood" value="2" onclick="clean_blood();"/></td>
+
+          </tr>
+<!--{if $result['is_take_blood']==1}-->
+<script>
+$(function(){
+    $("#blood").html("<table id='add_blood' width=\"100%\"><tr><td align=\"right\" width=\"28%\">父亲姓名：</td><td><input type=\"text\" value=\"$result['take_blood_fad']\" class=\"text_a\" name=\"take_blood_fad\"/></td></tr><tr><td align=\"right\" width=\"28%\">母亲姓名：</td><td><input type=\"text\" value=\"$result['take_blood_mad']\" class=\"text_a\" name=\"take_blood_mad\"/></td></tr><tr><td align=\"right\" width=\"28%\">其他人姓名：</td><td><input type=\"text\" value=\"$result['take_blood_name']\" class=\"text_a\" name=\"take_blood_name\"/></td></tr><tr><td align=\"right\" width=\"28%\"><span class=\"s1\"><strong>　*&nbsp;</strong></span>采血地点：</td><td><input type=\"text\" value=\"$result['blood_address']\" class=\"text_a\" name=\"blood_address\"/></td></tr><tr><td align=\"right\"><span class=\"s1\"><strong>　*&nbsp;</strong></span>采血时间：</td><td><select name=\"yearblood_time\" id=\"yearblood_time\" onchange=\"checkday(this.value,'blood_time')\">$str_year</select><select name=\"monblood_time\" id=\"monblood_time\" onchange=\"checkmon(this.value,'blood_time')\">$str_mon</select><select name=\"dayblood_time\" id=\"dayblood_time\">$str_day</select></td></tr><tr><td align=\"right\"><span class=\"s1\"><strong>　*&nbsp;</strong></span>DNA是否入全国打拐数据库：</td><td>是<input type=\"radio\" name=\"blood_is_add\"  <!--{if $result['blood_is_add']==1}-->checked=checked<!--{/if}--> value=\"1\" /> 否<input type=\"radio\" name=\"blood_is_add\" <!--{if $result['blood_is_add']!=2}-->checked=checked<!--{/if}--> value=\"2\" /></td></tr></table>");
+});
+
+ 
+</script>
+<!--{/if}-->
+
+          <tr>
+
+            <td colspan="2" id="blood"></td>
+
+          </tr>
+
+          <script>
+
+		function add_blood(){
+
+    $("#blood").html("<table id='add_blood' width=\"100%\"><tr><td align=\"right\" width=\"28%\">父亲姓名：</td><td><input type=\"text\" value=\"$result['take_blood_fad']\" class=\"text_a\" name=\"take_blood_fad\"/></td></tr><tr><td align=\"right\" width=\"28%\">母亲姓名：</td><td><input type=\"text\" value=\"$result['take_blood_mad']\" class=\"text_a\" name=\"take_blood_mad\"/></td></tr><tr><td align=\"right\" width=\"28%\">其他人姓名：</td><td><input type=\"text\" value=\"$result['take_blood_name']\" class=\"text_a\" name=\"take_blood_name\"/></td></tr><tr><td align=\"right\" width=\"28%\"><span class=\"s1\"><strong>　*&nbsp;</strong></span>采血地点：</td><td><input type=\"text\" value=\"$result['blood_address']\" class=\"text_a\" name=\"blood_address\"/></td></tr><tr><td align=\"right\"><span class=\"s1\"><strong>　*&nbsp;</strong></span>采血时间：</td><td><select name=\"yearblood_time\" id=\"yearblood_time\" onchange=\"checkday(this.value,'blood_time')\">$str_year</select><select name=\"monblood_time\" id=\"monblood_time\" onchange=\"checkmon(this.value,'blood_time')\">$str_mon</select><select name=\"dayblood_time\" id=\"dayblood_time\">$str_day</select></td></tr><tr><td align=\"right\"><span class=\"s1\"><strong>　*&nbsp;</strong></span>DNA是否入全国打拐数据库：</td><td>是<input type=\"radio\"  name=\"blood_is_add\"  <!--{if $result['blood_is_add']==1}-->checked=checked<!--{/if}--> value=\"1\" /> 否<input type=\"radio\" name=\"blood_is_add\" <!--{if $result['blood_is_add']!=1}-->checked=checked<!--{/if}--> value=\"2\" /></td></tr></table>");
+
+			
+
+		}
+
+		function clean_blood(){
+
+ 			 $("#add_blood").empty();
+
+		}
+
+		</script>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>是否报案：</td>
+
+            <td>是<input type="radio" name="is_report" value="1" <!--{if $result['is_report']==1}-->checked=checked<!--{/if}--> onclick="add_report();"/> 否<input type="radio" name="is_report" value="2" <!--{if $result['is_report']==2}-->checked=checked<!--{/if}-->  onclick="clean_report();" checked='checked'/></td>
+
+          </tr>
+          
+<!--{if $result['is_report']==1}-->
+<script>
+$(function(){
+      $("#report").html("<table id='add_report' width=\"100%\"><tr><td align=\"right\" width=\"28%\"><span class=\"s1\"><strong>　*&nbsp;</strong></span>报案机关名称：</td><td><input type=\"text\" class=\"text_a\" name=\"report_name\" value=\"$result['report_name']\"/></td></tr><tr><td align=\"right\"><span class=\"s1\"><strong>　*&nbsp;</strong></span>是否立案：</td><td>是<input type=\"radio\" name=\"report_is_add\" value=\"1\" <!--{if $result['report_is_add']==1}-->checked=checked<!--{/if}-->/> 否<input type=\"radio\" name=\"report_is_add\" value=\"2\" <!--{if $result['report_is_add']!=1}-->checked=checked<!--{/if}-->/></td></tr></table>");
+});
+
+ 
+</script>
+<!--{/if}-->
+
+          <tr>
+
+            <td colspan="2" id="report"></td>
+
+</tr>
+
+
+          <script>
+
+		function add_report(){
+
+ 			 $("#report").html("<table id='add_report' width=\"100%\"><tr><td align=\"right\" width=\"28%\"><span class=\"s1\"><strong>　*&nbsp;</strong></span>报案机关名称：</td><td><input type=\"text\" class=\"text_a\" name=\"report_name\" value=\"$result['report_name']\"/></td></tr><tr><td align=\"right\"><span class=\"s1\"><strong>　*&nbsp;</strong></span>是否立案：</td><td>是<input type=\"radio\" name=\"report_is_add\" value=\"1\" <!--{if $result['report_is_add']==1}-->checked=checked<!--{/if}-->/> 否<input type=\"radio\" name=\"report_is_add\" value=\"2\" <!--{if $result['report_is_add']!=1}-->checked=checked<!--{/if}-->/></td></tr></table>");
+
+			
+
+		}
+
+		function clean_report(){
+
+ 			 $("#add_report").empty();
+
+		}
+
+		</script>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>失踪人籍贯：</td>
+
+            <td><input type="text" class="text_a"  id="birth_address"  name="birth_address" value="$result['birth_address']"/>
+
+              <span id="birth_addressTip"  ></span></td>
+
+          </tr>
+
+               <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>失踪地点：</td>
+
+            <td><select name="province1" id="province1">
+
+              </select>
+
+              <select name="city1" id="city1">
+
+              </select>  <span id="province1Tip"  ></span></td>
+
+          </tr>
+          <script language="javascript" defer>
+
+		new PCAS("province1","city1");
+
+
+		</script>
+          
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span></td>
+
+            <td><input type="text" class="text_a" name="lost_address" id="lost_address" value="$result['lost_address']"/>
+
+            <span id="lost_addressTip"  ></span></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"  style="vertical-align: top;"><span class="s1"><strong>　*&nbsp;</strong></span>失踪人特征描述：</td>
+
+            <td><textarea rows="3" cols="30" name="lost_person_feature" id="lost_person_feature">$result['lost_person_feature']</textarea>
+
+              <span id="lost_person_featureTip"  ></span>　</td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"  style="vertical-align: top;"><span class="s1"><strong>　*&nbsp;</strong></span>失踪经过：</td>
+
+            <td><textarea rows="3" cols="30" name="lost_intro" id="lost_intro">$result['lost_intro']</textarea>
+              <span id="lost_introTip"  ></span>　　</td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"  style="vertical-align: top;"><span class="s1"><strong>　&nbsp;</strong></span>家庭背景以及线索资料：</td>
+
+            <td><textarea rows="3" cols="30" name="family">$result['family']</textarea></td>
+          </tr>
+
+          <tr>
+
+            <td align="right"  style="vertical-align: top;"><span class="s1"><strong>　&nbsp;</strong></span>其他资料：</td>
+
+            <td><textarea rows="3" cols="30" name="other_intro">$result['other_intro']</textarea></td>
+          </tr>
+
+          <tr>
+            
+            <td  align="right"><h2>联系人信息</h2></td>
+            <td></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>联系人姓名：</td>
+
+            <td><input type="text" class="text_a" id="contact_name" name="contact_name" value="$result['contact_name']"/>
+
+              <span id="contact_nameTip"  ></span>　</td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>联系人与失踪人关系：</td>
+
+            <td><input type="text" class="text_a" id="contact_relation" name="contact_relation" value="$result['contact_relation']"/>
+
+              <span id="contact_relationTip"  >　</span></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>填写人与失踪人关系：</td>
+
+            <td><input type="text" class="text_a" id="write_relation" name="write_relation" value="$result['write_relation']"/>
+
+              <span id="write_relationTip"  ></span></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>手机：</td>
+
+            <td><input type="text" class="text_a" id="moblie" name="moblie" value="$result['moblie']"/>
+
+              </td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>电话：</td>
+
+            <td><input type="text" class="text_a" name="tel" value="$result['tel']"/></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>邮箱：</td>
+
+            <td><input type="text" class="text_a" name="email" value="$result['email']"/></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>QQ号：</td>
+
+            <td><input type="text" class="text_a" name="qq" value="$result['qq']"/></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>地址：</td>
+
+            <td><input type="text" class="text_a" name="address" value="$result['address']"/></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>其他联系方式：</td>
+
+            <td><input type="text" class="text_a" name="other_contact" value="$result['other_contact']"/></td>
+
+          </tr>
+
+          <!--{elseif $type==3}-->
+
+          <tr>
+
+            <td width="200px" align="right"  width="30%"><span class="s1"><strong>　*&nbsp;</strong></span>儿童姓名（或小名）：</td>
+
+            <td><input type="text" class="text_a" name="name"  id="name" value="$result['name']"/>
+
+              <span id="nameTip"  ></span></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>性别：</td>
+
+            <td>男<input type="radio" name="sex"  value="1" <!--{if $result['sex']!=2}-->checked=checked<!--{/if}--> /> 女<input type="radio" name="sex" value="2"  <!--{if $result['sex']==2}-->checked=checked<!--{/if}-->/></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>年龄范围：</td>
+
+            <td><select class="birth_day" name="birth_day" id="birth_day"/>
+
+              
+
+              <option <!--{if $result['birth_day']=="1-5岁"}-->selected="selected"<!--{/if}--> value="1-5岁">1-5岁</option>
+
+              <option <!--{if $result['birth_day']=="6-10岁"}-->selected="selected"<!--{/if}--> value="6-10岁">6-10岁</option>
+
+              <option <!--{if $result['birth_day']=="11-16岁"}-->selected="selected"<!--{/if}--> value="11-16岁">11-16岁</option>
+
+              </select></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>儿童身高：</td>
+
+            <td><input type="text" class="text_a" name="lost_height"  value="$result['lost_height']"/> 
+            厘米</td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>发现时间：</td>
+
+            <td><select name="yearlost_day" id="yearlost_day" onchange="checkday(this.value,'lost_day')">
+            		$str_year 
+                </select>
+                <select name="monlost_day" id="monlost_day" onchange="checkmon(this.value,'lost_day')">    
+                    $str_mon
+                </select>
+                <select name="daylost_day" id="daylost_day">
+                $str_day
+                </select>
+             </td>
+          </tr>
+
+        
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>发现地点：</td>
+
+            <td><select name="province" id="province">
+
+              </select>
+
+              <select name="city">
+
+              </select>  <span id="provinceTip"  ></span></td>
+
+          </tr>
+
+          <script language="javascript" defer>
+
+		new PCAS("province","city");
+
+		</script>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span></td>
+
+            <td><input type="text" class="text_a" name="birth_address" id="birth_address_1" value="$result['birth_address']"/>
+
+              <span id="birth_address_1Tip"  ></span></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"  style="vertical-align: top;"><span class="s1"><strong>　*&nbsp;</strong></span>儿童特征描述：</td>
+
+            <td><textarea rows="3" cols="30" name="lost_person_feature" id="lost_person_feature">$result['lost_person_feature']</textarea>
+              <span id="lost_person_featureTip"  ></span> 　</td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"  style="vertical-align: top;"><span class="s1"><strong>　&nbsp;</strong></span>发现详细经过：</td>
+
+            <td><textarea rows="3" cols="30" name="other_intro" id="other_intro">$result['other_intro']</textarea></td>
+          </tr>
+
+          <tr>
+
+            <td align="right" ><span class="s1"><strong>　*&nbsp;</strong></span>联系人姓名：</td>
+
+            <td><input type="text" class="text_a" name="contact_name" id="contact_name" value="$result['contact_name']"/>
+
+              <span id="contact_nameTip"  ></span></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>手机：</td>
+
+            <td><input type="text" class="text_a" name="moblie" id="moblie" value="$result['moblie']"/>
+
+              </td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>电话：</td>
+
+            <td><input type="text" class="text_a" name="tel" value="$result['tel']"/></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>邮箱：</td>
+
+            <td><input type="text" class="text_a" name="email" value="$result['email']"/></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>QQ号：</td>
+
+            <td><input type="text" class="text_a" name="qq" value="$result['qq']"/></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>地址：</td>
+
+            <td><input type="text" class="text_a" name="address" value="$result['address']"/></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>其他联系方式：</td>
+
+            <td><input type="text" class="text_a" name="other_contact" value="$result['other_contact']"/></td>
+
+          </tr>
+
+          <!--{elseif $type==4}-->
+
+          <tr>
+
+            <td align="right"  width="30%"><span class="s1"><strong>　*&nbsp;</strong></span>失踪人姓名：</td>
+
+            <td><input type="text" class="text_a" name="name" id="name" value="$result['name']" />
+
+              <span id="nameTip"  ></span>　</td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>性别：</td>
+
+             <td>男<input type="radio" name="sex"  value="1" <!--{if $result['sex']!=2}-->checked=checked<!--{/if}--> /> 女<input type="radio" name="sex" value="2"  <!--{if $result['sex']==2}-->checked=checked<!--{/if}-->/></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>出生日期：</td>
+
+            <td><select name="yearbirth_day" id="yearbirth_day" onchange="checkday(this.value,'birth_day')">
+            		$str_year 
+                </select>
+                <select name="monbirth_day" id="monbirth_day" onchange="checkmon(this.value,'birth_day')">    
+                    $str_mon
+                </select>
+                <select name="daybirth_day" id="daybirth_day">
+                $str_day
+                </select>
+             </td>
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　&nbsp;</strong></span>失踪时身高：</td>
+
+            <td><input type="text" class="text_a" name="lost_height" value="$result['lost_height']"/> 
+            厘米</td>
+
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>　*&nbsp;</strong></span>失踪日期：</td>
+
+            <td><select name="yearlost_day" id="yearlost_day" onchange="checkday       </select>
+                <select name="daybirth_day" id="daybirth_day">
+                $str_day
+                </select>
+             </td>
+          </tr>
+
+          <tr>
+
+            <td align="right"><span class="s1"><strong>銆
