@@ -119,7 +119,7 @@ class control extends adminbase {
 		$appid = intval(getgpc('appid'));
 		$app = $_ENV['app']->get_app_by_appid($appid);
 		$status = '';
-		if($app['extra']['apppath'] && @include $app['extra']['apppath'].'./api/'.$app['apifilename']) {
+		if($app['extra']['apppath'] && @include $app['extra']['apppath'].'./api/'.basename($app['apifilename'])) {
 			$uc_note = new uc_note();
 			$status = $uc_note->test($note['getdata'], $note['postdata']);
 		} else {

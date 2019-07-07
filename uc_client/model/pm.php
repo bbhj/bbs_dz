@@ -221,11 +221,11 @@ class pmmodel {
 			$message = @preg_replace($_CACHE['badwords']['findpattern'], $_CACHE['badwords']['replace'], $message);
 		}
 		if(!$subject) {
-			$subject = $this->removecode(trim($message), 80);
+			$subject = addslashes($this->removecode(trim($message), 80));
 		} else {
 			$subject = dhtmlspecialchars($subject);
 		}
-		$lastsummary = $this->removecode(trim(stripslashes($message)), 150);
+		$lastsummary = addslashes($this->removecode(trim(stripslashes($message)), 150));
 
 		if(!$type) {
 			$query = $this->db->query("SELECT plid, min_max FROM ".UC_DBTABLEPRE."pm_lists WHERE min_max IN (".$this->base->implode($relationship).")");
@@ -326,7 +326,7 @@ class pmmodel {
 		if($_CACHE['badwords']['findpattern']) {
 			$message = @preg_replace($_CACHE['badwords']['findpattern'], $_CACHE['badwords']['replace'], $message);
 		}
-		$lastsummary = $this->removecode(trim(stripslashes($message)), 150);
+		$lastsummary = addslashes($this->removecode(trim(stripslashes($message)), 150));
 
 		$this->db->query("INSERT INTO ".UC_DBTABLEPRE."pm_indexes(plid) VALUES('$plid')");
 		$pmid = $this->db->insert_id();
