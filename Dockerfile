@@ -1,4 +1,4 @@
-FROM airdb/php71-ubuntu
+FROM airdb/php71
 MAINTAINER Dean dean@airdb.com
 
 COPY ./ /srv
