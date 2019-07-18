@@ -9,4 +9,4 @@
 
 ##更多
 
-宝贝回家项目介绍，请移步 [https://bbhj.airdb.io](https://bbhj.airdb.io)
+宝贝回家项目介绍，请移步 [https://www.airdb.com](https://www.airdb.com/zh/bbhj)
