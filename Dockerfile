@@ -3,6 +3,7 @@ MAINTAINER Dean dean@airdb.com
 
 ENV PHP_VERSION 7.1
 COPY ./ /srv
+RUN chown -R www-data.www-data /srv/data
 RUN echo '<?php echo("Hello.\n"); ?>' > /srv/dean.php
 
 COPY config/www.conf /etc/php/7.1/fpm/pool.d/
