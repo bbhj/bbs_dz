@@ -16,4 +16,5 @@ RUN sed -i '/php_mysqli/s/;extension=php_mysqli.dll/extension=php_mysqli.so/g' /
 
 RUN apt-get install -y python-pip \
 	&& pip install -U coscmd
-#	&& coscmd config  -a $AK -s $SK -r $AZ -b $BUCKET
+
+RUN coscmd config  -a $AK -s $SK -r $AZ -b $BUCKET
