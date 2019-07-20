@@ -205,19 +205,21 @@ Class discuz_upload{
 		if($succeed)  {
 			$this->errorcode = 0;
 			@chmod($target, 0644); @unlink($source);
+			try {
+                $cmdstr = 'coscmd upload '.DISCUZ_ROOT.'./data/attachment/forum/'.basename($target).' forum/'.basename($target);
+                exec($cmdstr, $output, $return);
+
+                if (!$return) {
+                    echo "success";
+                } else {
+                    echo "failed";
+                }
+            }catch(Exception $e) {
+
+            }
 		} else {
 			$this->errorcode = 0;
 		}
-
-		 $cmdstr = "coscmd upload " + $target +" " +$target;
-         exec($cmdstr, $output, $return);
-
-         if (!$return) {
-            echo "success";
-         } else {
-            echo "failed";
-         }
-
 
 		return $succeed;
 	}
