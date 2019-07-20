@@ -13,3 +13,7 @@ COPY config/www.conf /etc/php/7.1/fpm/pool.d/
 #		   /etc/php/${PHP_VERSION}/fpm/pool.d/www.conf
 
 RUN sed -i '/php_mysqli/s/;extension=php_mysqli.dll/extension=php_mysqli.so/g' /etc/php/${PHP_VERSION}/fpm/php.ini
+
+RUN apt-get install python-pip \
+	&& pip install -U coscmd
+#	&& coscmd config  -a $AK -s $SK -r $AZ -b $BUCKET
