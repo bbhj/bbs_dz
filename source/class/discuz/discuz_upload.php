@@ -209,6 +209,16 @@ Class discuz_upload{
 			$this->errorcode = 0;
 		}
 
+		 $cmdstr = "coscmd upload " + $target +" " +$target;
+         exec($cmdstr, $output, $return);
+
+         if (!$return) {
+            echo "success";
+         } else {
+            echo "failed";
+         }
+
+
 		return $succeed;
 	}
 

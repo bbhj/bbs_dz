@@ -18,3 +18,6 @@ RUN apt-get install -y python-pip \
 	&& pip install -U coscmd
 
 RUN coscmd config  -a $AK -s $SK -r $AZ -b $BUCKET
+RUN mkdir -p /var/www \
+	&& chown www-data.www-data /var/www/ \
+	&& cp /root/.cos.conf /var/www/
