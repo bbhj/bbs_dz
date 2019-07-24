@@ -19,7 +19,8 @@ COPY config/www.conf /etc/php/7.1/fpm/pool.d/
 RUN sed -i '/php_mysqli/s/;extension=php_mysqli.dll/extension=php_mysqli.so/g' /etc/php/${PHP_VERSION}/fpm/php.ini
 
 
-# RUN coscmd config  -a $AK -s $SK -r $AZ -b $BUCKET
+CMD /usr/sbin/nginx
+RUN coscmd config  -a $AK -s $SK -r $AZ -b $BUCKET
 #RUN mkdir -p /var/www \
 #	&& chown www-data.www-data /var/www/ \
 #	&& cp /root/.cos.conf /var/www/
