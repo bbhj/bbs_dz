@@ -20,7 +20,7 @@ RUN sed -i '/php_mysqli/s/;extension=php_mysqli.dll/extension=php_mysqli.so/g' /
 
 
 CMD /usr/sbin/nginx
-RUN coscmd config  -a $AK -s $SK -r $AZ -b $BUCKET
+# RUN coscmd config  -a $AK -s $SK -r $AZ -b $BUCKET
 #RUN mkdir -p /var/www \
 #	&& chown www-data.www-data /var/www/ \
 #	&& cp /root/.cos.conf /var/www/
